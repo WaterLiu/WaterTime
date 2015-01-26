@@ -17,7 +17,8 @@
 - (instancetype)init
 {
     self = [super init];
-    if (self) {
+    if (self)
+    {
         
     }
     return self;
@@ -35,6 +36,7 @@
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = [UIColor grayColor];
+    [self setupScrollView:NO];
 }
 
 - (void)didReceiveMemoryWarning {

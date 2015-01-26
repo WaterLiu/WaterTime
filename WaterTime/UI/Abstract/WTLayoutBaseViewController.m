@@ -43,7 +43,7 @@
     {
         if (self.navigationController != nil)
         {
-            CGFloat height = self.navigationController.navigationBar.frame.size.height;
+            CGFloat height = self.navigationController.navigationBar.frame.size.height + 20.0f;
             _containerView.frame = CGRectMake(0.0f, height, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame) - height);
         }
         else

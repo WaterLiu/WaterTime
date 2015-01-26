@@ -23,16 +23,17 @@
         <!--Main View Controller-->
         <scene sceneID="quG-AK-8VN">
             <objects>
-                <viewController id="tqh-2J-V8m" customClass="WTMainViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="tqh-2J-V8m" customClass="WTMainViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="9LY-x1-8CH"/>
-                        <viewControllerLayoutGuide type="bottom" id="CGe-nB-fcF"/>
+                        <viewControllerLayoutGuide type="top" id="Lwh-Yf-t7l"/>
+                        <viewControllerLayoutGuide type="bottom" id="Y6B-AP-9K1"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="GIx-Ls-ayp">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" id="Nn0-D8-Oie"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tvB-zR-JWk" userLabel="First Responder" sceneMemberID="firstResponder"/>

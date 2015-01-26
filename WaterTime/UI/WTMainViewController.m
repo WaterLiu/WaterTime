@@ -16,19 +16,23 @@
 
 @implementation WTMainViewController
 
+- (void)awakeFromNib
+{
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     _tableView = [[UITableView alloc] initWithFrame:self.containerView.bounds style:UITableViewStylePlain];
-    _tableView.dataSource = self;
-    _tableView.delegate = self;
-    _tableView.backgroundColor = [UIColor whiteColor];
+    _tableView.backgroundColor = [UIColor yellowColor];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     _tableView.tableFooterView = [[UIView alloc] init];
-//    [self.containerView addSubview:_tableView];
-    
-    self.containerView.backgroundColor = [UIColor redColor];
+    _tableView.dataSource = self;
+    _tableView.delegate = self;
+    [self.containerView addSubview:_tableView];
 }
 
 - (void)dealloc
@@ -36,6 +40,11 @@
     _tableView.dataSource = nil;
     _tableView.delegate = nil;
     _tableView = nil;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,12 +82,16 @@
 
 #pragma mark - UITableViewDelegate
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 50.0f;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString* key = [[[WTMainTableConfigUtils currentConfig] keys] objectAtIndex:indexPath.row];
     [WTMainTableJMPController jumpViewControllerWithKey:key withNavigationController:self.navigationController];
 }
-
 
 
 @end
