@@ -13,6 +13,8 @@
     UIScrollView*           _scrollView;
 }
 
+@property (nonatomic, readonly) UIScrollView* scrollView;
+
 - (void)setupScrollView:(BOOL)setup;
 
 @end

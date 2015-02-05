@@ -8,6 +8,8 @@
 
 #import "WTCoreDataViewController.h"
 
+#define CoreData_Description_Text   @"CoreData Demo"
+
 typedef NS_ENUM(NSInteger, ButtonTag)
 {
     ButtonTag_1 = 1001,
@@ -26,7 +28,9 @@ typedef NS_ENUM(NSInteger, ButtonTag)
     
     [self setupScrollView:YES];
     [self buildElements];
-    [self layoutElments];
+    [self layoutElements];
+    
+    _descriptionLabel.text = CoreData_Description_Text;
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,34 +44,36 @@ typedef NS_ENUM(NSInteger, ButtonTag)
 - (void)buildElements
 {    
     _descriptionLabel = [[UILabel alloc] init];
-    _descriptionLabel.backgroundColor = [UIColor grayColor];
+    _descriptionLabel.backgroundColor = [UIColor lightGrayColor];
+    _descriptionLabel.textColor = [UIColor whiteColor];
+    _descriptionLabel.numberOfLines = 0;
+    [_descriptionLabel sizeToFit];
+    _descriptionLabel.textAlignment = NSTextAlignmentLeft;
     [_scrollView addSubview:_descriptionLabel];
     
     UIButton* button1 = [UIButton buttonWithType:UIButtonTypeCustom];
-    button1.backgroundColor = [UIColor grayColor];
+    button1.backgroundColor = [UIColor lightGrayColor];
     button1.layer.cornerRadius = 8.0f;
     [button1 addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     button1.tag = 1001;
     [_scrollView addSubview:button1];
     
     UIButton* button2 = [UIButton buttonWithType:UIButtonTypeCustom];
-    button2.backgroundColor = [UIColor grayColor];
+    button2.backgroundColor = [UIColor colorWithRed:0.0f green:0xff/255.0f blue:0xff/255.0f alpha:1.0];
     button2.layer.cornerRadius = 8.0f;
     [button2 addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     button2.tag = ButtonTag_2;
     [_scrollView addSubview:button2];
-    
-//    CGRectMake(10.0f, 10.0f, CGRectGetWidth(self.view.frame) - 20.0f, 150.0f)
 }
 
-- (void)layoutElments
+- (void)layoutElements
 {
-    _descriptionLabel.frame = CGRectMake(10.0f, 10.0f, CGRectGetWidth(self.view.frame) - 20.0f, 150.0f);
+    _descriptionLabel.frame = CGRectMake(10.0f, 10.0f, CGRectGetWidth(self.scrollView.frame) - 20.0f, 150.0f);
     
     for (int i = 0; i < ButtonCount; i++)
     {
         UIButton* button = (UIButton*)[_scrollView viewWithTag:ButtonTag_1 + i];
-        button.frame = CGRectMake(10.0f, CGRectGetMaxY(_descriptionLabel.frame) + 10.0f, CGRectGetWidth(self.view.frame) - 20.0f, 30.0f);
+        button.frame = CGRectMake(10.0f, CGRectGetMaxY(_descriptionLabel.frame) + 10.0f, CGRectGetWidth(self.scrollView.frame) - 20.0f, 30.0f);
         [_scrollView addSubview:button];
     }
 }

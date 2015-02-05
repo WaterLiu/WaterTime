@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E4CD84F7-2E16-42A5-9CF0-14729C80A450</string>
+	<key>IDESourceControlProjectName</key>
+	<string>WaterTime</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>3F6E090FF68E66E70292B56B1A98F4C86DB78CBD</key>
+		<string>https://github.com/WaterLiu/WaterTime.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>WaterTime.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>3F6E090FF68E66E70292B56B1A98F4C86DB78CBD</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/WaterLiu/WaterTime.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>3F6E090FF68E66E70292B56B1A98F4C86DB78CBD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3F6E090FF68E66E70292B56B1A98F4C86DB78CBD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>WaterTime</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -34,8 +34,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    self.view.backgroundColor = [UIColor grayColor];
     [self setupScrollView:NO];
 }
 
@@ -53,9 +51,14 @@
 {
     if (setup == YES)
     {
-        _scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-        _scrollView.backgroundColor = [UIColor redColor];
+        _scrollView = [[UIScrollView alloc] initWithFrame:self.containerView.bounds];
+        _scrollView.backgroundColor = [UIColor clearColor];
         [self.containerView addSubview:_scrollView];
+        
+        if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0f)
+        {
+            self.automaticallyAdjustsScrollViewInsets = NO;
+        }
     }
     else
     {

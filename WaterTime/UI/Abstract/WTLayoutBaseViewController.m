@@ -35,7 +35,7 @@
     // Do any additional setup after loading the view.
     
     _containerView = [[UIView alloc] init];
-    _containerView.backgroundColor = [UIColor redColor];
+    _containerView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_containerView];
     
     double version = [[UIDevice currentDevice].systemVersion doubleValue];

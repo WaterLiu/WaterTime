@@ -7,7 +7,8 @@
         <!--Navigation Controller-->
         <scene sceneID="CXs-OH-9ze">
             <objects>
-                <navigationController id="aub-PH-90a" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aub-PH-90a" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xl0-C8-9in">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

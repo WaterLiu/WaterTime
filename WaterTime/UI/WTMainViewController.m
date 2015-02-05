@@ -27,7 +27,7 @@
     // Do any additional setup after loading the view.
     
     _tableView = [[UITableView alloc] initWithFrame:self.containerView.bounds style:UITableViewStylePlain];
-    _tableView.backgroundColor = [UIColor yellowColor];
+    _tableView.backgroundColor = [UIColor clearColor];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     _tableView.tableFooterView = [[UIView alloc] init];
     _tableView.dataSource = self;
@@ -40,11 +40,6 @@
     _tableView.dataSource = nil;
     _tableView.delegate = nil;
     _tableView = nil;
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning
