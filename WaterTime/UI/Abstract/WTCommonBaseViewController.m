@@ -34,7 +34,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setupScrollView:NO];
+    [self setupScrollView:YES];
+    [self addDescriptionLable:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,6 +44,11 @@
 }
 
 #pragma mark － Private
+
+- (void)showTestButtonsClicked:(id)sender
+{
+    
+}
 
 
 #pragma mark - Public
@@ -68,6 +74,84 @@
             _scrollView.delegate = nil;
             _scrollView = nil;
         }
+    }
+}
+
+- (void)addShowTestButtons:(NSArray*)btns
+{
+    CGFloat y = 5.0f;
+    CGFloat height = 50.0f;
+    
+    for(NSString* btnTitle in btns)
+    {
+        UIButton* btn = [[UIButton alloc] initWithFrame:CGRectMake(10.0f, y, CGRectGetWidth(self.view.frame) - 20.0f, height)];
+        [btn setTitle:btnTitle forState:UIControlStateNormal];
+        [btn setBackgroundColor:[UIColor lightGrayColor]];
+        btn.layer.cornerRadius = 8.0f;
+        [btn addTarget:self action:@selector(showTestButtonsClicked:) forControlEvents:UIControlEventTouchUpInside];
+        
+        y = y + height + 5.0f;
+        
+        if(_scrollView != nil)
+        {
+            [_scrollView addSubview:btn];
+        }
+        else
+        {
+            [self.view addSubview:btn];
+        }
+        
+        _testBtnBottomY = CGRectGetMaxY(btn.frame);
+    }
+    
+    if (_descriptionLabel != nil)
+    {
+        _descriptionLabel.frame = CGRectMake(CGRectGetMinX(_descriptionLabel.frame), _testBtnBottomY + 10.0f, CGRectGetWidth(_descriptionLabel.frame), CGRectGetHeight(_descriptionLabel.frame));
+    }
+    
+    _scrollView.contentSize = CGSizeMake(_scrollView.contentSize.width, _testBtnBottomY);
+}
+
+- (void)addDescriptionLable:(BOOL)isAdd
+{
+    if (isAdd == YES)
+    {
+        _descriptionLabel = [[UILabel alloc] init];
+        _descriptionLabel.frame = CGRectMake(10.0f, _testBtnBottomY + 10.0f, CGRectGetWidth(self.view.frame) - 20.0f, 0.0f);
+        _descriptionLabel.backgroundColor = [UIColor lightGrayColor];
+        _descriptionLabel.textColor = [UIColor greenColor];
+        _descriptionLabel.numberOfLines = 0;
+        _descriptionLabel.font = [UIFont systemFontOfSize:18.0f];
+        _descriptionLabel.textAlignment = NSTextAlignmentLeft;
+        [_scrollView addSubview:_descriptionLabel];
+    }
+    else
+    {
+        if (_descriptionLabel != nil)
+        {
+            [_descriptionLabel removeFromSuperview];
+            _descriptionLabel = nil;
+        }
+    }
+}
+
+- (void)setDescriptionText:(NSString*)text
+{
+    if (_descriptionLabel != nil)
+    {
+        _descriptionLabel.text = text;
+        
+        CGSize size = [text sizeWithAttributes:@{NSFontAttributeName : _descriptionLabel.font}];
+        
+        _descriptionLabel.frame = CGRectMake(CGRectGetMinX(_descriptionLabel.frame), CGRectGetMinY(_descriptionLabel.frame), CGRectGetWidth(_descriptionLabel.frame), size.height);
+        
+        _scrollView.contentSize = CGSizeMake(_scrollView.contentSize.width, _scrollView.contentSize.height + size.height);
+        
+        
+        CGRect rect = _descriptionLabel.frame;
+        
+        NSLog(@"%@", NSStringFromCGRect(rect));
+        
     }
 }
 

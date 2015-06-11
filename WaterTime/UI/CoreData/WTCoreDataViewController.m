@@ -54,16 +54,20 @@ typedef NS_ENUM(NSInteger, ButtonTag)
     UIButton* button1 = [UIButton buttonWithType:UIButtonTypeCustom];
     button1.backgroundColor = [UIColor lightGrayColor];
     button1.layer.cornerRadius = 8.0f;
+    [button1 setTitle:@"退出" forState:UIControlStateNormal];
+    [button1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [button1 addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    button1.tag = 1001;
+    button1.tag = ButtonTag_1;
     [_scrollView addSubview:button1];
     
-    UIButton* button2 = [UIButton buttonWithType:UIButtonTypeCustom];
-    button2.backgroundColor = [UIColor colorWithRed:0.0f green:0xff/255.0f blue:0xff/255.0f alpha:1.0];
-    button2.layer.cornerRadius = 8.0f;
-    [button2 addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    button2.tag = ButtonTag_2;
-    [_scrollView addSubview:button2];
+//    UIButton* button2 = [UIButton buttonWithType:UIButtonTypeCustom];
+//    button2.backgroundColor = [UIColor colorWithRed:0.0f green:0xff/255.0f blue:0xff/255.0f alpha:1.0];
+//    button2.layer.cornerRadius = 8.0f;
+//    button2.titleLabel.text = @"退出";
+//    button2.titleLabel.textColor = [UIColor blackColor];
+//    [button2 addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+//    button2.tag = ButtonTag_2;
+//    [_scrollView addSubview:button2];
 }
 
 - (void)layoutElements
@@ -86,7 +90,7 @@ typedef NS_ENUM(NSInteger, ButtonTag)
     {
         case ButtonTag_1:
         {
-        
+            [self.navigationController popViewControllerAnimated:YES];
         }
             break;
         case ButtonTag_2:

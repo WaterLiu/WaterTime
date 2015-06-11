@@ -7,7 +7,11 @@
 //
 
 #import "WTCommonBaseViewController.h"
+#import <StoreKit/SKStoreProductViewController.h>       //iOS (6.0 and later)
 
-@interface WTSKStoreProductViewController : WTCommonBaseViewController
+@interface WTSKStoreProductViewController : WTCommonBaseViewController <SKStoreProductViewControllerDelegate>
+{
+//    SKStoreProductViewController*   _storeProductViewController;
+}
 
 @end

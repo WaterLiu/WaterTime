@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD50B0F51A84C9040082A79E /* WTCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FD50B0F41A84C9040082A79E /* WTCoreDataManager.m */; };
+		FD552EDA1B2848A600E96A9B /* WTSKStoreProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD552ED91B2848A600E96A9B /* WTSKStoreProductViewController.m */; };
 		FDCF0A1F1A71F2A200EE1B89 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF0A1E1A71F2A200EE1B89 /* main.m */; };
 		FDCF0A221A71F2A200EE1B89 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF0A211A71F2A200EE1B89 /* AppDelegate.m */; };
-		FDCF0A251A71F2A200EE1B89 /* WaterTime.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FDCF0A231A71F2A200EE1B89 /* WaterTime.xcdatamodeld */; };
 		FDCF0A2B1A71F2A200EE1B89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDCF0A291A71F2A200EE1B89 /* Main.storyboard */; };
 		FDCF0A2D1A71F2A200EE1B89 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDCF0A2C1A71F2A200EE1B89 /* Images.xcassets */; };
 		FDCF0A301A71F2A200EE1B89 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDCF0A2E1A71F2A200EE1B89 /* LaunchScreen.xib */; };
@@ -34,12 +35,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FD50B0F31A84C9040082A79E /* WTCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCoreDataManager.h; sourceTree = "<group>"; };
+		FD50B0F41A84C9040082A79E /* WTCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCoreDataManager.m; sourceTree = "<group>"; };
+		FD552ED81B2848A600E96A9B /* WTSKStoreProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSKStoreProductViewController.h; sourceTree = "<group>"; };
+		FD552ED91B2848A600E96A9B /* WTSKStoreProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSKStoreProductViewController.m; sourceTree = "<group>"; };
 		FDCF0A191A71F2A200EE1B89 /* WaterTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaterTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDCF0A1D1A71F2A200EE1B89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDCF0A1E1A71F2A200EE1B89 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FDCF0A201A71F2A200EE1B89 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FDCF0A211A71F2A200EE1B89 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		FDCF0A241A71F2A200EE1B89 /* WaterTime.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WaterTime.xcdatamodel; sourceTree = "<group>"; };
 		FDCF0A2A1A71F2A200EE1B89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FDCF0A2C1A71F2A200EE1B89 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FDCF0A2F1A71F2A200EE1B89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -79,6 +83,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FD552ED71B28482C00E96A9B /* SystemService */ = {
+			isa = PBXGroup;
+			children = (
+				FD552ED81B2848A600E96A9B /* WTSKStoreProductViewController.h */,
+				FD552ED91B2848A600E96A9B /* WTSKStoreProductViewController.m */,
+			);
+			name = SystemService;
+			path = WaterTime/UI/SystemService;
+			sourceTree = SOURCE_ROOT;
+		};
 		FDCF0A101A71F2A200EE1B89 = {
 			isa = PBXGroup;
 			children = (
@@ -107,7 +121,6 @@
 				FDCF0A291A71F2A200EE1B89 /* Main.storyboard */,
 				FDCF0A2C1A71F2A200EE1B89 /* Images.xcassets */,
 				FDCF0A2E1A71F2A200EE1B89 /* LaunchScreen.xib */,
-				FDCF0A231A71F2A200EE1B89 /* WaterTime.xcdatamodeld */,
 				FDCF0A1C1A71F2A200EE1B89 /* Supporting Files */,
 			);
 			path = WaterTime;
@@ -145,6 +158,7 @@
 				FDCF0A5A1A724D2600EE1B89 /* Utilities */,
 				FDCF0A4F1A722A0F00EE1B89 /* Abstract */,
 				FDCF0A561A72395900EE1B89 /* CoreData */,
+				FD552ED71B28482C00E96A9B /* SystemService */,
 				FDCF0A461A71F34C00EE1B89 /* WTMainViewController.h */,
 				FDCF0A471A71F34C00EE1B89 /* WTMainViewController.m */,
 			);
@@ -177,6 +191,8 @@
 			children = (
 				FDCF0A571A72397C00EE1B89 /* WTCoreDataViewController.h */,
 				FDCF0A581A72397C00EE1B89 /* WTCoreDataViewController.m */,
+				FD50B0F31A84C9040082A79E /* WTCoreDataManager.h */,
+				FD50B0F41A84C9040082A79E /* WTCoreDataManager.m */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -239,6 +255,11 @@
 				TargetAttributes = {
 					FDCF0A181A71F2A200EE1B89 = {
 						CreatedOnToolsVersion = 6.1.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 					FDCF0A341A71F2A200EE1B89 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -295,10 +316,11 @@
 				FDCF0A4E1A721FAD00EE1B89 /* WTMainTableConfigUtils.m in Sources */,
 				FDCF0A591A72397C00EE1B89 /* WTCoreDataViewController.m in Sources */,
 				FDCF0A551A722A7F00EE1B89 /* WTCommonBaseViewController.m in Sources */,
+				FD552EDA1B2848A600E96A9B /* WTSKStoreProductViewController.m in Sources */,
 				FDCF0A221A71F2A200EE1B89 /* AppDelegate.m in Sources */,
+				FD50B0F51A84C9040082A79E /* WTCoreDataManager.m in Sources */,
 				FDCF0A1F1A71F2A200EE1B89 /* main.m in Sources */,
 				FDCF0A521A722A4E00EE1B89 /* WTLayoutBaseViewController.m in Sources */,
-				FDCF0A251A71F2A200EE1B89 /* WaterTime.xcdatamodeld in Sources */,
 				FDCF0A5D1A724DA600EE1B89 /* WTMainTableJMPController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,6 +443,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = WaterTime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -432,6 +455,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = WaterTime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -504,19 +528,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		FDCF0A231A71F2A200EE1B89 /* WaterTime.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				FDCF0A241A71F2A200EE1B89 /* WaterTime.xcdatamodel */,
-			);
-			currentVersion = FDCF0A241A71F2A200EE1B89 /* WaterTime.xcdatamodel */;
-			path = WaterTime.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = FDCF0A111A71F2A200EE1B89 /* Project object */;
 }

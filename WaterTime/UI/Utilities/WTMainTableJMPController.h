@@ -10,6 +10,8 @@
 
 @interface WTMainTableJMPController : NSObject
 
-+ (void)jumpViewControllerWithKey:(NSString*)key withNavigationController:(UINavigationController*)navigationController;
++ (void)jumpViewControllerWithKey:(NSString*)key
+                        withValue:(NSString*)value
+         withNavigationController:(UINavigationController*)navigationController;
 
 @end

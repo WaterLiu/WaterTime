@@ -7,21 +7,50 @@
 //
 
 #import "WTMainTableJMPController.h"
+
+//CoreData
 #import "WTCoreDataViewController.h"
+
+//SystemService
+#import "WTSKStoreProductViewController.h"
 
 @implementation WTMainTableJMPController
 
-+ (void)jumpViewControllerWithKey:(NSString*)key withNavigationController:(UINavigationController*)navigationController
++ (void)jumpViewControllerWithKey:(NSString*)key
+                        withValue:(NSString*)value
+         withNavigationController:(UINavigationController*)navigationController
 {
     UIViewController* vc = nil;
     
     if ([key isEqual:@"CoreData"] == YES)
     {
-        vc = [[WTCoreDataViewController alloc] initWithNibName:nil bundle:nil];
+        if ([value isEqualToString:@"Basic"])
+        {
+            vc = [[WTCoreDataViewController alloc] initWithNibName:nil bundle:nil];
+        }
+        else if ([value isEqualToString:@" "])
+        {
+            
+        }
+        else
+        {
+            
+        }
     }
-    else if ([key isEqual:@"Animation"] == YES)
+    else if ([key isEqual:@"SystemService"] == YES)
     {
-        
+        if ([value isEqualToString:@"AppStore"])
+        {
+            vc = [[WTSKStoreProductViewController alloc] initWithNibName:nil bundle:nil];
+        }
+        else if ([value isEqualToString:@" "])
+        {
+            
+        }
+        else
+        {
+            
+        }
     }
     else
     {
@@ -39,5 +68,6 @@
         [navigationController pushViewController:vc animated:YES];
     }
 }
+
 
 @end

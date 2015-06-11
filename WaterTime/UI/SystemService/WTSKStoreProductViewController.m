@@ -14,24 +14,72 @@
 
 @implementation WTSKStoreProductViewController
 
-- (void)viewDidLoad {
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if(self)
+    {
+
+    }
+    return self;
+}
+
+- (void)dealloc
+{
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+}
+
+- (void)viewDidLoad{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [self setupScrollView:YES];
+    [self addShowTestButtons:@[@"内嵌AppStore"]];
+    [self setDescriptionText:@" 内嵌AppStore \n API: SKStoreProductViewController \n Note: iOS 6 and later"];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - Private
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)showTestButtonsClicked:(id)sender
+{
+    
+    SKStoreProductViewController* storeProductViewController = [[SKStoreProductViewController alloc] init];
+    storeProductViewController.delegate = self;
+    
+    UIButton* btn = (UIButton*)sender;
+    if([[[btn titleLabel] text] isEqualToString:@"内嵌AppStore"])
+    {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+        [storeProductViewController loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier:@"382201985"} completionBlock:^(BOOL result, NSError *error) {
+            
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+            
+            if (error == nil && result == YES)
+            {
+                [self presentViewController:storeProductViewController animated:YES completion:nil];
+            }
+            else
+            {
+                UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.domain delegate:nil cancelButtonTitle:@"I Known!" otherButtonTitles:nil, nil];
+                [alert show];
+            }
+        }];
+    }
 }
-*/
+
+#pragma mark - Public
+
+
+
+#pragma mark - SKStoreProductViewControllerDelegate
+
+- (void)productViewControllerDidFinish:(SKStoreProductViewController *)viewController
+{
+    [viewController dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 @end

@@ -11,7 +11,7 @@
 
 @interface WTCoreDataViewController : WTCommonBaseViewController
 {
-    UILabel*            _descriptionLabel;
+//    UILabel*            _descriptionLabel;
 }
 
 @end
