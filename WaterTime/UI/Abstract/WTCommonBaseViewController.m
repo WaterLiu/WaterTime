@@ -57,13 +57,17 @@
 {
     if (setup == YES)
     {
-        _scrollView = [[UIScrollView alloc] initWithFrame:self.containerView.bounds];
-        _scrollView.backgroundColor = [UIColor clearColor];
-        [self.containerView addSubview:_scrollView];
-        
-        if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0f)
+        if (_scrollView == nil)
         {
-            self.automaticallyAdjustsScrollViewInsets = NO;
+            _scrollView = [[UIScrollView alloc] initWithFrame:self.containerView.bounds];
+            _scrollView.backgroundColor = [UIColor clearColor];
+            [self.containerView addSubview:_scrollView];
+            
+            if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0f)
+            {
+                self.automaticallyAdjustsScrollViewInsets = NO;
+            }
+
         }
     }
     else
@@ -92,14 +96,7 @@
         
         y = y + height + 5.0f;
         
-        if(_scrollView != nil)
-        {
-            [_scrollView addSubview:btn];
-        }
-        else
-        {
-            [self.view addSubview:btn];
-        }
+        [_scrollView addSubview:btn];
         
         _testBtnBottomY = CGRectGetMaxY(btn.frame);
     }
@@ -145,13 +142,7 @@
         
         _descriptionLabel.frame = CGRectMake(CGRectGetMinX(_descriptionLabel.frame), CGRectGetMinY(_descriptionLabel.frame), CGRectGetWidth(_descriptionLabel.frame), size.height);
         
-        _scrollView.contentSize = CGSizeMake(_scrollView.contentSize.width, _scrollView.contentSize.height + size.height);
-        
-        
-        CGRect rect = _descriptionLabel.frame;
-        
-        NSLog(@"%@", NSStringFromCGRect(rect));
-        
+        _scrollView.contentSize = CGSizeMake(_scrollView.contentSize.width, CGRectGetMaxY(_descriptionLabel.frame));
     }
 }
 
