@@ -67,7 +67,6 @@
             {
                 self.automaticallyAdjustsScrollViewInsets = NO;
             }
-
         }
     }
     else
@@ -136,11 +135,17 @@
 {
     if (_descriptionLabel != nil)
     {
+        CGRect rect = [text boundingRectWithSize:CGSizeMake(CGRectGetWidth(_descriptionLabel.frame), CGFLOAT_MAX)
+                                         options:NSStringDrawingUsesLineFragmentOrigin
+                                      attributes:@{NSFontAttributeName : _descriptionLabel.font}
+                                         context:nil];
+        
+        _descriptionLabel.frame = CGRectMake(CGRectGetMinX(_descriptionLabel.frame),
+                                             CGRectGetMinY(_descriptionLabel.frame),
+                                             CGRectGetWidth(_descriptionLabel.frame),
+                                             CGRectGetHeight(rect));
+        
         _descriptionLabel.text = text;
-        
-        CGSize size = [text sizeWithAttributes:@{NSFontAttributeName : _descriptionLabel.font}];
-        
-        _descriptionLabel.frame = CGRectMake(CGRectGetMinX(_descriptionLabel.frame), CGRectGetMinY(_descriptionLabel.frame), CGRectGetWidth(_descriptionLabel.frame), size.height);
         
         _scrollView.contentSize = CGSizeMake(_scrollView.contentSize.width, CGRectGetMaxY(_descriptionLabel.frame));
     }

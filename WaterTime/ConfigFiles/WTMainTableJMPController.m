@@ -14,6 +14,9 @@
 //SystemService
 #import "WTSKStoreProductViewController.h"
 
+//UI
+#import "WTBackgroundBlurViewController.h"
+
 @implementation WTMainTableJMPController
 
 + (void)jumpViewControllerWithKey:(NSString*)key
@@ -42,6 +45,21 @@
         if ([value isEqualToString:@"AppStore"])
         {
             vc = [[WTSKStoreProductViewController alloc] initWithNibName:nil bundle:nil];
+        }
+        else if ([value isEqualToString:@" "])
+        {
+            
+        }
+        else
+        {
+            
+        }
+    }
+    else if ([key isEqual:@"UI"] == YES)
+    {
+        if ([value isEqualToString:@"BackgroundBlur"])
+        {
+            vc = [[WTBackgroundBlurViewController alloc] initWithNibName:nil bundle:nil];
         }
         else if ([value isEqualToString:@" "])
         {

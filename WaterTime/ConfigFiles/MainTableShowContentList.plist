@@ -5,6 +5,7 @@
 	<key>UI</key>
 	<array>
 		<string>Test</string>
+		<string>BackgroundBlur</string>
 	</array>
 	<key>SystemService</key>
 	<array>

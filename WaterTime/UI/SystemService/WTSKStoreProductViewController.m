@@ -45,7 +45,6 @@
 
 - (void)showTestButtonsClicked:(id)sender
 {
-    
     SKStoreProductViewController* storeProductViewController = [[SKStoreProductViewController alloc] init];
     storeProductViewController.delegate = self;
     

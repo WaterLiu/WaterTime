@@ -21,7 +21,9 @@
 		FDCF0A521A722A4E00EE1B89 /* WTLayoutBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF0A511A722A4E00EE1B89 /* WTLayoutBaseViewController.m */; };
 		FDCF0A551A722A7F00EE1B89 /* WTCommonBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF0A541A722A7F00EE1B89 /* WTCommonBaseViewController.m */; };
 		FDCF0A591A72397C00EE1B89 /* WTCoreDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF0A581A72397C00EE1B89 /* WTCoreDataViewController.m */; };
-		FDCF0A5D1A724DA600EE1B89 /* WTMainTableJMPController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF0A5C1A724DA600EE1B89 /* WTMainTableJMPController.m */; };
+		FDEACA0D1B2EC94F0074258C /* WTBackgroundBlurViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEACA0C1B2EC94F0074258C /* WTBackgroundBlurViewController.m */; };
+		FDEACA101B2ECF320074258C /* WTMainTableJMPController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEACA0F1B2ECF320074258C /* WTMainTableJMPController.m */; };
+		FDEACA131B2ECF6E0074258C /* UIImage+BlurGlass.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEACA121B2ECF6E0074258C /* UIImage+BlurGlass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,8 +63,12 @@
 		FDCF0A541A722A7F00EE1B89 /* WTCommonBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCommonBaseViewController.m; sourceTree = "<group>"; };
 		FDCF0A571A72397C00EE1B89 /* WTCoreDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCoreDataViewController.h; sourceTree = "<group>"; };
 		FDCF0A581A72397C00EE1B89 /* WTCoreDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCoreDataViewController.m; sourceTree = "<group>"; };
-		FDCF0A5B1A724DA600EE1B89 /* WTMainTableJMPController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTMainTableJMPController.h; sourceTree = "<group>"; };
-		FDCF0A5C1A724DA600EE1B89 /* WTMainTableJMPController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTMainTableJMPController.m; sourceTree = "<group>"; };
+		FDEACA0B1B2EC94F0074258C /* WTBackgroundBlurViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTBackgroundBlurViewController.h; sourceTree = "<group>"; };
+		FDEACA0C1B2EC94F0074258C /* WTBackgroundBlurViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTBackgroundBlurViewController.m; sourceTree = "<group>"; };
+		FDEACA0E1B2ECF320074258C /* WTMainTableJMPController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTMainTableJMPController.h; sourceTree = "<group>"; };
+		FDEACA0F1B2ECF320074258C /* WTMainTableJMPController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTMainTableJMPController.m; sourceTree = "<group>"; };
+		FDEACA111B2ECF6E0074258C /* UIImage+BlurGlass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BlurGlass.h"; sourceTree = "<group>"; };
+		FDEACA121B2ECF6E0074258C /* UIImage+BlurGlass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BlurGlass.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +165,7 @@
 				FDCF0A4F1A722A0F00EE1B89 /* Abstract */,
 				FDCF0A561A72395900EE1B89 /* CoreData */,
 				FD552ED71B28482C00E96A9B /* SystemService */,
+				FDEACA0A1B2EC8B90074258C /* UI */,
 				FDCF0A461A71F34C00EE1B89 /* WTMainViewController.h */,
 				FDCF0A471A71F34C00EE1B89 /* WTMainViewController.m */,
 			);
@@ -168,6 +175,8 @@
 		FDCF0A491A721DE300EE1B89 /* ConfigFiles */ = {
 			isa = PBXGroup;
 			children = (
+				FDEACA0E1B2ECF320074258C /* WTMainTableJMPController.h */,
+				FDEACA0F1B2ECF320074258C /* WTMainTableJMPController.m */,
 				FDCF0A4A1A721E2400EE1B89 /* MainTableShowContentList.plist */,
 				FDCF0A4C1A721FAD00EE1B89 /* WTMainTableConfigUtils.h */,
 				FDCF0A4D1A721FAD00EE1B89 /* WTMainTableConfigUtils.m */,
@@ -200,11 +209,21 @@
 		FDCF0A5A1A724D2600EE1B89 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				FDCF0A5B1A724DA600EE1B89 /* WTMainTableJMPController.h */,
-				FDCF0A5C1A724DA600EE1B89 /* WTMainTableJMPController.m */,
+				FDEACA111B2ECF6E0074258C /* UIImage+BlurGlass.h */,
+				FDEACA121B2ECF6E0074258C /* UIImage+BlurGlass.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
+		};
+		FDEACA0A1B2EC8B90074258C /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				FDEACA0B1B2EC94F0074258C /* WTBackgroundBlurViewController.h */,
+				FDEACA0C1B2EC94F0074258C /* WTBackgroundBlurViewController.m */,
+			);
+			name = UI;
+			path = WaterTime/UI/UI;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -313,15 +332,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDCF0A481A71F34C00EE1B89 /* WTMainViewController.m in Sources */,
+				FDEACA131B2ECF6E0074258C /* UIImage+BlurGlass.m in Sources */,
 				FDCF0A4E1A721FAD00EE1B89 /* WTMainTableConfigUtils.m in Sources */,
 				FDCF0A591A72397C00EE1B89 /* WTCoreDataViewController.m in Sources */,
+				FDEACA101B2ECF320074258C /* WTMainTableJMPController.m in Sources */,
+				FDEACA0D1B2EC94F0074258C /* WTBackgroundBlurViewController.m in Sources */,
 				FDCF0A551A722A7F00EE1B89 /* WTCommonBaseViewController.m in Sources */,
 				FD552EDA1B2848A600E96A9B /* WTSKStoreProductViewController.m in Sources */,
 				FDCF0A221A71F2A200EE1B89 /* AppDelegate.m in Sources */,
 				FD50B0F51A84C9040082A79E /* WTCoreDataManager.m in Sources */,
 				FDCF0A1F1A71F2A200EE1B89 /* main.m in Sources */,
 				FDCF0A521A722A4E00EE1B89 /* WTLayoutBaseViewController.m in Sources */,
-				FDCF0A5D1A724DA600EE1B89 /* WTMainTableJMPController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
