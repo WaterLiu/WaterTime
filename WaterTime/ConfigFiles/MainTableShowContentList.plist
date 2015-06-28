@@ -11,6 +11,10 @@
 	<array>
 		<string>AppStore</string>
 	</array>
+	<key>Network</key>
+	<array>
+		<string>NetState</string>
+	</array>
 	<key>CoreData</key>
 	<array>
 		<string>Basic</string>

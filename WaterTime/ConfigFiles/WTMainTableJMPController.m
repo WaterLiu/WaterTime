@@ -17,6 +17,9 @@
 //UI
 #import "WTBackgroundBlurViewController.h"
 
+//Network
+#import "WTNetworkStateViewController.h"
+
 @implementation WTMainTableJMPController
 
 + (void)jumpViewControllerWithKey:(NSString*)key
@@ -60,6 +63,21 @@
         if ([value isEqualToString:@"BackgroundBlur"])
         {
             vc = [[WTBackgroundBlurViewController alloc] initWithNibName:nil bundle:nil];
+        }
+        else if ([value isEqualToString:@" "])
+        {
+            
+        }
+        else
+        {
+            
+        }
+    }
+    else if ([key isEqual:@"Network"] == YES)
+    {
+        if ([value isEqualToString:@"NetState"])
+        {
+            vc = [[WTNetworkStateViewController alloc] initWithNibName:nil bundle:nil];
         }
         else if ([value isEqualToString:@" "])
         {

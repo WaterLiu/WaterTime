@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		FD50B0F51A84C9040082A79E /* WTCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FD50B0F41A84C9040082A79E /* WTCoreDataManager.m */; };
 		FD552EDA1B2848A600E96A9B /* WTSKStoreProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD552ED91B2848A600E96A9B /* WTSKStoreProductViewController.m */; };
+		FDA12B8B1B4060CE000DA235 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA12B8A1B4060CE000DA235 /* Reachability.m */; };
+		FDA12B8F1B406202000DA235 /* WTNetworkStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA12B8E1B406202000DA235 /* WTNetworkStateViewController.m */; };
 		FDCF0A1F1A71F2A200EE1B89 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF0A1E1A71F2A200EE1B89 /* main.m */; };
 		FDCF0A221A71F2A200EE1B89 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF0A211A71F2A200EE1B89 /* AppDelegate.m */; };
 		FDCF0A2B1A71F2A200EE1B89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDCF0A291A71F2A200EE1B89 /* Main.storyboard */; };
@@ -41,6 +43,10 @@
 		FD50B0F41A84C9040082A79E /* WTCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCoreDataManager.m; sourceTree = "<group>"; };
 		FD552ED81B2848A600E96A9B /* WTSKStoreProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSKStoreProductViewController.h; sourceTree = "<group>"; };
 		FD552ED91B2848A600E96A9B /* WTSKStoreProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSKStoreProductViewController.m; sourceTree = "<group>"; };
+		FDA12B891B4060CE000DA235 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		FDA12B8A1B4060CE000DA235 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		FDA12B8D1B406202000DA235 /* WTNetworkStateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNetworkStateViewController.h; sourceTree = "<group>"; };
+		FDA12B8E1B406202000DA235 /* WTNetworkStateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNetworkStateViewController.m; sourceTree = "<group>"; };
 		FDCF0A191A71F2A200EE1B89 /* WaterTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaterTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDCF0A1D1A71F2A200EE1B89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDCF0A1E1A71F2A200EE1B89 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -54,7 +60,7 @@
 		FDCF0A3B1A71F2A200EE1B89 /* WaterTimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WaterTimeTests.m; sourceTree = "<group>"; };
 		FDCF0A461A71F34C00EE1B89 /* WTMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTMainViewController.h; sourceTree = "<group>"; };
 		FDCF0A471A71F34C00EE1B89 /* WTMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTMainViewController.m; sourceTree = "<group>"; };
-		FDCF0A4A1A721E2400EE1B89 /* MainTableShowContentList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MainTableShowContentList.plist; sourceTree = "<group>"; };
+		FDCF0A4A1A721E2400EE1B89 /* MainTableShowContentList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = MainTableShowContentList.plist; path = WaterTime/ConfigFiles/MainTableShowContentList.plist; sourceTree = "<group>"; };
 		FDCF0A4C1A721FAD00EE1B89 /* WTMainTableConfigUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTMainTableConfigUtils.h; sourceTree = "<group>"; };
 		FDCF0A4D1A721FAD00EE1B89 /* WTMainTableConfigUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTMainTableConfigUtils.m; sourceTree = "<group>"; };
 		FDCF0A501A722A4E00EE1B89 /* WTLayoutBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTLayoutBaseViewController.h; sourceTree = "<group>"; };
@@ -99,9 +105,44 @@
 			path = WaterTime/UI/SystemService;
 			sourceTree = SOURCE_ROOT;
 		};
+		FDA12B861B40609A000DA235 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				FDA12B871B4060CE000DA235 /* Network */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		FDA12B871B4060CE000DA235 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				FDA12B881B4060CE000DA235 /* NetState */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		FDA12B881B4060CE000DA235 /* NetState */ = {
+			isa = PBXGroup;
+			children = (
+				FDA12B891B4060CE000DA235 /* Reachability.h */,
+				FDA12B8A1B4060CE000DA235 /* Reachability.m */,
+			);
+			path = NetState;
+			sourceTree = "<group>";
+		};
+		FDA12B8C1B406197000DA235 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				FDA12B8D1B406202000DA235 /* WTNetworkStateViewController.h */,
+				FDA12B8E1B406202000DA235 /* WTNetworkStateViewController.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		FDCF0A101A71F2A200EE1B89 = {
 			isa = PBXGroup;
 			children = (
+				FDCF0A4A1A721E2400EE1B89 /* MainTableShowContentList.plist */,
 				FDCF0A1B1A71F2A200EE1B89 /* WaterTime */,
 				FDCF0A381A71F2A200EE1B89 /* WaterTimeTests */,
 				FDCF0A1A1A71F2A200EE1B89 /* Products */,
@@ -122,6 +163,7 @@
 			children = (
 				FDCF0A491A721DE300EE1B89 /* ConfigFiles */,
 				FDCF0A451A71F33200EE1B89 /* UI */,
+				FDA12B861B40609A000DA235 /* Foundation */,
 				FDCF0A201A71F2A200EE1B89 /* AppDelegate.h */,
 				FDCF0A211A71F2A200EE1B89 /* AppDelegate.m */,
 				FDCF0A291A71F2A200EE1B89 /* Main.storyboard */,
@@ -166,6 +208,7 @@
 				FDCF0A561A72395900EE1B89 /* CoreData */,
 				FD552ED71B28482C00E96A9B /* SystemService */,
 				FDEACA0A1B2EC8B90074258C /* UI */,
+				FDA12B8C1B406197000DA235 /* Network */,
 				FDCF0A461A71F34C00EE1B89 /* WTMainViewController.h */,
 				FDCF0A471A71F34C00EE1B89 /* WTMainViewController.m */,
 			);
@@ -177,7 +220,6 @@
 			children = (
 				FDEACA0E1B2ECF320074258C /* WTMainTableJMPController.h */,
 				FDEACA0F1B2ECF320074258C /* WTMainTableJMPController.m */,
-				FDCF0A4A1A721E2400EE1B89 /* MainTableShowContentList.plist */,
 				FDCF0A4C1A721FAD00EE1B89 /* WTMainTableConfigUtils.h */,
 				FDCF0A4D1A721FAD00EE1B89 /* WTMainTableConfigUtils.m */,
 			);
@@ -331,9 +373,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDA12B8B1B4060CE000DA235 /* Reachability.m in Sources */,
 				FDCF0A481A71F34C00EE1B89 /* WTMainViewController.m in Sources */,
 				FDEACA131B2ECF6E0074258C /* UIImage+BlurGlass.m in Sources */,
 				FDCF0A4E1A721FAD00EE1B89 /* WTMainTableConfigUtils.m in Sources */,
+				FDA12B8F1B406202000DA235 /* WTNetworkStateViewController.m in Sources */,
 				FDCF0A591A72397C00EE1B89 /* WTCoreDataViewController.m in Sources */,
 				FDEACA101B2ECF320074258C /* WTMainTableJMPController.m in Sources */,
 				FDEACA0D1B2EC94F0074258C /* WTBackgroundBlurViewController.m in Sources */,
@@ -467,6 +511,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = WaterTime/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -479,6 +524,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = WaterTime/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

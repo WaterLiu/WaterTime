@@ -30,12 +30,13 @@
  *  Add Test Buttons
  *
  *  @param btns btton's title
+ *          clicked event: - (void)showTestButtonsClicked:(id)sender
+ *
  */
 - (void)addShowTestButtons:(NSArray*)btns;
 
 
 - (void)addDescriptionLable:(BOOL)isAdd;
-
 - (void)setDescriptionText:(NSString*)text;
 
 @end
