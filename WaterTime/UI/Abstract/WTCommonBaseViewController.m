@@ -8,6 +8,8 @@
 
 #import "WTCommonBaseViewController.h"
 
+#define WTCommonBaseViewController_Button_Tag 888
+
 @interface WTCommonBaseViewController ()
 
 @end
@@ -85,12 +87,21 @@
     CGFloat y = 5.0f;
     CGFloat height = 50.0f;
     
+    if (_descriptionLabel != nil)
+    {
+        y += CGRectGetMaxY(_descriptionLabel.frame);
+    }
+    
+    
+    NSInteger btnTag = WTCommonBaseViewController_Button_Tag;
+    
     for(NSString* btnTitle in btns)
     {
         UIButton* btn = [[UIButton alloc] initWithFrame:CGRectMake(10.0f, y, CGRectGetWidth(self.view.frame) - 20.0f, height)];
         [btn setTitle:btnTitle forState:UIControlStateNormal];
         [btn setBackgroundColor:[UIColor lightGrayColor]];
         btn.layer.cornerRadius = 8.0f;
+        btn.tag = btnTag++;
         [btn addTarget:self action:@selector(showTestButtonsClicked:) forControlEvents:UIControlEventTouchUpInside];
         
         y = y + height + 5.0f;
@@ -100,12 +111,42 @@
         _testBtnBottomY = CGRectGetMaxY(btn.frame);
     }
     
-    if (_descriptionLabel != nil)
-    {
-        _descriptionLabel.frame = CGRectMake(CGRectGetMinX(_descriptionLabel.frame), _testBtnBottomY + 10.0f, CGRectGetWidth(_descriptionLabel.frame), CGRectGetHeight(_descriptionLabel.frame));
-    }
+//    if (_descriptionLabel != nil)
+//    {
+//        _descriptionLabel.frame = CGRectMake(CGRectGetMinX(_descriptionLabel.frame), _testBtnBottomY + 10.0f, CGRectGetWidth(_descriptionLabel.frame), CGRectGetHeight(_descriptionLabel.frame));
+//    }
     
     _scrollView.contentSize = CGSizeMake(CGRectGetWidth(_scrollView.frame), _testBtnBottomY);
+}
+
+- (void)layoutSubElementsForButton
+{
+    CGFloat y = 5.0f;
+    
+    if (_descriptionLabel != nil)
+    {
+        y += CGRectGetMaxY(_descriptionLabel.frame);
+    }
+    
+    NSInteger btnTag = WTCommonBaseViewController_Button_Tag;
+    
+    for (int i = 0; i < [[_scrollView subviews] count]; i++)
+    {
+        id button = [_scrollView viewWithTag:btnTag];
+        if ([button isKindOfClass:[UIButton class]] == YES)
+        {
+            UIButton* btn = button;
+            btn.frame = CGRectMake(CGRectGetMinX(btn.frame), y, CGRectGetWidth(btn.frame), CGRectGetHeight(btn.frame));
+            
+            btn.tag++;
+            y += CGRectGetHeight(btn.frame);
+        }
+        else
+        {
+            break;
+        }
+    }
+    
 }
 
 - (void)addDescriptionLable:(BOOL)isAdd
@@ -113,9 +154,9 @@
     if (isAdd == YES)
     {
         _descriptionLabel = [[UILabel alloc] init];
-        _descriptionLabel.frame = CGRectMake(10.0f, _testBtnBottomY + 10.0f, CGRectGetWidth(self.view.frame) - 20.0f, 0.0f);
+        _descriptionLabel.frame = CGRectMake(10.0f, 5.0f, CGRectGetWidth(self.view.frame) - 20.0f, 0.0f);
         _descriptionLabel.backgroundColor = [UIColor lightGrayColor];
-        _descriptionLabel.textColor = [UIColor greenColor];
+        _descriptionLabel.textColor = [UIColor cyanColor];
         _descriptionLabel.numberOfLines = 0;
         _descriptionLabel.font = [UIFont systemFontOfSize:18.0f];
         _descriptionLabel.textAlignment = NSTextAlignmentLeft;
@@ -129,6 +170,8 @@
             _descriptionLabel = nil;
         }
     }
+    
+    [self layoutSubElementsForButton];
 }
 
 - (void)setDescriptionText:(NSString*)text
@@ -149,6 +192,8 @@
         
         _scrollView.contentSize = CGSizeMake(_scrollView.contentSize.width, CGRectGetMaxY(_descriptionLabel.frame));
     }
+    
+    [self layoutSubElementsForButton];
 }
 
 @end
