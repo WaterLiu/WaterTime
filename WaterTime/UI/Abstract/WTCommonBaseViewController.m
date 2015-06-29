@@ -148,10 +148,6 @@
         _descriptionLabel.text = text;
         
         _scrollView.contentSize = CGSizeMake(_scrollView.contentSize.width, CGRectGetMaxY(_descriptionLabel.frame));
-        
-        
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"LOG" message:@"111" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
     }
 }
 
