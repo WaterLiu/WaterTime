@@ -27,6 +27,7 @@
 
 - (void)dealloc
 {
+    [_reachability stopNotifier];
     _reachability.reachableBlock = nil;
     _reachability = nil;
 }
@@ -43,11 +44,14 @@
     
     _reachability.reachableBlock = ^(Reachability* reachability)
     {
-        if (reachability != nil)
-        {
-            [tempSelf setDescriptionText:[reachability currentReachabilityString]];
-        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (reachability != nil)
+            {
+                [tempSelf setDescriptionText:[reachability currentReachabilityString]];
+            }
+        });
     };
+    [_reachability startNotifier];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -60,7 +64,6 @@
     UIButton* button = (UIButton*)sender;
     if ([button.titleLabel.text isEqualToString:@"CurrentNetSatate"])
     {
-        [_reachability currentReachabilityFlags];
         [self setDescriptionText:[_reachability currentReachabilityString]];
     }
 }

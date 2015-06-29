@@ -352,7 +352,9 @@ static void TMReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkRea
                 }
             }
         }
-        
+    }
+    else
+    {
         if ((flags & kSCNetworkReachabilityFlagsTransientConnection) == kSCNetworkReachabilityFlagsTransientConnection)
         {
             if((flags & kSCNetworkReachabilityFlagsConnectionRequired) == kSCNetworkReachabilityFlagsConnectionRequired)
@@ -372,12 +374,14 @@ static void TMReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkRea
     {
         if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
         {
-            if ([self isReachableVia2G] == NO && [self isReachableVia3G] == NO)
+            if ([self isReachableVia2G] == NO && [self isReachableVia4G] == NO)
             {
                 return YES;
             }
         }
-        
+    }
+    else
+    {
         if ((flags & kSCNetworkReachabilityFlagsTransientConnection) == kSCNetworkReachabilityFlagsTransientConnection)
         {
             if((flags & kSCNetworkReachabilityFlagsConnectionRequired) == kSCNetworkReachabilityFlagsConnectionRequired)
@@ -501,16 +505,18 @@ static void TMReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkRea
                         }
                     }
                 }
-                
-                if ((flags & kSCNetworkReachabilityFlagsTransientConnection) == kSCNetworkReachabilityFlagsTransientConnection)
+                else
                 {
-                    if((flags & kSCNetworkReachabilityFlagsConnectionRequired) == kSCNetworkReachabilityFlagsConnectionRequired)
+                    if ((flags & kSCNetworkReachabilityFlagsTransientConnection) == kSCNetworkReachabilityFlagsTransientConnection)
                     {
-                        return ReachableVia2G;
-                    }
-                    else
-                    {
-                        return ReachableVia3G;
+                        if((flags & kSCNetworkReachabilityFlagsConnectionRequired) == kSCNetworkReachabilityFlagsConnectionRequired)
+                        {
+                            return ReachableVia2G;
+                        }
+                        else
+                        {
+                            return ReachableVia3G;
+                        }
                     }
                 }
                 return ReachableViaWWAN;
@@ -537,35 +543,31 @@ static void TMReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkRea
 
 -(NSString*)currentReachabilityString
 {
-	NetworkStatus temp = [self currentReachabilityStatus];
-	
-	if(temp == ReachableViaWWAN)
-	{
-        // Updated for the fact that we have CDMA phones now!
-        
-        if ([self isReachableVia2G] == YES)
-        {
-            return NSLocalizedString(@"2G", @"");
-        }
-        else if ([self isReachableVia3G] == YES)
-        {
-            return NSLocalizedString(@"3G", @"");
-        }
-        else if ([self isReachableVia4G] == YES)
-        {
-            return NSLocalizedString(@"4G", @"");
-        }
-        else
-        {
-            return NSLocalizedString(@"Cellular", @"");
-        }
-	}
-	if (temp == ReachableViaWiFi) 
-	{
-		return NSLocalizedString(@"WiFi", @"");
-	}
-	
-	return NSLocalizedString(@"No Connection", @"");
+    if ([self isReachableVia2G] == YES)
+    {
+        return NSLocalizedString(@"2G", @"");
+    }
+    else if ([self isReachableVia3G] == YES)
+    {
+        return NSLocalizedString(@"3G", @"");
+    }
+    else if ([self isReachableVia4G] == YES)
+    {
+        return NSLocalizedString(@"4G", @"");
+    }
+    else if ([self isReachableViaWWAN] == YES)
+    {
+        return NSLocalizedString(@"Cellular", @"");
+    }
+    
+    else if ([self isReachableViaWiFi])
+    {
+        return NSLocalizedString(@"WiFi", @"");
+    }
+    else
+    {
+        return NSLocalizedString(@"No Connection", @"");
+    }
 }
 
 -(NSString*)currentReachabilityFlags

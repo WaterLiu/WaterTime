@@ -105,7 +105,7 @@
         _descriptionLabel.frame = CGRectMake(CGRectGetMinX(_descriptionLabel.frame), _testBtnBottomY + 10.0f, CGRectGetWidth(_descriptionLabel.frame), CGRectGetHeight(_descriptionLabel.frame));
     }
     
-    _scrollView.contentSize = CGSizeMake(_scrollView.contentSize.width, _testBtnBottomY);
+    _scrollView.contentSize = CGSizeMake(CGRectGetWidth(_scrollView.frame), _testBtnBottomY);
 }
 
 - (void)addDescriptionLable:(BOOL)isAdd
@@ -148,6 +148,10 @@
         _descriptionLabel.text = text;
         
         _scrollView.contentSize = CGSizeMake(_scrollView.contentSize.width, CGRectGetMaxY(_descriptionLabel.frame));
+        
+        
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"LOG" message:@"111" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
     }
 }
 
