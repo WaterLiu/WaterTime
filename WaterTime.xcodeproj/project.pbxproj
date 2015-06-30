@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		94813AA25079F2C971711013 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3150FADE4B9CE8450FD72602 /* libPods.a */; };
+		FD50B0F51A84C9040082A79E /* WTCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FD50B0F41A84C9040082A79E /* WTCoreDataManager.m */; };
+		FD552EDA1B2848A600E96A9B /* WTSKStoreProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD552ED91B2848A600E96A9B /* WTSKStoreProductViewController.m */; };
+		FDA12B8B1B4060CE000DA235 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA12B8A1B4060CE000DA235 /* Reachability.m */; };
+		FDA12B8F1B406202000DA235 /* WTNetworkStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA12B8E1B406202000DA235 /* WTNetworkStateViewController.m */; };
 		FDCF0A1F1A71F2A200EE1B89 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF0A1E1A71F2A200EE1B89 /* main.m */; };
 		FDCF0A221A71F2A200EE1B89 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF0A211A71F2A200EE1B89 /* AppDelegate.m */; };
-		FDCF0A251A71F2A200EE1B89 /* WaterTime.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FDCF0A231A71F2A200EE1B89 /* WaterTime.xcdatamodeld */; };
 		FDCF0A2B1A71F2A200EE1B89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDCF0A291A71F2A200EE1B89 /* Main.storyboard */; };
 		FDCF0A2D1A71F2A200EE1B89 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDCF0A2C1A71F2A200EE1B89 /* Images.xcassets */; };
 		FDCF0A301A71F2A200EE1B89 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDCF0A2E1A71F2A200EE1B89 /* LaunchScreen.xib */; };
@@ -20,7 +24,9 @@
 		FDCF0A521A722A4E00EE1B89 /* WTLayoutBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF0A511A722A4E00EE1B89 /* WTLayoutBaseViewController.m */; };
 		FDCF0A551A722A7F00EE1B89 /* WTCommonBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF0A541A722A7F00EE1B89 /* WTCommonBaseViewController.m */; };
 		FDCF0A591A72397C00EE1B89 /* WTCoreDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF0A581A72397C00EE1B89 /* WTCoreDataViewController.m */; };
-		FDCF0A5D1A724DA600EE1B89 /* WTMainTableJMPController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF0A5C1A724DA600EE1B89 /* WTMainTableJMPController.m */; };
+		FDEACA0D1B2EC94F0074258C /* WTBackgroundBlurViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEACA0C1B2EC94F0074258C /* WTBackgroundBlurViewController.m */; };
+		FDEACA101B2ECF320074258C /* WTMainTableJMPController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEACA0F1B2ECF320074258C /* WTMainTableJMPController.m */; };
+		FDEACA131B2ECF6E0074258C /* UIImage+BlurGlass.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEACA121B2ECF6E0074258C /* UIImage+BlurGlass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,12 +40,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		043C18C718179D8A07CC7C57 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		3150FADE4B9CE8450FD72602 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9835A787E2C7B42917D3A7D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		FD50B0F31A84C9040082A79E /* WTCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCoreDataManager.h; sourceTree = "<group>"; };
+		FD50B0F41A84C9040082A79E /* WTCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCoreDataManager.m; sourceTree = "<group>"; };
+		FD552ED81B2848A600E96A9B /* WTSKStoreProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSKStoreProductViewController.h; sourceTree = "<group>"; };
+		FD552ED91B2848A600E96A9B /* WTSKStoreProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSKStoreProductViewController.m; sourceTree = "<group>"; };
+		FDA12B891B4060CE000DA235 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		FDA12B8A1B4060CE000DA235 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		FDA12B8D1B406202000DA235 /* WTNetworkStateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNetworkStateViewController.h; sourceTree = "<group>"; };
+		FDA12B8E1B406202000DA235 /* WTNetworkStateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNetworkStateViewController.m; sourceTree = "<group>"; };
 		FDCF0A191A71F2A200EE1B89 /* WaterTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaterTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDCF0A1D1A71F2A200EE1B89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDCF0A1E1A71F2A200EE1B89 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FDCF0A201A71F2A200EE1B89 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FDCF0A211A71F2A200EE1B89 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		FDCF0A241A71F2A200EE1B89 /* WaterTime.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WaterTime.xcdatamodel; sourceTree = "<group>"; };
 		FDCF0A2A1A71F2A200EE1B89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FDCF0A2C1A71F2A200EE1B89 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FDCF0A2F1A71F2A200EE1B89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -48,7 +64,7 @@
 		FDCF0A3B1A71F2A200EE1B89 /* WaterTimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WaterTimeTests.m; sourceTree = "<group>"; };
 		FDCF0A461A71F34C00EE1B89 /* WTMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTMainViewController.h; sourceTree = "<group>"; };
 		FDCF0A471A71F34C00EE1B89 /* WTMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTMainViewController.m; sourceTree = "<group>"; };
-		FDCF0A4A1A721E2400EE1B89 /* MainTableShowContentList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MainTableShowContentList.plist; sourceTree = "<group>"; };
+		FDCF0A4A1A721E2400EE1B89 /* MainTableShowContentList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = MainTableShowContentList.plist; path = WaterTime/ConfigFiles/MainTableShowContentList.plist; sourceTree = "<group>"; };
 		FDCF0A4C1A721FAD00EE1B89 /* WTMainTableConfigUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTMainTableConfigUtils.h; sourceTree = "<group>"; };
 		FDCF0A4D1A721FAD00EE1B89 /* WTMainTableConfigUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTMainTableConfigUtils.m; sourceTree = "<group>"; };
 		FDCF0A501A722A4E00EE1B89 /* WTLayoutBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTLayoutBaseViewController.h; sourceTree = "<group>"; };
@@ -57,8 +73,12 @@
 		FDCF0A541A722A7F00EE1B89 /* WTCommonBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCommonBaseViewController.m; sourceTree = "<group>"; };
 		FDCF0A571A72397C00EE1B89 /* WTCoreDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCoreDataViewController.h; sourceTree = "<group>"; };
 		FDCF0A581A72397C00EE1B89 /* WTCoreDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCoreDataViewController.m; sourceTree = "<group>"; };
-		FDCF0A5B1A724DA600EE1B89 /* WTMainTableJMPController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTMainTableJMPController.h; sourceTree = "<group>"; };
-		FDCF0A5C1A724DA600EE1B89 /* WTMainTableJMPController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTMainTableJMPController.m; sourceTree = "<group>"; };
+		FDEACA0B1B2EC94F0074258C /* WTBackgroundBlurViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTBackgroundBlurViewController.h; sourceTree = "<group>"; };
+		FDEACA0C1B2EC94F0074258C /* WTBackgroundBlurViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTBackgroundBlurViewController.m; sourceTree = "<group>"; };
+		FDEACA0E1B2ECF320074258C /* WTMainTableJMPController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTMainTableJMPController.h; sourceTree = "<group>"; };
+		FDEACA0F1B2ECF320074258C /* WTMainTableJMPController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTMainTableJMPController.m; sourceTree = "<group>"; };
+		FDEACA111B2ECF6E0074258C /* UIImage+BlurGlass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BlurGlass.h"; sourceTree = "<group>"; };
+		FDEACA121B2ECF6E0074258C /* UIImage+BlurGlass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BlurGlass.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94813AA25079F2C971711013 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,12 +100,76 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0433913010F58CDA26E3FF9F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3150FADE4B9CE8450FD72602 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D8F77ECB74CDB5C08EBFF820 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				043C18C718179D8A07CC7C57 /* Pods.debug.xcconfig */,
+				A9835A787E2C7B42917D3A7D /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FD552ED71B28482C00E96A9B /* SystemService */ = {
+			isa = PBXGroup;
+			children = (
+				FD552ED81B2848A600E96A9B /* WTSKStoreProductViewController.h */,
+				FD552ED91B2848A600E96A9B /* WTSKStoreProductViewController.m */,
+			);
+			name = SystemService;
+			path = WaterTime/UI/SystemService;
+			sourceTree = SOURCE_ROOT;
+		};
+		FDA12B861B40609A000DA235 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				FDA12B871B4060CE000DA235 /* Network */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		FDA12B871B4060CE000DA235 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				FDA12B881B4060CE000DA235 /* NetState */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		FDA12B881B4060CE000DA235 /* NetState */ = {
+			isa = PBXGroup;
+			children = (
+				FDA12B891B4060CE000DA235 /* Reachability.h */,
+				FDA12B8A1B4060CE000DA235 /* Reachability.m */,
+			);
+			path = NetState;
+			sourceTree = "<group>";
+		};
+		FDA12B8C1B406197000DA235 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				FDA12B8D1B406202000DA235 /* WTNetworkStateViewController.h */,
+				FDA12B8E1B406202000DA235 /* WTNetworkStateViewController.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		FDCF0A101A71F2A200EE1B89 = {
 			isa = PBXGroup;
 			children = (
+				FDCF0A4A1A721E2400EE1B89 /* MainTableShowContentList.plist */,
 				FDCF0A1B1A71F2A200EE1B89 /* WaterTime */,
 				FDCF0A381A71F2A200EE1B89 /* WaterTimeTests */,
 				FDCF0A1A1A71F2A200EE1B89 /* Products */,
+				D8F77ECB74CDB5C08EBFF820 /* Pods */,
+				0433913010F58CDA26E3FF9F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,12 +187,12 @@
 			children = (
 				FDCF0A491A721DE300EE1B89 /* ConfigFiles */,
 				FDCF0A451A71F33200EE1B89 /* UI */,
+				FDA12B861B40609A000DA235 /* Foundation */,
 				FDCF0A201A71F2A200EE1B89 /* AppDelegate.h */,
 				FDCF0A211A71F2A200EE1B89 /* AppDelegate.m */,
 				FDCF0A291A71F2A200EE1B89 /* Main.storyboard */,
 				FDCF0A2C1A71F2A200EE1B89 /* Images.xcassets */,
 				FDCF0A2E1A71F2A200EE1B89 /* LaunchScreen.xib */,
-				FDCF0A231A71F2A200EE1B89 /* WaterTime.xcdatamodeld */,
 				FDCF0A1C1A71F2A200EE1B89 /* Supporting Files */,
 			);
 			path = WaterTime;
@@ -145,6 +230,9 @@
 				FDCF0A5A1A724D2600EE1B89 /* Utilities */,
 				FDCF0A4F1A722A0F00EE1B89 /* Abstract */,
 				FDCF0A561A72395900EE1B89 /* CoreData */,
+				FD552ED71B28482C00E96A9B /* SystemService */,
+				FDEACA0A1B2EC8B90074258C /* UI */,
+				FDA12B8C1B406197000DA235 /* Network */,
 				FDCF0A461A71F34C00EE1B89 /* WTMainViewController.h */,
 				FDCF0A471A71F34C00EE1B89 /* WTMainViewController.m */,
 			);
@@ -154,7 +242,8 @@
 		FDCF0A491A721DE300EE1B89 /* ConfigFiles */ = {
 			isa = PBXGroup;
 			children = (
-				FDCF0A4A1A721E2400EE1B89 /* MainTableShowContentList.plist */,
+				FDEACA0E1B2ECF320074258C /* WTMainTableJMPController.h */,
+				FDEACA0F1B2ECF320074258C /* WTMainTableJMPController.m */,
 				FDCF0A4C1A721FAD00EE1B89 /* WTMainTableConfigUtils.h */,
 				FDCF0A4D1A721FAD00EE1B89 /* WTMainTableConfigUtils.m */,
 			);
@@ -177,6 +266,8 @@
 			children = (
 				FDCF0A571A72397C00EE1B89 /* WTCoreDataViewController.h */,
 				FDCF0A581A72397C00EE1B89 /* WTCoreDataViewController.m */,
+				FD50B0F31A84C9040082A79E /* WTCoreDataManager.h */,
+				FD50B0F41A84C9040082A79E /* WTCoreDataManager.m */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -184,11 +275,21 @@
 		FDCF0A5A1A724D2600EE1B89 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				FDCF0A5B1A724DA600EE1B89 /* WTMainTableJMPController.h */,
-				FDCF0A5C1A724DA600EE1B89 /* WTMainTableJMPController.m */,
+				FDEACA111B2ECF6E0074258C /* UIImage+BlurGlass.h */,
+				FDEACA121B2ECF6E0074258C /* UIImage+BlurGlass.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
+		};
+		FDEACA0A1B2EC8B90074258C /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				FDEACA0B1B2EC94F0074258C /* WTBackgroundBlurViewController.h */,
+				FDEACA0C1B2EC94F0074258C /* WTBackgroundBlurViewController.m */,
+			);
+			name = UI;
+			path = WaterTime/UI/UI;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -197,9 +298,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FDCF0A3F1A71F2A200EE1B89 /* Build configuration list for PBXNativeTarget "WaterTime" */;
 			buildPhases = (
+				CF55173481D310822D39A649 /* Check Pods Manifest.lock */,
 				FDCF0A151A71F2A200EE1B89 /* Sources */,
 				FDCF0A161A71F2A200EE1B89 /* Frameworks */,
 				FDCF0A171A71F2A200EE1B89 /* Resources */,
+				846C0216557E00EFAEFE9B80 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -239,6 +342,12 @@
 				TargetAttributes = {
 					FDCF0A181A71F2A200EE1B89 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = H45946P5A7;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 					FDCF0A341A71F2A200EE1B89 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -286,20 +395,58 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		846C0216557E00EFAEFE9B80 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF55173481D310822D39A649 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FDCF0A151A71F2A200EE1B89 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDA12B8B1B4060CE000DA235 /* Reachability.m in Sources */,
 				FDCF0A481A71F34C00EE1B89 /* WTMainViewController.m in Sources */,
+				FDEACA131B2ECF6E0074258C /* UIImage+BlurGlass.m in Sources */,
 				FDCF0A4E1A721FAD00EE1B89 /* WTMainTableConfigUtils.m in Sources */,
+				FDA12B8F1B406202000DA235 /* WTNetworkStateViewController.m in Sources */,
 				FDCF0A591A72397C00EE1B89 /* WTCoreDataViewController.m in Sources */,
+				FDEACA101B2ECF320074258C /* WTMainTableJMPController.m in Sources */,
+				FDEACA0D1B2EC94F0074258C /* WTBackgroundBlurViewController.m in Sources */,
 				FDCF0A551A722A7F00EE1B89 /* WTCommonBaseViewController.m in Sources */,
+				FD552EDA1B2848A600E96A9B /* WTSKStoreProductViewController.m in Sources */,
 				FDCF0A221A71F2A200EE1B89 /* AppDelegate.m in Sources */,
+				FD50B0F51A84C9040082A79E /* WTCoreDataManager.m in Sources */,
 				FDCF0A1F1A71F2A200EE1B89 /* main.m in Sources */,
 				FDCF0A521A722A4E00EE1B89 /* WTLayoutBaseViewController.m in Sources */,
-				FDCF0A251A71F2A200EE1B89 /* WaterTime.xcdatamodeld in Sources */,
-				FDCF0A5D1A724DA600EE1B89 /* WTMainTableJMPController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,23 +566,35 @@
 		};
 		FDCF0A401A71F2A200EE1B89 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 043C18C718179D8A07CC7C57 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = WaterTime/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
 		FDCF0A411A71F2A200EE1B89 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9835A787E2C7B42917D3A7D /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = WaterTime/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -504,19 +663,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		FDCF0A231A71F2A200EE1B89 /* WaterTime.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				FDCF0A241A71F2A200EE1B89 /* WaterTime.xcdatamodel */,
-			);
-			currentVersion = FDCF0A241A71F2A200EE1B89 /* WaterTime.xcdatamodel */;
-			path = WaterTime.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = FDCF0A111A71F2A200EE1B89 /* Project object */;
 }

@@ -50,9 +50,22 @@
 
 #pragma mark - UITableViewDataSource
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return [[[WTMainTableConfigUtils currentConfig] keys] count];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSString* key = [[[WTMainTableConfigUtils currentConfig] keys] objectAtIndex:section];
+    return [[[WTMainTableConfigUtils currentConfig] valuesForKey:key] count];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString* key = [[[WTMainTableConfigUtils currentConfig] keys] objectAtIndex:section];
+    NSString* sectionTitle = key;
+    return sectionTitle;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -65,11 +78,11 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:tableViewCellID];
     }
     
-    NSArray* keys = [[WTMainTableConfigUtils currentConfig] keys];
+    NSString* key = [[[WTMainTableConfigUtils currentConfig] keys] objectAtIndex:indexPath.section];
     
-    if (indexPath.row < [keys count])
+    if (indexPath.row < [[[WTMainTableConfigUtils currentConfig] valuesForKey:key] count])
     {
-        cell.textLabel.text = [keys objectAtIndex:indexPath.row];
+        cell.textLabel.text = [[[WTMainTableConfigUtils currentConfig] valuesForKey:key] objectAtIndex:indexPath.row];
     }
     
     return cell;
@@ -84,8 +97,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString* key = [[[WTMainTableConfigUtils currentConfig] keys] objectAtIndex:indexPath.row];
-    [WTMainTableJMPController jumpViewControllerWithKey:key withNavigationController:self.navigationController];
+    NSString* key = [[[WTMainTableConfigUtils currentConfig] keys] objectAtIndex:indexPath.section];
+    NSString* value = [[[WTMainTableConfigUtils currentConfig] valuesForKey:key] objectAtIndex:indexPath.row];
+    [WTMainTableJMPController jumpViewControllerWithKey:key
+                                              withValue:value
+                               withNavigationController:self.navigationController];
 }
 
 
