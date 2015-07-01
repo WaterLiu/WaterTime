@@ -20,6 +20,9 @@
 //Network
 #import "WTNetworkStateViewController.h"
 
+//BaseService
+#import "WTCrashReportViewController.h"
+
 @implementation WTMainTableJMPController
 
 + (void)jumpViewControllerWithKey:(NSString*)key
@@ -78,6 +81,21 @@
         if ([value isEqualToString:@"NetState"])
         {
             vc = [[WTNetworkStateViewController alloc] initWithNibName:nil bundle:nil];
+        }
+        else if ([value isEqualToString:@" "])
+        {
+            
+        }
+        else
+        {
+            
+        }
+    }
+    else if ([key isEqual:@"BaseService"] == YES)
+    {
+        if ([value isEqualToString:@"CrashReport"])
+        {
+            vc = [[WTCrashReportViewController alloc] initWithNibName:nil bundle:nil];
         }
         else if ([value isEqualToString:@" "])
         {

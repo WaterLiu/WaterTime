@@ -36,9 +36,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
     [self addShowTestButtons:@[@"CurrentNetSatate"]];
     [self setDescriptionText:@"Reachability.h"];
+    
+    _descriptionLabel.textAlignment = NSTextAlignmentCenter;
     
     __weak id tempSelf = self;
     
@@ -51,6 +52,17 @@
             }
         });
     };
+    
+    _reachability.unreachableBlock = ^(Reachability* reachability)
+    {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (reachability != nil)
+            {
+                [tempSelf setDescriptionText:[reachability currentReachabilityString]];
+            }
+        });
+    };
+    
     [_reachability startNotifier];
 }
 
