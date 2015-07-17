@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		94813AA25079F2C971711013 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3150FADE4B9CE8450FD72602 /* libPods.a */; };
+		FD14E2521B58FF06004EB769 /* WTTakeScreenShotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD14E2511B58FF06004EB769 /* WTTakeScreenShotViewController.m */; };
+		FD196C201B4532CC0026CD9A /* WTTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD196C1F1B4532CC0026CD9A /* WTTestViewController.m */; };
+		FD196C231B4533710026CD9A /* WTWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD196C221B4533710026CD9A /* WTWebView.m */; };
 		FD50B0F51A84C9040082A79E /* WTCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FD50B0F41A84C9040082A79E /* WTCoreDataManager.m */; };
 		FD552EDA1B2848A600E96A9B /* WTSKStoreProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD552ED91B2848A600E96A9B /* WTSKStoreProductViewController.m */; };
 		FD69C31D1B428F3E00C2A715 /* WTCrashReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD69C31C1B428F3E00C2A715 /* WTCrashReportViewController.m */; };
@@ -44,6 +47,12 @@
 		043C18C718179D8A07CC7C57 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		3150FADE4B9CE8450FD72602 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9835A787E2C7B42917D3A7D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		FD14E2501B58FF06004EB769 /* WTTakeScreenShotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTTakeScreenShotViewController.h; sourceTree = "<group>"; };
+		FD14E2511B58FF06004EB769 /* WTTakeScreenShotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTTakeScreenShotViewController.m; sourceTree = "<group>"; };
+		FD196C1E1B4532CC0026CD9A /* WTTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTTestViewController.h; sourceTree = "<group>"; };
+		FD196C1F1B4532CC0026CD9A /* WTTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTTestViewController.m; sourceTree = "<group>"; };
+		FD196C211B4533710026CD9A /* WTWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTWebView.h; sourceTree = "<group>"; };
+		FD196C221B4533710026CD9A /* WTWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTWebView.m; sourceTree = "<group>"; };
 		FD50B0F31A84C9040082A79E /* WTCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCoreDataManager.h; sourceTree = "<group>"; };
 		FD50B0F41A84C9040082A79E /* WTCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCoreDataManager.m; sourceTree = "<group>"; };
 		FD552ED81B2848A600E96A9B /* WTSKStoreProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSKStoreProductViewController.h; sourceTree = "<group>"; };
@@ -125,6 +134,8 @@
 			children = (
 				FD552ED81B2848A600E96A9B /* WTSKStoreProductViewController.h */,
 				FD552ED91B2848A600E96A9B /* WTSKStoreProductViewController.m */,
+				FD14E2501B58FF06004EB769 /* WTTakeScreenShotViewController.h */,
+				FD14E2511B58FF06004EB769 /* WTTakeScreenShotViewController.m */,
 			);
 			name = SystemService;
 			path = WaterTime/UI/SystemService;
@@ -300,6 +311,10 @@
 			children = (
 				FDEACA0B1B2EC94F0074258C /* WTBackgroundBlurViewController.h */,
 				FDEACA0C1B2EC94F0074258C /* WTBackgroundBlurViewController.m */,
+				FD196C1E1B4532CC0026CD9A /* WTTestViewController.h */,
+				FD196C1F1B4532CC0026CD9A /* WTTestViewController.m */,
+				FD196C211B4533710026CD9A /* WTWebView.h */,
+				FD196C221B4533710026CD9A /* WTWebView.m */,
 			);
 			name = UI;
 			path = WaterTime/UI/UI;
@@ -456,8 +471,11 @@
 				FDCF0A591A72397C00EE1B89 /* WTCoreDataViewController.m in Sources */,
 				FDEACA101B2ECF320074258C /* WTMainTableJMPController.m in Sources */,
 				FDEACA0D1B2EC94F0074258C /* WTBackgroundBlurViewController.m in Sources */,
+				FD196C231B4533710026CD9A /* WTWebView.m in Sources */,
 				FDCF0A551A722A7F00EE1B89 /* WTCommonBaseViewController.m in Sources */,
 				FD552EDA1B2848A600E96A9B /* WTSKStoreProductViewController.m in Sources */,
+				FD14E2521B58FF06004EB769 /* WTTakeScreenShotViewController.m in Sources */,
+				FD196C201B4532CC0026CD9A /* WTTestViewController.m in Sources */,
 				FDCF0A221A71F2A200EE1B89 /* AppDelegate.m in Sources */,
 				FD50B0F51A84C9040082A79E /* WTCoreDataManager.m in Sources */,
 				FDCF0A1F1A71F2A200EE1B89 /* main.m in Sources */,

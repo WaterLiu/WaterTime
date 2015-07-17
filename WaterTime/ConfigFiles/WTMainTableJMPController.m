@@ -13,9 +13,11 @@
 
 //SystemService
 #import "WTSKStoreProductViewController.h"
+#import "WTTakeScreenShotViewController.h"
 
 //UI
 #import "WTBackgroundBlurViewController.h"
+#import "WTTestViewController.h"
 
 //Network
 #import "WTNetworkStateViewController.h"
@@ -52,9 +54,9 @@
         {
             vc = [[WTSKStoreProductViewController alloc] initWithNibName:nil bundle:nil];
         }
-        else if ([value isEqualToString:@" "])
+        else if ([value isEqualToString:@"TakeScreenShot"])
         {
-            
+            vc = [[WTTakeScreenShotViewController alloc] initWithNibName:nil bundle:nil];
         }
         else
         {
@@ -67,9 +69,9 @@
         {
             vc = [[WTBackgroundBlurViewController alloc] initWithNibName:nil bundle:nil];
         }
-        else if ([value isEqualToString:@" "])
+        else if ([value isEqualToString:@"Test"])
         {
-            
+            vc = [[WTTestViewController alloc] initWithNibName:nil bundle:nil];
         }
         else
         {

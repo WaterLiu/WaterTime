@@ -8,6 +8,7 @@
 
 #import "WTBackgroundBlurViewController.h"
 #import "UIImage+BlurGlass.h"
+#import <CoreData/CoreData.h>
 
 #define WTBackgroundBlurViewController_EEffectTag   19999
 #define screenWidth                                 ([UIScreen mainScreen].bounds.size.width)
@@ -28,6 +29,10 @@
     
     [self addShowTestButtons:@[@"开启后台模糊效果"]];
     [self setDescriptionText:@"只需要把模糊效果添加到：\n AppDelegate: - (void)applicationWillResignActive:(UIApplication *)application; \n 该借口可以在后台任务查看窗口激活，使其在多任务界面可以出现模糊效果（多任务窗口：两下home 键）"];
+    
+
+    
+
 }
 
 - (void)didReceiveMemoryWarning

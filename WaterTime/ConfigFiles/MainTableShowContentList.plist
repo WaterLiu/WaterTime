@@ -10,6 +10,7 @@
 	<key>SystemService</key>
 	<array>
 		<string>AppStore</string>
+		<string>TakeScreenShot</string>
 	</array>
 	<key>Network</key>
 	<array>
