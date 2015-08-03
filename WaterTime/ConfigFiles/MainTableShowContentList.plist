@@ -9,6 +9,7 @@
 	</array>
 	<key>SystemService</key>
 	<array>
+		<string>LocalAuthentication</string>
 		<string>AppStore</string>
 		<string>TakeScreenShot</string>
 	</array>

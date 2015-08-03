@@ -14,6 +14,7 @@
 //SystemService
 #import "WTSKStoreProductViewController.h"
 #import "WTTakeScreenShotViewController.h"
+#import "WTLocalAuthenticationViewController.h"
 
 //UI
 #import "WTBackgroundBlurViewController.h"
@@ -57,6 +58,10 @@
         else if ([value isEqualToString:@"TakeScreenShot"])
         {
             vc = [[WTTakeScreenShotViewController alloc] initWithNibName:nil bundle:nil];
+        }
+        else if ([value isEqualToString:@"LocalAuthentication"])
+        {
+            vc = [[WTLocalAuthenticationViewController alloc] initWithNibName:nil bundle:nil];
         }
         else
         {
