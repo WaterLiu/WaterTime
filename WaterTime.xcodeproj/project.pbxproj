@@ -15,6 +15,7 @@
 		FD552EDA1B2848A600E96A9B /* WTSKStoreProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD552ED91B2848A600E96A9B /* WTSKStoreProductViewController.m */; };
 		FD69C31D1B428F3E00C2A715 /* WTCrashReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD69C31C1B428F3E00C2A715 /* WTCrashReportViewController.m */; };
 		FD760B2E1B6A33C700219284 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD760B2C1B6A33C700219284 /* LaunchScreen.xib */; };
+		FD976CAC1B79F024005CE35D /* WTURLProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD976CAB1B79F024005CE35D /* WTURLProtocolViewController.m */; };
 		FDA12B8B1B4060CE000DA235 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA12B8A1B4060CE000DA235 /* Reachability.m */; };
 		FDA12B8F1B406202000DA235 /* WTNetworkStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA12B8E1B406202000DA235 /* WTNetworkStateViewController.m */; };
 		FDCF0A1F1A71F2A200EE1B89 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF0A1E1A71F2A200EE1B89 /* main.m */; };
@@ -61,6 +62,8 @@
 		FD69C31B1B428F3E00C2A715 /* WTCrashReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCrashReportViewController.h; sourceTree = "<group>"; };
 		FD69C31C1B428F3E00C2A715 /* WTCrashReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCrashReportViewController.m; sourceTree = "<group>"; };
 		FD760B2D1B6A33C700219284 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		FD976CAA1B79F024005CE35D /* WTURLProtocolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTURLProtocolViewController.h; sourceTree = "<group>"; };
+		FD976CAB1B79F024005CE35D /* WTURLProtocolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTURLProtocolViewController.m; sourceTree = "<group>"; };
 		FDA12B891B4060CE000DA235 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		FDA12B8A1B4060CE000DA235 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		FDA12B8D1B406202000DA235 /* WTNetworkStateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNetworkStateViewController.h; sourceTree = "<group>"; };
@@ -186,6 +189,8 @@
 			children = (
 				FDA12B8D1B406202000DA235 /* WTNetworkStateViewController.h */,
 				FDA12B8E1B406202000DA235 /* WTNetworkStateViewController.m */,
+				FD976CAA1B79F024005CE35D /* WTURLProtocolViewController.h */,
+				FD976CAB1B79F024005CE35D /* WTURLProtocolViewController.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -486,6 +491,7 @@
 				FD50B0F51A84C9040082A79E /* WTCoreDataManager.m in Sources */,
 				FDCF0A1F1A71F2A200EE1B89 /* main.m in Sources */,
 				FDCF0A521A722A4E00EE1B89 /* WTLayoutBaseViewController.m in Sources */,
+				FD976CAC1B79F024005CE35D /* WTURLProtocolViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

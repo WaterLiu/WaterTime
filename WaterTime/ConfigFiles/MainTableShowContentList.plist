@@ -16,6 +16,7 @@
 	<key>Network</key>
 	<array>
 		<string>NetState</string>
+		<string>NSURLProtocol</string>
 	</array>
 	<key>BaseService</key>
 	<array>

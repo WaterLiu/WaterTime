@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-KSCrash.xcscheme</key>
+		<key>KSCrash.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -17,12 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1A2622ED0C9FA20F0215F900</key>
+		<key>9B2CFD829416F6CC03E7EC24CAF7C26C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A7D6F1575152E23B93C081DC</key>
+		<key>B5DEC226883E62A52274CA7F244AA51F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
