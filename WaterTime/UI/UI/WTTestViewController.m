@@ -8,6 +8,7 @@
 
 #import "WTTestViewController.h"
 #import "WTWebView.h"
+#import "GIFDownloader.h"
 
 @interface WTTestViewController ()
 {

@@ -18,6 +18,7 @@
 		FD976CAC1B79F024005CE35D /* WTURLProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD976CAB1B79F024005CE35D /* WTURLProtocolViewController.m */; };
 		FDA12B8B1B4060CE000DA235 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA12B8A1B4060CE000DA235 /* Reachability.m */; };
 		FDA12B8F1B406202000DA235 /* WTNetworkStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA12B8E1B406202000DA235 /* WTNetworkStateViewController.m */; };
+		FDBD3CDC1C033B1F000E5439 /* GIFDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBD3CDB1C033B1F000E5439 /* GIFDownloader.m */; };
 		FDCF0A1F1A71F2A200EE1B89 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF0A1E1A71F2A200EE1B89 /* main.m */; };
 		FDCF0A221A71F2A200EE1B89 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF0A211A71F2A200EE1B89 /* AppDelegate.m */; };
 		FDCF0A2B1A71F2A200EE1B89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDCF0A291A71F2A200EE1B89 /* Main.storyboard */; };
@@ -68,6 +69,8 @@
 		FDA12B8A1B4060CE000DA235 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		FDA12B8D1B406202000DA235 /* WTNetworkStateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNetworkStateViewController.h; sourceTree = "<group>"; };
 		FDA12B8E1B406202000DA235 /* WTNetworkStateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNetworkStateViewController.m; sourceTree = "<group>"; };
+		FDBD3CDA1C033B1F000E5439 /* GIFDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIFDownloader.h; sourceTree = "<group>"; };
+		FDBD3CDB1C033B1F000E5439 /* GIFDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIFDownloader.m; sourceTree = "<group>"; };
 		FDCF0A191A71F2A200EE1B89 /* WaterTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaterTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDCF0A1D1A71F2A200EE1B89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDCF0A1E1A71F2A200EE1B89 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -195,6 +198,15 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		FDBD3CD91C033B1F000E5439 /* TestFinder */ = {
+			isa = PBXGroup;
+			children = (
+				FDBD3CDA1C033B1F000E5439 /* GIFDownloader.h */,
+				FDBD3CDB1C033B1F000E5439 /* GIFDownloader.m */,
+			);
+			path = TestFinder;
+			sourceTree = "<group>";
+		};
 		FDCF0A101A71F2A200EE1B89 = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +331,7 @@
 		FDEACA0A1B2EC8B90074258C /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				FDBD3CD91C033B1F000E5439 /* TestFinder */,
 				FDEACA0B1B2EC94F0074258C /* WTBackgroundBlurViewController.h */,
 				FDEACA0C1B2EC94F0074258C /* WTBackgroundBlurViewController.m */,
 				FD196C1E1B4532CC0026CD9A /* WTTestViewController.h */,
@@ -480,6 +493,7 @@
 				FD69C31D1B428F3E00C2A715 /* WTCrashReportViewController.m in Sources */,
 				FDCF0A591A72397C00EE1B89 /* WTCoreDataViewController.m in Sources */,
 				FDEACA101B2ECF320074258C /* WTMainTableJMPController.m in Sources */,
+				FDBD3CDC1C033B1F000E5439 /* GIFDownloader.m in Sources */,
 				FDEACA0D1B2EC94F0074258C /* WTBackgroundBlurViewController.m in Sources */,
 				FD196C231B4533710026CD9A /* WTWebView.m in Sources */,
 				FDCF0A551A722A7F00EE1B89 /* WTCommonBaseViewController.m in Sources */,
