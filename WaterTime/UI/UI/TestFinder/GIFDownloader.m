@@ -10,7 +10,9 @@
 
 #import <AVFoundation/AVFoundation.h>
 #import <ImageIO/ImageIO.h>
-#import <MobileCoreServices/MobileCoreServices.h>
+#import <MobileCoreServices/MobileCoreServices.h> 
+#import <UIKit/UIKit.h>
+
 
 #define FPS 30
 
@@ -228,8 +230,8 @@ static __strong NSMutableArray* requests = nil;
                         [[NSFileManager defaultManager] removeItemAtPath: thumbFilePath error: nil];
                     }
                     
-                    UIImage* img = [UIImage imageWithCGImage: imgRef];
-                    [UIImagePNGRepresentation(img) writeToFile: thumbFilePath atomically: YES];
+                    UIImage* img = [UIImage imageWithCGImage:imgRef];
+                    [UIImagePNGRepresentation(img) writeToFile:thumbFilePath atomically:YES];
                 }
                 
                 if( gifProperties ) {
@@ -242,7 +244,7 @@ static __strong NSMutableArray* requests = nil;
                         CMTime time = CMTimeMakeWithSeconds(totalFrameDelay, FPS);
                         
                         if( ![adaptor appendPixelBuffer: pxBuffer withPresentationTime: time] ) {
-                            TFLog(@"Could not save pixel buffer!: %@", videoWriter.error);
+//                            TFLog(@"Could not save pixel buffer!: %@", videoWriter.error);
                             CFRelease(properties);
                             CGImageRelease(imgRef);
                             CVBufferRelease(pxBuffer);
