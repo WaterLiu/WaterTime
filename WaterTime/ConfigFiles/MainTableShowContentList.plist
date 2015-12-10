@@ -26,5 +26,9 @@
 	<array>
 		<string>Basic</string>
 	</array>
+	<key>CoreVideo</key>
+	<array>
+		<string>CoreVideo(GIF to Video)</string>
+	</array>
 </dict>
 </plist>

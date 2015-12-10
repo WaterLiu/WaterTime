@@ -27,6 +27,9 @@
 //BaseService
 #import "WTCrashReportViewController.h"
 
+//CoreVideo
+#import "WTCoreVideoViewController.h"
+
 @implementation WTMainTableJMPController
 
 + (void)jumpViewControllerWithKey:(NSString*)key
@@ -104,6 +107,21 @@
         if ([value isEqualToString:@"CrashReport"])
         {
             vc = [[WTCrashReportViewController alloc] initWithNibName:nil bundle:nil];
+        }
+        else if ([value isEqualToString:@" "])
+        {
+            
+        }
+        else
+        {
+            
+        }
+    }
+    else if ([key isEqual:@"CoreVideo"] == YES)
+    {
+        if ([value isEqualToString:@"CoreVideo(GIF to Video)"])
+        {
+            vc = [[WTCoreVideoViewController alloc] initWithNibName:nil bundle:nil];
         }
         else if ([value isEqualToString:@" "])
         {

@@ -31,6 +31,7 @@
 		FDCF0A551A722A7F00EE1B89 /* WTCommonBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF0A541A722A7F00EE1B89 /* WTCommonBaseViewController.m */; };
 		FDCF0A591A72397C00EE1B89 /* WTCoreDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF0A581A72397C00EE1B89 /* WTCoreDataViewController.m */; };
 		FDDAE55B1B6F71B70035D462 /* WTLocalAuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDAE55A1B6F71B70035D462 /* WTLocalAuthenticationViewController.m */; };
+		FDDC58E31C1988230070E578 /* WTCoreVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDC58E21C1988230070E578 /* WTCoreVideoViewController.m */; };
 		FDEACA0D1B2EC94F0074258C /* WTBackgroundBlurViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEACA0C1B2EC94F0074258C /* WTBackgroundBlurViewController.m */; };
 		FDEACA101B2ECF320074258C /* WTMainTableJMPController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEACA0F1B2ECF320074258C /* WTMainTableJMPController.m */; };
 		FDEACA131B2ECF6E0074258C /* UIImage+BlurGlass.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEACA121B2ECF6E0074258C /* UIImage+BlurGlass.m */; };
@@ -69,8 +70,8 @@
 		FDA12B8A1B4060CE000DA235 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		FDA12B8D1B406202000DA235 /* WTNetworkStateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNetworkStateViewController.h; sourceTree = "<group>"; };
 		FDA12B8E1B406202000DA235 /* WTNetworkStateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNetworkStateViewController.m; sourceTree = "<group>"; };
-		FDBD3CDA1C033B1F000E5439 /* GIFDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIFDownloader.h; sourceTree = "<group>"; };
-		FDBD3CDB1C033B1F000E5439 /* GIFDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIFDownloader.m; sourceTree = "<group>"; };
+		FDBD3CDA1C033B1F000E5439 /* GIFDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIFDownloader.h; path = ../UI/TestFinder/GIFDownloader.h; sourceTree = "<group>"; };
+		FDBD3CDB1C033B1F000E5439 /* GIFDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIFDownloader.m; path = ../UI/TestFinder/GIFDownloader.m; sourceTree = "<group>"; };
 		FDCF0A191A71F2A200EE1B89 /* WaterTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaterTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDCF0A1D1A71F2A200EE1B89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDCF0A1E1A71F2A200EE1B89 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -94,6 +95,8 @@
 		FDCF0A581A72397C00EE1B89 /* WTCoreDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCoreDataViewController.m; sourceTree = "<group>"; };
 		FDDAE5591B6F71B70035D462 /* WTLocalAuthenticationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTLocalAuthenticationViewController.h; sourceTree = "<group>"; };
 		FDDAE55A1B6F71B70035D462 /* WTLocalAuthenticationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTLocalAuthenticationViewController.m; sourceTree = "<group>"; };
+		FDDC58E11C1988230070E578 /* WTCoreVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCoreVideoViewController.h; sourceTree = "<group>"; };
+		FDDC58E21C1988230070E578 /* WTCoreVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCoreVideoViewController.m; sourceTree = "<group>"; };
 		FDEACA0B1B2EC94F0074258C /* WTBackgroundBlurViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTBackgroundBlurViewController.h; sourceTree = "<group>"; };
 		FDEACA0C1B2EC94F0074258C /* WTBackgroundBlurViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTBackgroundBlurViewController.m; sourceTree = "<group>"; };
 		FDEACA0E1B2ECF320074258C /* WTMainTableJMPController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTMainTableJMPController.h; sourceTree = "<group>"; };
@@ -201,8 +204,6 @@
 		FDBD3CD91C033B1F000E5439 /* TestFinder */ = {
 			isa = PBXGroup;
 			children = (
-				FDBD3CDA1C033B1F000E5439 /* GIFDownloader.h */,
-				FDBD3CDB1C033B1F000E5439 /* GIFDownloader.m */,
 			);
 			path = TestFinder;
 			sourceTree = "<group>";
@@ -274,6 +275,7 @@
 			children = (
 				FDCF0A5A1A724D2600EE1B89 /* Utilities */,
 				FDCF0A4F1A722A0F00EE1B89 /* Abstract */,
+				FDDC58E01C1987DF0070E578 /* CoreVideo */,
 				FDCF0A561A72395900EE1B89 /* CoreData */,
 				FD552ED71B28482C00E96A9B /* SystemService */,
 				FDEACA0A1B2EC8B90074258C /* UI */,
@@ -326,6 +328,17 @@
 				FDEACA121B2ECF6E0074258C /* UIImage+BlurGlass.m */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		FDDC58E01C1987DF0070E578 /* CoreVideo */ = {
+			isa = PBXGroup;
+			children = (
+				FDBD3CDA1C033B1F000E5439 /* GIFDownloader.h */,
+				FDBD3CDB1C033B1F000E5439 /* GIFDownloader.m */,
+				FDDC58E11C1988230070E578 /* WTCoreVideoViewController.h */,
+				FDDC58E21C1988230070E578 /* WTCoreVideoViewController.m */,
+			);
+			path = CoreVideo;
 			sourceTree = "<group>";
 		};
 		FDEACA0A1B2EC8B90074258C /* UI */ = {
@@ -499,6 +512,7 @@
 				FDCF0A551A722A7F00EE1B89 /* WTCommonBaseViewController.m in Sources */,
 				FD552EDA1B2848A600E96A9B /* WTSKStoreProductViewController.m in Sources */,
 				FD14E2521B58FF06004EB769 /* WTTakeScreenShotViewController.m in Sources */,
+				FDDC58E31C1988230070E578 /* WTCoreVideoViewController.m in Sources */,
 				FDDAE55B1B6F71B70035D462 /* WTLocalAuthenticationViewController.m in Sources */,
 				FD196C201B4532CC0026CD9A /* WTTestViewController.m in Sources */,
 				FDCF0A221A71F2A200EE1B89 /* AppDelegate.m in Sources */,

@@ -27,7 +27,9 @@
     NSString *docDir = [paths objectAtIndex:0];
     NSString* path = [docDir stringByAppendingString:@"/test.mp4"];
     
-    [GIFDownloader sendAsynchronousRequest:@"http://img.newyx.net/news_img/201306/20/1371714170_1812223777.gif" downloadFilePath:path thumbnailFilePath:nil completed:^(NSString *outputFilePath, NSError *error) {
+    
+    //http://img.newyx.net/news_img/201306/20/1371714170_1812223777.gif
+    [GIFDownloader sendAsynchronousRequest:@"http://g.hiphotos.baidu.com/zhidao/wh%3D600%2C800/sign=8761ab575b82b2b7a7ca31c2019de7d7/622762d0f703918f86c90e99533d269759eec44c.jpg" downloadFilePath:path thumbnailFilePath:nil completed:^(NSString *outputFilePath, NSError *error) {
        
         NSLog(@"outputFilePath = %@", outputFilePath);
         
