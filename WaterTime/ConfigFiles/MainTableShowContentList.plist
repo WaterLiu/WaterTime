@@ -6,6 +6,7 @@
 	<array>
 		<string>Test</string>
 		<string>BackgroundBlur</string>
+		<string>Font</string>
 	</array>
 	<key>SystemService</key>
 	<array>

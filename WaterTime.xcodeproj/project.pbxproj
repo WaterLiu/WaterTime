@@ -15,6 +15,7 @@
 		FD552EDA1B2848A600E96A9B /* WTSKStoreProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD552ED91B2848A600E96A9B /* WTSKStoreProductViewController.m */; };
 		FD69C31D1B428F3E00C2A715 /* WTCrashReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD69C31C1B428F3E00C2A715 /* WTCrashReportViewController.m */; };
 		FD760B2E1B6A33C700219284 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD760B2C1B6A33C700219284 /* LaunchScreen.xib */; };
+		FD7EBCE71C1ED5F5007C479D /* WTFontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7EBCE61C1ED5F5007C479D /* WTFontViewController.m */; };
 		FD976CAC1B79F024005CE35D /* WTURLProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD976CAB1B79F024005CE35D /* WTURLProtocolViewController.m */; };
 		FDA12B8B1B4060CE000DA235 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA12B8A1B4060CE000DA235 /* Reachability.m */; };
 		FDA12B8F1B406202000DA235 /* WTNetworkStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA12B8E1B406202000DA235 /* WTNetworkStateViewController.m */; };
@@ -64,6 +65,8 @@
 		FD69C31B1B428F3E00C2A715 /* WTCrashReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCrashReportViewController.h; sourceTree = "<group>"; };
 		FD69C31C1B428F3E00C2A715 /* WTCrashReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCrashReportViewController.m; sourceTree = "<group>"; };
 		FD760B2D1B6A33C700219284 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		FD7EBCE51C1ED5F5007C479D /* WTFontViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTFontViewController.h; sourceTree = "<group>"; };
+		FD7EBCE61C1ED5F5007C479D /* WTFontViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTFontViewController.m; sourceTree = "<group>"; };
 		FD976CAA1B79F024005CE35D /* WTURLProtocolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTURLProtocolViewController.h; sourceTree = "<group>"; };
 		FD976CAB1B79F024005CE35D /* WTURLProtocolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTURLProtocolViewController.m; sourceTree = "<group>"; };
 		FDA12B891B4060CE000DA235 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -351,6 +354,8 @@
 				FD196C1F1B4532CC0026CD9A /* WTTestViewController.m */,
 				FD196C211B4533710026CD9A /* WTWebView.h */,
 				FD196C221B4533710026CD9A /* WTWebView.m */,
+				FD7EBCE51C1ED5F5007C479D /* WTFontViewController.h */,
+				FD7EBCE61C1ED5F5007C479D /* WTFontViewController.m */,
 			);
 			name = UI;
 			path = WaterTime/UI/UI;
@@ -503,6 +508,7 @@
 				FDEACA131B2ECF6E0074258C /* UIImage+BlurGlass.m in Sources */,
 				FDCF0A4E1A721FAD00EE1B89 /* WTMainTableConfigUtils.m in Sources */,
 				FDA12B8F1B406202000DA235 /* WTNetworkStateViewController.m in Sources */,
+				FD7EBCE71C1ED5F5007C479D /* WTFontViewController.m in Sources */,
 				FD69C31D1B428F3E00C2A715 /* WTCrashReportViewController.m in Sources */,
 				FDCF0A591A72397C00EE1B89 /* WTCoreDataViewController.m in Sources */,
 				FDEACA101B2ECF320074258C /* WTMainTableJMPController.m in Sources */,
@@ -578,6 +584,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -619,6 +626,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;

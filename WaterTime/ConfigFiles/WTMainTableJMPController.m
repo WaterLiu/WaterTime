@@ -19,6 +19,7 @@
 //UI
 #import "WTBackgroundBlurViewController.h"
 #import "WTTestViewController.h"
+#import "WTFontViewController.h"
 
 //Network
 #import "WTNetworkStateViewController.h"
@@ -81,6 +82,10 @@
         else if ([value isEqualToString:@"Test"])
         {
             vc = [[WTTestViewController alloc] initWithNibName:nil bundle:nil];
+        }
+        else if ([value isEqualToString:@"Font"])
+        {
+            vc = [[WTFontViewController alloc] initWithNibName:nil bundle:nil];
         }
         else
         {
