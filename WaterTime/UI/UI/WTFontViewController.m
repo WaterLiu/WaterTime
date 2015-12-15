@@ -40,8 +40,11 @@
     
     _textView = [[UITextView alloc] initWithFrame:CGRectMake(0.0f, nevbarHeight, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame) - nevbarHeight)];
     _textView.backgroundColor = [UIColor whiteColor];
+    _textView.font = [UIFont systemFontOfSize:20.0f];
     [self.view addSubview:_textView];
     
+    
+    self.title = @"systemFont";
     
     [_textView becomeFirstResponder];
 }
@@ -107,7 +110,7 @@
     {
         NSString* fontName = [_fontList objectAtIndex:_currentFontIndex];
         
-        UIFont* font = [UIFont fontWithName:fontName size:14.0f];
+        UIFont* font = [UIFont fontWithName:fontName size:20.0f];
         _textView.font = font;
         
         self.title = fontName;
