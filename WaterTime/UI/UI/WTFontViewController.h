@@ -9,15 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "WTCommonBaseViewController.h"
 
-@interface WTFontViewController : WTCommonBaseViewController
+@interface WTFontViewController : WTCommonBaseViewController<UITableViewDelegate, UITableViewDataSource>
 {
-    NSMutableArray*         _fontList;
+    NSMutableDictionary*    _fontDic;
+    NSMutableArray*         _fontArray;
+    
     UITextView*             _textView;
     NSInteger               _currentFontIndex;
     NSTimer*                _timer;
     
     UIBarButtonItem*        _rightButtonItemPlay;
     UIBarButtonItem*        _rightButtonitemPause;
+    
+    UITableView*            _listView;
 }
 
 @end

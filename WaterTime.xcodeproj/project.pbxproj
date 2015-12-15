@@ -173,7 +173,8 @@
 			children = (
 				FDA12B871B4060CE000DA235 /* Network */,
 			);
-			path = Foundation;
+			name = Foundation;
+			path = ../../Foundation;
 			sourceTree = "<group>";
 		};
 		FDA12B871B4060CE000DA235 /* Network */ = {
@@ -236,7 +237,6 @@
 			children = (
 				FDCF0A491A721DE300EE1B89 /* ConfigFiles */,
 				FDCF0A451A71F33200EE1B89 /* UI */,
-				FDA12B861B40609A000DA235 /* Foundation */,
 				FDCF0A201A71F2A200EE1B89 /* AppDelegate.h */,
 				FDCF0A211A71F2A200EE1B89 /* AppDelegate.m */,
 				FDCF0A291A71F2A200EE1B89 /* Main.storyboard */,
@@ -356,6 +356,7 @@
 				FD196C221B4533710026CD9A /* WTWebView.m */,
 				FD7EBCE51C1ED5F5007C479D /* WTFontViewController.h */,
 				FD7EBCE61C1ED5F5007C479D /* WTFontViewController.m */,
+				FDA12B861B40609A000DA235 /* Foundation */,
 			);
 			name = UI;
 			path = WaterTime/UI/UI;

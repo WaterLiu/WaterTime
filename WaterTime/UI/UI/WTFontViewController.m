@@ -15,14 +15,15 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self)
     {
-        _fontList = [[NSMutableArray alloc] initWithCapacity:10];
+        _fontDic = [[NSMutableDictionary alloc] initWithCapacity:10];
+        _fontArray = [[NSMutableArray alloc] initWithCapacity:10];
     }
     return self;
 }
 
 - (void)dealloc
 {
-    
+    _fontDic = nil;
 }
 
 - (void)viewDidLoad
@@ -31,10 +32,10 @@
     
     [self loadFont];
     
-    
     _rightButtonItemPlay = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(rightBarButtonItemClicked:)];
     _rightButtonitemPause = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPause target:self action:@selector(rightBarButtonItemClicked:)];
-    self.navigationItem.rightBarButtonItem = _rightButtonItemPlay;
+    UIBarButtonItem* listItem = [[UIBarButtonItem alloc] initWithTitle:@"LIST" style:UIBarButtonItemStylePlain target:self action:@selector(listBarButtonItemClicked:)];
+    self.navigationItem.rightBarButtonItems = @[_rightButtonItemPlay,listItem];
     
     CGFloat nevbarHeight = self.navigationController.navigationBar.frame.size.height + 20.0f;
     
@@ -43,10 +44,13 @@
     _textView.font = [UIFont systemFontOfSize:20.0f];
     [self.view addSubview:_textView];
     
-    
-    self.title = @"systemFont";
+    self.title = @"SystemFont";
     
     [_textView becomeFirstResponder];
+    
+    _listView = [[UITableView alloc] initWithFrame:_textView.frame];
+    _listView.dataSource = self;
+    _listView.delegate = self;
 }
 
 
@@ -67,19 +71,18 @@
     }
 }
 
-#pragma - Private
+#pragma mark - Private
 
 - (void)loadFont
 {
     NSArray* familyNames = [UIFont familyNames];
-    NSString *familyName ;
-    
-    for(familyName in familyNames)
+    for (int i = 0; i < [familyNames count]; i++)
     {
+        NSString* familyName = [familyNames objectAtIndex:i];
         NSArray *names = [UIFont fontNamesForFamilyName:familyName];
-        [_fontList addObjectsFromArray:names];
+        [_fontDic setObject:names forKey:familyName];
+        [_fontArray addObjectsFromArray:names];
     }
-
 }
 
 - (void)rightBarButtonItemClicked:(id)sender
@@ -90,7 +93,7 @@
         
         if (_timer == nil)
         {
-            _timer = [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(timerCallback) userInfo:nil repeats:YES];
+            _timer = [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(timerCallback:) userInfo:nil repeats:YES];
         }
     }
     else//Pause action.
@@ -104,11 +107,57 @@
     }
 }
 
-- (void)timerCallback
+- (void)listBarButtonItemClicked:(id)sender
 {
-    if ([_fontList count] > _currentFontIndex)
+    if ([self isDisplayOfListView] == YES)
     {
-        NSString* fontName = [_fontList objectAtIndex:_currentFontIndex];
+        [self listViewDisplay:NO animation:YES];
+    }
+    else
+    {
+        [self listViewDisplay:YES animation:YES];
+    }
+}
+
+- (void)listViewDisplay:(BOOL)display animation:(BOOL)animation
+{
+    if (display == YES)
+    {
+        [_textView resignFirstResponder];
+        [self.view addSubview:_listView];
+        _listView.frame = CGRectMake(0.0f, CGRectGetHeight(self.view.frame), CGRectGetWidth(_listView.frame), CGRectGetHeight(_listView.frame));
+        [UIView animateWithDuration:0.33F animations:^{
+            _listView.frame = _textView.frame;
+        }];
+    }
+    else
+    {
+        [_textView becomeFirstResponder];
+        [UIView animateWithDuration:0.33f animations:^{
+            _listView.frame = CGRectMake(0.0f, CGRectGetHeight(self.view.frame), CGRectGetWidth(_listView.frame), CGRectGetHeight(_listView.frame));
+        } completion:^(BOOL finished) {
+            [_listView removeFromSuperview];
+        }];
+    }
+}
+
+- (BOOL)isDisplayOfListView
+{
+    if (_listView.superview != nil)
+    {
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
+}
+
+- (void)timerCallback:(id)sender
+{
+    if ([_fontArray count] > _currentFontIndex)
+    {
+        NSString* fontName = [_fontArray objectAtIndex:_currentFontIndex];
         
         UIFont* font = [UIFont fontWithName:fontName size:20.0f];
         _textView.font = font;
@@ -119,6 +168,66 @@
     }
 }
 
-#pragma - Public
+#pragma mark - Public
+
+
+#pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 25.0f;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSArray* keys = [_fontDic allKeys];
+    NSString* key = [keys objectAtIndex:indexPath.section];
+    NSArray* values = [_fontDic objectForKey:key];
+    NSString* fontName = [values objectAtIndex:indexPath.row];
+    UIFont* font = [UIFont fontWithName:fontName size:14.0f];
+    _textView.font = font;
+    self.title = fontName;
+    [self listViewDisplay:NO animation:YES];
+}
+
+
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    NSArray* keys = [_fontDic allKeys];
+    return [keys count];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSArray* keys = [_fontDic allKeys];
+    return [[_fontDic objectForKey:[keys objectAtIndex:section]] count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString* cellIdentifier = @"FontFamily";
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    
+    NSString* key = [[_fontDic allKeys] objectAtIndex:indexPath.section];
+    NSString* value = [[_fontDic objectForKey:key] objectAtIndex:indexPath.row];
+    cell.textLabel.text = value;
+    UIFont* font = [UIFont fontWithName:value size:14.0f];
+    cell.textLabel.font = font;
+    
+    return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSArray* keys = [_fontDic allKeys];
+    return [keys objectAtIndex:section];
+}
 
 @end
