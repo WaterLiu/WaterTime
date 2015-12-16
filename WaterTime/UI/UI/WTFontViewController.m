@@ -8,6 +8,8 @@
 
 #import "WTFontViewController.h"
 
+#define FontSize 25
+
 @implementation WTFontViewController
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -51,6 +53,7 @@
     _listView = [[UITableView alloc] initWithFrame:_textView.frame];
     _listView.dataSource = self;
     _listView.delegate = self;
+    _listView.separatorColor = [UIColor colorWithRed:238/255.0f green:238/255.0f blue:238/255.0f alpha:1.0f];
 }
 
 
@@ -126,7 +129,7 @@
         [_textView resignFirstResponder];
         [self.view addSubview:_listView];
         _listView.frame = CGRectMake(0.0f, CGRectGetHeight(self.view.frame), CGRectGetWidth(_listView.frame), CGRectGetHeight(_listView.frame));
-        [UIView animateWithDuration:0.33F animations:^{
+        [UIView animateWithDuration:0.33f animations:^{
             _listView.frame = _textView.frame;
         }];
     }
@@ -159,7 +162,7 @@
     {
         NSString* fontName = [_fontArray objectAtIndex:_currentFontIndex];
         
-        UIFont* font = [UIFont fontWithName:fontName size:20.0f];
+        UIFont* font = [UIFont fontWithName:fontName size:FontSize];
         _textView.font = font;
         
         self.title = fontName;
@@ -175,7 +178,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 25.0f;
+    return FontSize + 4.0f;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -184,13 +187,16 @@
     NSString* key = [keys objectAtIndex:indexPath.section];
     NSArray* values = [_fontDic objectForKey:key];
     NSString* fontName = [values objectAtIndex:indexPath.row];
-    UIFont* font = [UIFont fontWithName:fontName size:14.0f];
+    UIFont* font = [UIFont fontWithName:fontName size:FontSize];
     _textView.font = font;
     self.title = fontName;
     [self listViewDisplay:NO animation:YES];
 }
 
-
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 50.0f;
+}
 
 #pragma mark - UITableViewDataSource
 
@@ -217,8 +223,16 @@
     
     NSString* key = [[_fontDic allKeys] objectAtIndex:indexPath.section];
     NSString* value = [[_fontDic objectForKey:key] objectAtIndex:indexPath.row];
-    cell.textLabel.text = value;
-    UIFont* font = [UIFont fontWithName:value size:14.0f];
+    if ([_textView.text length] > 0)
+    {
+        cell.textLabel.text = _textView.text;
+    }
+    else
+    {
+        cell.textLabel.text = value;
+    }
+    
+    UIFont* font = [UIFont fontWithName:value size:FontSize];
     cell.textLabel.font = font;
     
     return cell;
