@@ -11,6 +11,7 @@
 		FD14E2521B58FF06004EB769 /* WTTakeScreenShotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD14E2511B58FF06004EB769 /* WTTakeScreenShotViewController.m */; };
 		FD196C201B4532CC0026CD9A /* WTTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD196C1F1B4532CC0026CD9A /* WTTestViewController.m */; };
 		FD196C231B4533710026CD9A /* WTWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD196C221B4533710026CD9A /* WTWebView.m */; };
+		FD2A04691C50D21600494EF6 /* WTCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2A04681C50D21600494EF6 /* WTCollectionViewLayout.m */; };
 		FD50B0F51A84C9040082A79E /* WTCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FD50B0F41A84C9040082A79E /* WTCoreDataManager.m */; };
 		FD552EDA1B2848A600E96A9B /* WTSKStoreProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD552ED91B2848A600E96A9B /* WTSKStoreProductViewController.m */; };
 		FD69C31D1B428F3E00C2A715 /* WTCrashReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD69C31C1B428F3E00C2A715 /* WTCrashReportViewController.m */; };
@@ -36,6 +37,7 @@
 		FDEACA0D1B2EC94F0074258C /* WTBackgroundBlurViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEACA0C1B2EC94F0074258C /* WTBackgroundBlurViewController.m */; };
 		FDEACA101B2ECF320074258C /* WTMainTableJMPController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEACA0F1B2ECF320074258C /* WTMainTableJMPController.m */; };
 		FDEACA131B2ECF6E0074258C /* UIImage+BlurGlass.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEACA121B2ECF6E0074258C /* UIImage+BlurGlass.m */; };
+		FDFF5CEF1C4FCF440097FFC4 /* WTCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDFF5CEE1C4FCF440097FFC4 /* WTCollectionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 		FD196C1F1B4532CC0026CD9A /* WTTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTTestViewController.m; sourceTree = "<group>"; };
 		FD196C211B4533710026CD9A /* WTWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTWebView.h; sourceTree = "<group>"; };
 		FD196C221B4533710026CD9A /* WTWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTWebView.m; sourceTree = "<group>"; };
+		FD2A04671C50D21600494EF6 /* WTCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCollectionViewLayout.h; sourceTree = "<group>"; };
+		FD2A04681C50D21600494EF6 /* WTCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCollectionViewLayout.m; sourceTree = "<group>"; };
 		FD50B0F31A84C9040082A79E /* WTCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCoreDataManager.h; sourceTree = "<group>"; };
 		FD50B0F41A84C9040082A79E /* WTCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCoreDataManager.m; sourceTree = "<group>"; };
 		FD552ED81B2848A600E96A9B /* WTSKStoreProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSKStoreProductViewController.h; sourceTree = "<group>"; };
@@ -106,6 +110,8 @@
 		FDEACA0F1B2ECF320074258C /* WTMainTableJMPController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTMainTableJMPController.m; sourceTree = "<group>"; };
 		FDEACA111B2ECF6E0074258C /* UIImage+BlurGlass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BlurGlass.h"; sourceTree = "<group>"; };
 		FDEACA121B2ECF6E0074258C /* UIImage+BlurGlass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BlurGlass.m"; sourceTree = "<group>"; };
+		FDFF5CED1C4FCF440097FFC4 /* WTCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCollectionViewController.h; sourceTree = "<group>"; };
+		FDFF5CEE1C4FCF440097FFC4 /* WTCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCollectionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,7 +180,7 @@
 				FDA12B871B4060CE000DA235 /* Network */,
 			);
 			name = Foundation;
-			path = ../../Foundation;
+			path = ../Foundation;
 			sourceTree = "<group>";
 		};
 		FDA12B871B4060CE000DA235 /* Network */ = {
@@ -283,6 +289,7 @@
 				FD552ED71B28482C00E96A9B /* SystemService */,
 				FDEACA0A1B2EC8B90074258C /* UI */,
 				FDA12B8C1B406197000DA235 /* Network */,
+				FDA12B861B40609A000DA235 /* Foundation */,
 				FD69C31A1B428F0F00C2A715 /* BaseService */,
 				FDCF0A461A71F34C00EE1B89 /* WTMainViewController.h */,
 				FDCF0A471A71F34C00EE1B89 /* WTMainViewController.m */,
@@ -356,7 +363,10 @@
 				FD196C221B4533710026CD9A /* WTWebView.m */,
 				FD7EBCE51C1ED5F5007C479D /* WTFontViewController.h */,
 				FD7EBCE61C1ED5F5007C479D /* WTFontViewController.m */,
-				FDA12B861B40609A000DA235 /* Foundation */,
+				FDFF5CED1C4FCF440097FFC4 /* WTCollectionViewController.h */,
+				FDFF5CEE1C4FCF440097FFC4 /* WTCollectionViewController.m */,
+				FD2A04671C50D21600494EF6 /* WTCollectionViewLayout.h */,
+				FD2A04681C50D21600494EF6 /* WTCollectionViewLayout.m */,
 			);
 			name = UI;
 			path = WaterTime/UI/UI;
@@ -506,6 +516,7 @@
 				FDA12B8B1B4060CE000DA235 /* Reachability.m in Sources */,
 				FDCF0A481A71F34C00EE1B89 /* WTMainViewController.m in Sources */,
 				FDEACA131B2ECF6E0074258C /* UIImage+BlurGlass.m in Sources */,
+				FD2A04691C50D21600494EF6 /* WTCollectionViewLayout.m in Sources */,
 				FDCF0A4E1A721FAD00EE1B89 /* WTMainTableConfigUtils.m in Sources */,
 				FDA12B8F1B406202000DA235 /* WTNetworkStateViewController.m in Sources */,
 				FD7EBCE71C1ED5F5007C479D /* WTFontViewController.m in Sources */,
@@ -524,6 +535,7 @@
 				FDCF0A221A71F2A200EE1B89 /* AppDelegate.m in Sources */,
 				FD50B0F51A84C9040082A79E /* WTCoreDataManager.m in Sources */,
 				FDCF0A1F1A71F2A200EE1B89 /* main.m in Sources */,
+				FDFF5CEF1C4FCF440097FFC4 /* WTCollectionViewController.m in Sources */,
 				FDCF0A521A722A4E00EE1B89 /* WTLayoutBaseViewController.m in Sources */,
 				FD976CAC1B79F024005CE35D /* WTURLProtocolViewController.m in Sources */,
 			);

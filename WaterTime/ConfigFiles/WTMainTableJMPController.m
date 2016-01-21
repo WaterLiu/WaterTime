@@ -20,6 +20,7 @@
 #import "WTBackgroundBlurViewController.h"
 #import "WTTestViewController.h"
 #import "WTFontViewController.h"
+#import "WTCollectionViewController.h"
 
 //Network
 #import "WTNetworkStateViewController.h"
@@ -86,6 +87,10 @@
         else if ([value isEqualToString:@"Font"])
         {
             vc = [[WTFontViewController alloc] initWithNibName:nil bundle:nil];
+        }
+        else if ([value isEqualToString:@"CollectionView"])
+        {
+            vc = [[WTCollectionViewController alloc] initWithNibName:nil bundle:nil];
         }
         else
         {
