@@ -15,6 +15,7 @@
 #import "WTSKStoreProductViewController.h"
 #import "WTTakeScreenShotViewController.h"
 #import "WTLocalAuthenticationViewController.h"
+#import "WTTelephonyNetworkInfoViewController.h"
 
 //UI
 #import "WTBackgroundBlurViewController.h"
@@ -68,6 +69,10 @@
         else if ([value isEqualToString:@"LocalAuthentication"])
         {
             vc = [[WTLocalAuthenticationViewController alloc] initWithNibName:nil bundle:nil];
+        }
+        else if ([value isEqualToString:@"TelephonyNetworkInfo"])
+        {
+            vc = [[WTTelephonyNetworkInfoViewController alloc] initWithNibName:nil bundle:nil];
         }
         else
         {

@@ -11,6 +11,7 @@
 	</array>
 	<key>SystemService</key>
 	<array>
+		<string>TelephonyNetworkInfo</string>
 		<string>LocalAuthentication</string>
 		<string>AppStore</string>
 		<string>TakeScreenShot</string>
