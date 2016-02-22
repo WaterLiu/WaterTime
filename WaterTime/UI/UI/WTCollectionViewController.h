@@ -12,7 +12,6 @@
 @interface WTCollectionViewController : WTCommonBaseViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 {
     UICollectionView*           _collectionView;
-    UIDynamicAnimator*          _animator;
 }
 
 @end

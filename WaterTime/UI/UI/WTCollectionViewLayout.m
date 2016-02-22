@@ -15,7 +15,7 @@
     self = [super init];
     if (self)
     {
-        
+        _animator = [[UIDynamicAnimator alloc] initWithCollectionViewLayout:self];
     }
     return self;
 }

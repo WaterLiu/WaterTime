@@ -18,7 +18,7 @@ static NSString *reuseId = @"collectionViewCellReuseId";
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self)
     {
-        _animator = [[UIDynamicAnimator alloc] initWithCollectionViewLayout:self];
+        
     }
     return self;
 }

@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface WTCollectionViewLayout : UICollectionViewLayout
+{
+    UIDynamicAnimator*          _animator;
+}
 
 @end
