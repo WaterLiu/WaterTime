@@ -18,6 +18,7 @@
 	</array>
 	<key>Network</key>
 	<array>
+		<string>MRNetwork_@adi</string>
 		<string>NetState</string>
 		<string>NSURLProtocol</string>
 	</array>

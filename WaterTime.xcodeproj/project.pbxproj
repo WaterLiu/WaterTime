@@ -12,6 +12,7 @@
 		FD196C201B4532CC0026CD9A /* WTTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD196C1F1B4532CC0026CD9A /* WTTestViewController.m */; };
 		FD196C231B4533710026CD9A /* WTWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD196C221B4533710026CD9A /* WTWebView.m */; };
 		FD2A04691C50D21600494EF6 /* WTCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2A04681C50D21600494EF6 /* WTCollectionViewLayout.m */; };
+		FD316F781C7B08AB00D7792B /* WTMRNetworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD316F771C7B08AB00D7792B /* WTMRNetworkViewController.m */; };
 		FD50B0F51A84C9040082A79E /* WTCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FD50B0F41A84C9040082A79E /* WTCoreDataManager.m */; };
 		FD552EDA1B2848A600E96A9B /* WTSKStoreProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD552ED91B2848A600E96A9B /* WTSKStoreProductViewController.m */; };
 		FD69C31D1B428F3E00C2A715 /* WTCrashReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD69C31C1B428F3E00C2A715 /* WTCrashReportViewController.m */; };
@@ -64,6 +65,8 @@
 		FD196C221B4533710026CD9A /* WTWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTWebView.m; sourceTree = "<group>"; };
 		FD2A04671C50D21600494EF6 /* WTCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCollectionViewLayout.h; sourceTree = "<group>"; };
 		FD2A04681C50D21600494EF6 /* WTCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCollectionViewLayout.m; sourceTree = "<group>"; };
+		FD316F761C7B08AB00D7792B /* WTMRNetworkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTMRNetworkViewController.h; sourceTree = "<group>"; };
+		FD316F771C7B08AB00D7792B /* WTMRNetworkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTMRNetworkViewController.m; sourceTree = "<group>"; };
 		FD50B0F31A84C9040082A79E /* WTCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCoreDataManager.h; sourceTree = "<group>"; };
 		FD50B0F41A84C9040082A79E /* WTCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCoreDataManager.m; sourceTree = "<group>"; };
 		FD552ED81B2848A600E96A9B /* WTSKStoreProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSKStoreProductViewController.h; sourceTree = "<group>"; };
@@ -157,6 +160,13 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		FD316F791C7B099000D7792B /* MRNetwork */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MRNetwork;
+			sourceTree = "<group>";
+		};
 		FD552ED71B28482C00E96A9B /* SystemService */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +205,7 @@
 		FDA12B871B4060CE000DA235 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				FD316F791C7B099000D7792B /* MRNetwork */,
 				FDA12B881B4060CE000DA235 /* NetState */,
 			);
 			path = Network;
@@ -216,6 +227,8 @@
 				FDA12B8E1B406202000DA235 /* WTNetworkStateViewController.m */,
 				FD976CAA1B79F024005CE35D /* WTURLProtocolViewController.h */,
 				FD976CAB1B79F024005CE35D /* WTURLProtocolViewController.m */,
+				FD316F761C7B08AB00D7792B /* WTMRNetworkViewController.h */,
+				FD316F771C7B08AB00D7792B /* WTMRNetworkViewController.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -534,6 +547,7 @@
 				FDEACA101B2ECF320074258C /* WTMainTableJMPController.m in Sources */,
 				FDBD3CDC1C033B1F000E5439 /* GIFDownloader.m in Sources */,
 				FDEACA0D1B2EC94F0074258C /* WTBackgroundBlurViewController.m in Sources */,
+				FD316F781C7B08AB00D7792B /* WTMRNetworkViewController.m in Sources */,
 				FD196C231B4533710026CD9A /* WTWebView.m in Sources */,
 				FDCF0A551A722A7F00EE1B89 /* WTCommonBaseViewController.m in Sources */,
 				FD552EDA1B2848A600E96A9B /* WTSKStoreProductViewController.m in Sources */,

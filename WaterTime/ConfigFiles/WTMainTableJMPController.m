@@ -26,6 +26,7 @@
 //Network
 #import "WTNetworkStateViewController.h"
 #import "WTURLProtocolViewController.h"
+#import "WTMRNetworkViewController.h"
 
 //BaseService
 #import "WTCrashReportViewController.h"
@@ -111,6 +112,10 @@
         else if ([value isEqualToString:@"NSURLProtocol"])
         {
             vc = [[WTURLProtocolViewController alloc] initWithNibName:nil bundle:nil];
+        }
+        else if ([value isEqualToString:@"MRNetwork_@adi"])
+        {
+            vc = [[WTMRNetworkViewController alloc] initWithNibName:nil bundle:nil];
         }
         else
         {
