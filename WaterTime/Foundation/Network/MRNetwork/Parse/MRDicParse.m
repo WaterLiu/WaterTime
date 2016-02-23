@@ -13,7 +13,7 @@
 
 + (NSDictionary *)parseJsonData:(NSData *)data error:(NSError **)error
 {
-    NSDictionary *content = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:error];
+    NSDictionary *content = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:error];
     NSDictionary *newContent = [self removeNullValue:content];
     return newContent;
 }

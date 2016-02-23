@@ -1,61 +1,64 @@
 PODS:
-  - KSCrash (0.0.4):
-    - KSCrash/Installations (= 0.0.4)
-    - KSCrash/Recording (= 0.0.4)
-    - KSCrash/Reporting (= 0.0.4)
-  - KSCrash/Installations (0.0.4):
+  - KSCrash (0.0.8):
+    - KSCrash/Installations (= 0.0.8)
+    - KSCrash/no-arc (= 0.0.8)
+    - KSCrash/Recording (= 0.0.8)
+    - KSCrash/Reporting (= 0.0.8)
+  - KSCrash/Installations (0.0.8):
     - KSCrash/Recording
     - KSCrash/Reporting
-  - KSCrash/Recording (0.0.4)
-  - KSCrash/Reporting (0.0.4):
+  - KSCrash/no-arc (0.0.8)
+  - KSCrash/Recording (0.0.8):
+    - KSCrash/no-arc
+  - KSCrash/Reporting (0.0.8):
     - KSCrash/Recording
-    - KSCrash/Reporting/Filters (= 0.0.4)
-    - KSCrash/Reporting/Sinks (= 0.0.4)
-    - KSCrash/Reporting/Tools (= 0.0.4)
-  - KSCrash/Reporting/Filters (0.0.4):
+    - KSCrash/Reporting/Filters (= 0.0.8)
+    - KSCrash/Reporting/Sinks (= 0.0.8)
+    - KSCrash/Reporting/Tools (= 0.0.8)
+  - KSCrash/Reporting/Filters (0.0.8):
     - KSCrash/Recording
-    - KSCrash/Reporting/Filters/Alert (= 0.0.4)
-    - KSCrash/Reporting/Filters/AppleFmt (= 0.0.4)
-    - KSCrash/Reporting/Filters/Base (= 0.0.4)
-    - KSCrash/Reporting/Filters/Basic (= 0.0.4)
-    - KSCrash/Reporting/Filters/GZip (= 0.0.4)
-    - KSCrash/Reporting/Filters/JSON (= 0.0.4)
-    - KSCrash/Reporting/Filters/Sets (= 0.0.4)
-  - KSCrash/Reporting/Filters/Alert (0.0.4):
-    - KSCrash/Recording
-    - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/AppleFmt (0.0.4):
-    - KSCrash/Recording
-    - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/Base (0.0.4):
-    - KSCrash/Recording
-  - KSCrash/Reporting/Filters/Basic (0.0.4):
+    - KSCrash/Reporting/Filters/Alert (= 0.0.8)
+    - KSCrash/Reporting/Filters/AppleFmt (= 0.0.8)
+    - KSCrash/Reporting/Filters/Base (= 0.0.8)
+    - KSCrash/Reporting/Filters/Basic (= 0.0.8)
+    - KSCrash/Reporting/Filters/GZip (= 0.0.8)
+    - KSCrash/Reporting/Filters/JSON (= 0.0.8)
+    - KSCrash/Reporting/Filters/Sets (= 0.0.8)
+  - KSCrash/Reporting/Filters/Alert (0.0.8):
     - KSCrash/Recording
     - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/GZip (0.0.4):
+  - KSCrash/Reporting/Filters/AppleFmt (0.0.8):
     - KSCrash/Recording
     - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/JSON (0.0.4):
+  - KSCrash/Reporting/Filters/Base (0.0.8):
+    - KSCrash/Recording
+  - KSCrash/Reporting/Filters/Basic (0.0.8):
     - KSCrash/Recording
     - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/Sets (0.0.4):
+  - KSCrash/Reporting/Filters/GZip (0.0.8):
+    - KSCrash/Recording
+    - KSCrash/Reporting/Filters/Base
+  - KSCrash/Reporting/Filters/JSON (0.0.8):
+    - KSCrash/Recording
+    - KSCrash/Reporting/Filters/Base
+  - KSCrash/Reporting/Filters/Sets (0.0.8):
     - KSCrash/Recording
     - KSCrash/Reporting/Filters/AppleFmt
     - KSCrash/Reporting/Filters/Base
     - KSCrash/Reporting/Filters/Basic
     - KSCrash/Reporting/Filters/GZip
     - KSCrash/Reporting/Filters/JSON
-  - KSCrash/Reporting/Sinks (0.0.4):
+  - KSCrash/Reporting/Sinks (0.0.8):
     - KSCrash/Recording
     - KSCrash/Reporting/Filters
     - KSCrash/Reporting/Tools
-  - KSCrash/Reporting/Tools (0.0.4):
+  - KSCrash/Reporting/Tools (0.0.8):
     - KSCrash/Recording
 
 DEPENDENCIES:
   - KSCrash
 
 SPEC CHECKSUMS:
-  KSCrash: a17f93c9b300753bf66dd7d72260cace0d307b1b
+  KSCrash: a928da877b18f70c9ec3b50d4e8960271e2a10e5
 
 COCOAPODS: 0.38.2
