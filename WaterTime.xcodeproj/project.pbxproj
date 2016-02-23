@@ -7,6 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		60F4A8531C7BFA9100474764 /* MRRequestAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F4A81E1C7BFA9100474764 /* MRRequestAdapter.m */; };
+		60F4A8541C7BFA9100474764 /* MRRespondAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F4A8201C7BFA9100474764 /* MRRespondAdapter.m */; };
+		60F4A8551C7BFA9100474764 /* MRNetWorkDelegateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F4A8231C7BFA9100474764 /* MRNetWorkDelegateManager.m */; };
+		60F4A8561C7BFA9100474764 /* MRNetworkStateObserve.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F4A8251C7BFA9100474764 /* MRNetworkStateObserve.m */; };
+		60F4A8571C7BFA9100474764 /* MROperationQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F4A8271C7BFA9100474764 /* MROperationQueue.m */; };
+		60F4A8581C7BFA9100474764 /* MRRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F4A8291C7BFA9100474764 /* MRRequestManager.m */; };
+		60F4A8591C7BFA9100474764 /* MRAFRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F4A82C1C7BFA9100474764 /* MRAFRequestManager.m */; };
+		60F4A85A1C7BFA9100474764 /* MRNetworkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F4A8301C7BFA9100474764 /* MRNetworkConfig.m */; };
+		60F4A85B1C7BFA9100474764 /* MRNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F4A8331C7BFA9100474764 /* MRNetworkManager.m */; };
+		60F4A85C1C7BFA9100474764 /* MRRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F4A8351C7BFA9100474764 /* MRRequest.m */; };
+		60F4A85D1C7BFA9100474764 /* MRRequestConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F4A8371C7BFA9100474764 /* MRRequestConfig.m */; };
+		60F4A85E1C7BFA9100474764 /* MRRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F4A8391C7BFA9100474764 /* MRRequestHandler.m */; };
+		60F4A85F1C7BFA9100474764 /* MRRespond.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F4A83B1C7BFA9100474764 /* MRRespond.m */; };
+		60F4A8601C7BFA9100474764 /* MRJSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F4A83E1C7BFA9100474764 /* MRJSONModel.m */; };
+		60F4A8611C7BFA9100474764 /* NSArray+MRArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F4A8411C7BFA9100474764 /* NSArray+MRArray.m */; };
+		60F4A8621C7BFA9100474764 /* NSDictionary+MRDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F4A8431C7BFA9100474764 /* NSDictionary+MRDictionary.m */; };
+		60F4A8631C7BFA9100474764 /* NSObject+MRParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F4A8451C7BFA9100474764 /* NSObject+MRParse.m */; };
+		60F4A8641C7BFA9100474764 /* NSString+MRString.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F4A8471C7BFA9100474764 /* NSString+MRString.m */; };
+		60F4A8651C7BFA9100474764 /* UIImageView+MRWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F4A8491C7BFA9100474764 /* UIImageView+MRWebImage.m */; };
+		60F4A8661C7BFA9100474764 /* MRArrayParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F4A84C1C7BFA9100474764 /* MRArrayParse.m */; };
+		60F4A8671C7BFA9100474764 /* MRDicParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F4A84E1C7BFA9100474764 /* MRDicParse.m */; };
+		60F4A8681C7BFA9100474764 /* MREntityParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F4A8501C7BFA9100474764 /* MREntityParse.m */; };
+		60F4A8691C7BFA9100474764 /* MRParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F4A8521C7BFA9100474764 /* MRParse.m */; };
+		60F4A8771C7BFDF200474764 /* MRHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F4A8721C7BFDF200474764 /* MRHttpManager.m */; };
+		60F4A8781C7BFDF200474764 /* MRSimpleRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F4A8741C7BFDF200474764 /* MRSimpleRequest.m */; };
+		60F4A8791C7BFDF200474764 /* MRSimpleRespond.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F4A8761C7BFDF200474764 /* MRSimpleRespond.m */; };
 		94813AA25079F2C971711013 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3150FADE4B9CE8450FD72602 /* libPods.a */; };
 		FD14E2521B58FF06004EB769 /* WTTakeScreenShotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD14E2511B58FF06004EB769 /* WTTakeScreenShotViewController.m */; };
 		FD196C201B4532CC0026CD9A /* WTTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD196C1F1B4532CC0026CD9A /* WTTestViewController.m */; };
@@ -56,6 +82,60 @@
 /* Begin PBXFileReference section */
 		043C18C718179D8A07CC7C57 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		3150FADE4B9CE8450FD72602 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		60F4A81D1C7BFA9100474764 /* MRRequestAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRRequestAdapter.h; sourceTree = "<group>"; };
+		60F4A81E1C7BFA9100474764 /* MRRequestAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRRequestAdapter.m; sourceTree = "<group>"; };
+		60F4A81F1C7BFA9100474764 /* MRRespondAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRRespondAdapter.h; sourceTree = "<group>"; };
+		60F4A8201C7BFA9100474764 /* MRRespondAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRRespondAdapter.m; sourceTree = "<group>"; };
+		60F4A8221C7BFA9100474764 /* MRNetWorkDelegateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRNetWorkDelegateManager.h; sourceTree = "<group>"; };
+		60F4A8231C7BFA9100474764 /* MRNetWorkDelegateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRNetWorkDelegateManager.m; sourceTree = "<group>"; };
+		60F4A8241C7BFA9100474764 /* MRNetworkStateObserve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRNetworkStateObserve.h; sourceTree = "<group>"; };
+		60F4A8251C7BFA9100474764 /* MRNetworkStateObserve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRNetworkStateObserve.m; sourceTree = "<group>"; };
+		60F4A8261C7BFA9100474764 /* MROperationQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MROperationQueue.h; sourceTree = "<group>"; };
+		60F4A8271C7BFA9100474764 /* MROperationQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MROperationQueue.m; sourceTree = "<group>"; };
+		60F4A8281C7BFA9100474764 /* MRRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRRequestManager.h; sourceTree = "<group>"; };
+		60F4A8291C7BFA9100474764 /* MRRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRRequestManager.m; sourceTree = "<group>"; };
+		60F4A82B1C7BFA9100474764 /* MRAFRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRAFRequestManager.h; sourceTree = "<group>"; };
+		60F4A82C1C7BFA9100474764 /* MRAFRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRAFRequestManager.m; sourceTree = "<group>"; };
+		60F4A82E1C7BFA9100474764 /* MRNetDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRNetDelegate.h; sourceTree = "<group>"; };
+		60F4A82F1C7BFA9100474764 /* MRNetworkConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRNetworkConfig.h; sourceTree = "<group>"; };
+		60F4A8301C7BFA9100474764 /* MRNetworkConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRNetworkConfig.m; sourceTree = "<group>"; };
+		60F4A8311C7BFA9100474764 /* MRNetworkHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRNetworkHeader.h; sourceTree = "<group>"; };
+		60F4A8321C7BFA9100474764 /* MRNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRNetworkManager.h; sourceTree = "<group>"; };
+		60F4A8331C7BFA9100474764 /* MRNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRNetworkManager.m; sourceTree = "<group>"; };
+		60F4A8341C7BFA9100474764 /* MRRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRRequest.h; sourceTree = "<group>"; };
+		60F4A8351C7BFA9100474764 /* MRRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRRequest.m; sourceTree = "<group>"; };
+		60F4A8361C7BFA9100474764 /* MRRequestConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRRequestConfig.h; sourceTree = "<group>"; };
+		60F4A8371C7BFA9100474764 /* MRRequestConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRRequestConfig.m; sourceTree = "<group>"; };
+		60F4A8381C7BFA9100474764 /* MRRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRRequestHandler.h; sourceTree = "<group>"; };
+		60F4A8391C7BFA9100474764 /* MRRequestHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRRequestHandler.m; sourceTree = "<group>"; };
+		60F4A83A1C7BFA9100474764 /* MRRespond.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRRespond.h; sourceTree = "<group>"; };
+		60F4A83B1C7BFA9100474764 /* MRRespond.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRRespond.m; sourceTree = "<group>"; };
+		60F4A83D1C7BFA9100474764 /* MRJSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRJSONModel.h; sourceTree = "<group>"; };
+		60F4A83E1C7BFA9100474764 /* MRJSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRJSONModel.m; sourceTree = "<group>"; };
+		60F4A8401C7BFA9100474764 /* NSArray+MRArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MRArray.h"; sourceTree = "<group>"; };
+		60F4A8411C7BFA9100474764 /* NSArray+MRArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MRArray.m"; sourceTree = "<group>"; };
+		60F4A8421C7BFA9100474764 /* NSDictionary+MRDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+MRDictionary.h"; sourceTree = "<group>"; };
+		60F4A8431C7BFA9100474764 /* NSDictionary+MRDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+MRDictionary.m"; sourceTree = "<group>"; };
+		60F4A8441C7BFA9100474764 /* NSObject+MRParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MRParse.h"; sourceTree = "<group>"; };
+		60F4A8451C7BFA9100474764 /* NSObject+MRParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MRParse.m"; sourceTree = "<group>"; };
+		60F4A8461C7BFA9100474764 /* NSString+MRString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MRString.h"; sourceTree = "<group>"; };
+		60F4A8471C7BFA9100474764 /* NSString+MRString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MRString.m"; sourceTree = "<group>"; };
+		60F4A8481C7BFA9100474764 /* UIImageView+MRWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+MRWebImage.h"; sourceTree = "<group>"; };
+		60F4A8491C7BFA9100474764 /* UIImageView+MRWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+MRWebImage.m"; sourceTree = "<group>"; };
+		60F4A84B1C7BFA9100474764 /* MRArrayParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRArrayParse.h; sourceTree = "<group>"; };
+		60F4A84C1C7BFA9100474764 /* MRArrayParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRArrayParse.m; sourceTree = "<group>"; };
+		60F4A84D1C7BFA9100474764 /* MRDicParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRDicParse.h; sourceTree = "<group>"; };
+		60F4A84E1C7BFA9100474764 /* MRDicParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRDicParse.m; sourceTree = "<group>"; };
+		60F4A84F1C7BFA9100474764 /* MREntityParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MREntityParse.h; sourceTree = "<group>"; };
+		60F4A8501C7BFA9100474764 /* MREntityParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MREntityParse.m; sourceTree = "<group>"; };
+		60F4A8511C7BFA9100474764 /* MRParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRParse.h; sourceTree = "<group>"; };
+		60F4A8521C7BFA9100474764 /* MRParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRParse.m; sourceTree = "<group>"; };
+		60F4A8711C7BFDF200474764 /* MRHttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRHttpManager.h; sourceTree = "<group>"; };
+		60F4A8721C7BFDF200474764 /* MRHttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRHttpManager.m; sourceTree = "<group>"; };
+		60F4A8731C7BFDF200474764 /* MRSimpleRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRSimpleRequest.h; sourceTree = "<group>"; };
+		60F4A8741C7BFDF200474764 /* MRSimpleRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRSimpleRequest.m; sourceTree = "<group>"; };
+		60F4A8751C7BFDF200474764 /* MRSimpleRespond.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRSimpleRespond.h; sourceTree = "<group>"; };
+		60F4A8761C7BFDF200474764 /* MRSimpleRespond.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRSimpleRespond.m; sourceTree = "<group>"; };
 		A9835A787E2C7B42917D3A7D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FD14E2501B58FF06004EB769 /* WTTakeScreenShotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTTakeScreenShotViewController.h; sourceTree = "<group>"; };
 		FD14E2511B58FF06004EB769 /* WTTakeScreenShotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTTakeScreenShotViewController.m; sourceTree = "<group>"; };
@@ -151,6 +231,130 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		60F4A81B1C7BFA9100474764 /* MRNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				60F4A81C1C7BFA9100474764 /* Adapter */,
+				60F4A8211C7BFA9100474764 /* Http */,
+				60F4A82A1C7BFA9100474764 /* Http-AF */,
+				60F4A82D1C7BFA9100474764 /* Interface */,
+				60F4A83C1C7BFA9100474764 /* MRJsonModel */,
+				60F4A83F1C7BFA9100474764 /* MRNetwork+Category */,
+				60F4A84A1C7BFA9100474764 /* Parse */,
+			);
+			path = MRNetwork;
+			sourceTree = "<group>";
+		};
+		60F4A81C1C7BFA9100474764 /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				60F4A81D1C7BFA9100474764 /* MRRequestAdapter.h */,
+				60F4A81E1C7BFA9100474764 /* MRRequestAdapter.m */,
+				60F4A81F1C7BFA9100474764 /* MRRespondAdapter.h */,
+				60F4A8201C7BFA9100474764 /* MRRespondAdapter.m */,
+			);
+			path = Adapter;
+			sourceTree = "<group>";
+		};
+		60F4A8211C7BFA9100474764 /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				60F4A8221C7BFA9100474764 /* MRNetWorkDelegateManager.h */,
+				60F4A8231C7BFA9100474764 /* MRNetWorkDelegateManager.m */,
+				60F4A8241C7BFA9100474764 /* MRNetworkStateObserve.h */,
+				60F4A8251C7BFA9100474764 /* MRNetworkStateObserve.m */,
+				60F4A8261C7BFA9100474764 /* MROperationQueue.h */,
+				60F4A8271C7BFA9100474764 /* MROperationQueue.m */,
+				60F4A8281C7BFA9100474764 /* MRRequestManager.h */,
+				60F4A8291C7BFA9100474764 /* MRRequestManager.m */,
+			);
+			path = Http;
+			sourceTree = "<group>";
+		};
+		60F4A82A1C7BFA9100474764 /* Http-AF */ = {
+			isa = PBXGroup;
+			children = (
+				60F4A82B1C7BFA9100474764 /* MRAFRequestManager.h */,
+				60F4A82C1C7BFA9100474764 /* MRAFRequestManager.m */,
+			);
+			path = "Http-AF";
+			sourceTree = "<group>";
+		};
+		60F4A82D1C7BFA9100474764 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				60F4A82E1C7BFA9100474764 /* MRNetDelegate.h */,
+				60F4A82F1C7BFA9100474764 /* MRNetworkConfig.h */,
+				60F4A8301C7BFA9100474764 /* MRNetworkConfig.m */,
+				60F4A8311C7BFA9100474764 /* MRNetworkHeader.h */,
+				60F4A8321C7BFA9100474764 /* MRNetworkManager.h */,
+				60F4A8331C7BFA9100474764 /* MRNetworkManager.m */,
+				60F4A8341C7BFA9100474764 /* MRRequest.h */,
+				60F4A8351C7BFA9100474764 /* MRRequest.m */,
+				60F4A8361C7BFA9100474764 /* MRRequestConfig.h */,
+				60F4A8371C7BFA9100474764 /* MRRequestConfig.m */,
+				60F4A8381C7BFA9100474764 /* MRRequestHandler.h */,
+				60F4A8391C7BFA9100474764 /* MRRequestHandler.m */,
+				60F4A83A1C7BFA9100474764 /* MRRespond.h */,
+				60F4A83B1C7BFA9100474764 /* MRRespond.m */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		60F4A83C1C7BFA9100474764 /* MRJsonModel */ = {
+			isa = PBXGroup;
+			children = (
+				60F4A83D1C7BFA9100474764 /* MRJSONModel.h */,
+				60F4A83E1C7BFA9100474764 /* MRJSONModel.m */,
+			);
+			path = MRJsonModel;
+			sourceTree = "<group>";
+		};
+		60F4A83F1C7BFA9100474764 /* MRNetwork+Category */ = {
+			isa = PBXGroup;
+			children = (
+				60F4A8401C7BFA9100474764 /* NSArray+MRArray.h */,
+				60F4A8411C7BFA9100474764 /* NSArray+MRArray.m */,
+				60F4A8421C7BFA9100474764 /* NSDictionary+MRDictionary.h */,
+				60F4A8431C7BFA9100474764 /* NSDictionary+MRDictionary.m */,
+				60F4A8441C7BFA9100474764 /* NSObject+MRParse.h */,
+				60F4A8451C7BFA9100474764 /* NSObject+MRParse.m */,
+				60F4A8461C7BFA9100474764 /* NSString+MRString.h */,
+				60F4A8471C7BFA9100474764 /* NSString+MRString.m */,
+				60F4A8481C7BFA9100474764 /* UIImageView+MRWebImage.h */,
+				60F4A8491C7BFA9100474764 /* UIImageView+MRWebImage.m */,
+			);
+			path = "MRNetwork+Category";
+			sourceTree = "<group>";
+		};
+		60F4A84A1C7BFA9100474764 /* Parse */ = {
+			isa = PBXGroup;
+			children = (
+				60F4A84B1C7BFA9100474764 /* MRArrayParse.h */,
+				60F4A84C1C7BFA9100474764 /* MRArrayParse.m */,
+				60F4A84D1C7BFA9100474764 /* MRDicParse.h */,
+				60F4A84E1C7BFA9100474764 /* MRDicParse.m */,
+				60F4A84F1C7BFA9100474764 /* MREntityParse.h */,
+				60F4A8501C7BFA9100474764 /* MREntityParse.m */,
+				60F4A8511C7BFA9100474764 /* MRParse.h */,
+				60F4A8521C7BFA9100474764 /* MRParse.m */,
+			);
+			path = Parse;
+			sourceTree = "<group>";
+		};
+		60F4A8701C7BFDF200474764 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				60F4A8711C7BFDF200474764 /* MRHttpManager.h */,
+				60F4A8721C7BFDF200474764 /* MRHttpManager.m */,
+				60F4A8731C7BFDF200474764 /* MRSimpleRequest.h */,
+				60F4A8741C7BFDF200474764 /* MRSimpleRequest.m */,
+				60F4A8751C7BFDF200474764 /* MRSimpleRespond.h */,
+				60F4A8761C7BFDF200474764 /* MRSimpleRespond.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		D8F77ECB74CDB5C08EBFF820 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,13 +362,6 @@
 				A9835A787E2C7B42917D3A7D /* Pods.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		FD316F791C7B099000D7792B /* MRNetwork */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = MRNetwork;
 			sourceTree = "<group>";
 		};
 		FD552ED71B28482C00E96A9B /* SystemService */ = {
@@ -205,7 +402,7 @@
 		FDA12B871B4060CE000DA235 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				FD316F791C7B099000D7792B /* MRNetwork */,
+				60F4A81B1C7BFA9100474764 /* MRNetwork */,
 				FDA12B881B4060CE000DA235 /* NetState */,
 			);
 			path = Network;
@@ -223,6 +420,7 @@
 		FDA12B8C1B406197000DA235 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				60F4A8701C7BFDF200474764 /* Core */,
 				FDA12B8D1B406202000DA235 /* WTNetworkStateViewController.h */,
 				FDA12B8E1B406202000DA235 /* WTNetworkStateViewController.m */,
 				FD976CAA1B79F024005CE35D /* WTURLProtocolViewController.h */,
@@ -535,30 +733,56 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60F4A85F1C7BFA9100474764 /* MRRespond.m in Sources */,
+				60F4A8671C7BFA9100474764 /* MRDicParse.m in Sources */,
 				FDA12B8B1B4060CE000DA235 /* Reachability.m in Sources */,
+				60F4A8581C7BFA9100474764 /* MRRequestManager.m in Sources */,
 				FDCF0A481A71F34C00EE1B89 /* WTMainViewController.m in Sources */,
+				60F4A8571C7BFA9100474764 /* MROperationQueue.m in Sources */,
+				60F4A8781C7BFDF200474764 /* MRSimpleRequest.m in Sources */,
+				60F4A8551C7BFA9100474764 /* MRNetWorkDelegateManager.m in Sources */,
+				60F4A85A1C7BFA9100474764 /* MRNetworkConfig.m in Sources */,
+				60F4A8681C7BFA9100474764 /* MREntityParse.m in Sources */,
 				FDEACA131B2ECF6E0074258C /* UIImage+BlurGlass.m in Sources */,
+				60F4A8661C7BFA9100474764 /* MRArrayParse.m in Sources */,
 				FD2A04691C50D21600494EF6 /* WTCollectionViewLayout.m in Sources */,
+				60F4A8601C7BFA9100474764 /* MRJSONModel.m in Sources */,
 				FDCF0A4E1A721FAD00EE1B89 /* WTMainTableConfigUtils.m in Sources */,
+				60F4A8541C7BFA9100474764 /* MRRespondAdapter.m in Sources */,
 				FDA12B8F1B406202000DA235 /* WTNetworkStateViewController.m in Sources */,
 				FD7EBCE71C1ED5F5007C479D /* WTFontViewController.m in Sources */,
 				FD69C31D1B428F3E00C2A715 /* WTCrashReportViewController.m in Sources */,
 				FDCF0A591A72397C00EE1B89 /* WTCoreDataViewController.m in Sources */,
+				60F4A8591C7BFA9100474764 /* MRAFRequestManager.m in Sources */,
 				FDEACA101B2ECF320074258C /* WTMainTableJMPController.m in Sources */,
+				60F4A8621C7BFA9100474764 /* NSDictionary+MRDictionary.m in Sources */,
+				60F4A85D1C7BFA9100474764 /* MRRequestConfig.m in Sources */,
 				FDBD3CDC1C033B1F000E5439 /* GIFDownloader.m in Sources */,
 				FDEACA0D1B2EC94F0074258C /* WTBackgroundBlurViewController.m in Sources */,
+				60F4A8651C7BFA9100474764 /* UIImageView+MRWebImage.m in Sources */,
 				FD316F781C7B08AB00D7792B /* WTMRNetworkViewController.m in Sources */,
 				FD196C231B4533710026CD9A /* WTWebView.m in Sources */,
+				60F4A8611C7BFA9100474764 /* NSArray+MRArray.m in Sources */,
+				60F4A8531C7BFA9100474764 /* MRRequestAdapter.m in Sources */,
 				FDCF0A551A722A7F00EE1B89 /* WTCommonBaseViewController.m in Sources */,
 				FD552EDA1B2848A600E96A9B /* WTSKStoreProductViewController.m in Sources */,
 				FD14E2521B58FF06004EB769 /* WTTakeScreenShotViewController.m in Sources */,
+				60F4A85E1C7BFA9100474764 /* MRRequestHandler.m in Sources */,
+				60F4A8631C7BFA9100474764 /* NSObject+MRParse.m in Sources */,
+				60F4A85C1C7BFA9100474764 /* MRRequest.m in Sources */,
 				FDDC58E31C1988230070E578 /* WTCoreVideoViewController.m in Sources */,
+				60F4A8641C7BFA9100474764 /* NSString+MRString.m in Sources */,
+				60F4A85B1C7BFA9100474764 /* MRNetworkManager.m in Sources */,
 				FDDAE55B1B6F71B70035D462 /* WTLocalAuthenticationViewController.m in Sources */,
 				FD196C201B4532CC0026CD9A /* WTTestViewController.m in Sources */,
 				FDE03C601C79FBE8006569D2 /* WTTelephonyNetworkInfoViewController.m in Sources */,
+				60F4A8771C7BFDF200474764 /* MRHttpManager.m in Sources */,
+				60F4A8561C7BFA9100474764 /* MRNetworkStateObserve.m in Sources */,
 				FDCF0A221A71F2A200EE1B89 /* AppDelegate.m in Sources */,
 				FD50B0F51A84C9040082A79E /* WTCoreDataManager.m in Sources */,
 				FDCF0A1F1A71F2A200EE1B89 /* main.m in Sources */,
+				60F4A8791C7BFDF200474764 /* MRSimpleRespond.m in Sources */,
+				60F4A8691C7BFA9100474764 /* MRParse.m in Sources */,
 				FDFF5CEF1C4FCF440097FFC4 /* WTCollectionViewController.m in Sources */,
 				FDCF0A521A722A4E00EE1B89 /* WTLayoutBaseViewController.m in Sources */,
 				FD976CAC1B79F024005CE35D /* WTURLProtocolViewController.m in Sources */,

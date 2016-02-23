@@ -7,6 +7,7 @@
 //
 
 #import "WTMRNetworkViewController.h"
+#import "MRHttpManager.h"
 
 @implementation WTMRNetworkViewController
 
@@ -34,6 +35,12 @@
     [self setDescriptionText:@"Reachability.h"];
     
     _textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    
+    
+    [[MRHttpManager sharedManager] simpleRequestAsync:@"http://topmogu.mogujie.com/city/list?_uid=506" completion:^(NSDictionary *reponseDic) {
+        NSLog(@"%@",reponseDic);
+    }];
+    
 }
 
 @end
