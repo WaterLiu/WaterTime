@@ -16,12 +16,14 @@
 		FD50B0F51A84C9040082A79E /* WTCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FD50B0F41A84C9040082A79E /* WTCoreDataManager.m */; };
 		FD552EDA1B2848A600E96A9B /* WTSKStoreProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD552ED91B2848A600E96A9B /* WTSKStoreProductViewController.m */; };
 		FD69C31D1B428F3E00C2A715 /* WTCrashReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD69C31C1B428F3E00C2A715 /* WTCrashReportViewController.m */; };
+		FD6D59381C9FA55F007726E8 /* StickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6D59371C9FA55F007726E8 /* StickerView.m */; };
 		FD760B2E1B6A33C700219284 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD760B2C1B6A33C700219284 /* LaunchScreen.xib */; };
 		FD7EBCE71C1ED5F5007C479D /* WTFontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7EBCE61C1ED5F5007C479D /* WTFontViewController.m */; };
 		FD976CAC1B79F024005CE35D /* WTURLProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD976CAB1B79F024005CE35D /* WTURLProtocolViewController.m */; };
 		FDA12B8B1B4060CE000DA235 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA12B8A1B4060CE000DA235 /* Reachability.m */; };
 		FDA12B8F1B406202000DA235 /* WTNetworkStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA12B8E1B406202000DA235 /* WTNetworkStateViewController.m */; };
-		FDBD3CDC1C033B1F000E5439 /* GIFDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBD3CDB1C033B1F000E5439 /* GIFDownloader.m */; };
+		FDCEFBAC1C9BACBF00136144 /* WTImageFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCEFBAB1C9BACBF00136144 /* WTImageFilterViewController.m */; };
+		FDCEFBB01C9BB45D00136144 /* GIFDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCEFBAF1C9BB45D00136144 /* GIFDownloader.m */; };
 		FDCF0A1F1A71F2A200EE1B89 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF0A1E1A71F2A200EE1B89 /* main.m */; };
 		FDCF0A221A71F2A200EE1B89 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF0A211A71F2A200EE1B89 /* AppDelegate.m */; };
 		FDCF0A2B1A71F2A200EE1B89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDCF0A291A71F2A200EE1B89 /* Main.storyboard */; };
@@ -73,6 +75,8 @@
 		FD552ED91B2848A600E96A9B /* WTSKStoreProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSKStoreProductViewController.m; sourceTree = "<group>"; };
 		FD69C31B1B428F3E00C2A715 /* WTCrashReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCrashReportViewController.h; sourceTree = "<group>"; };
 		FD69C31C1B428F3E00C2A715 /* WTCrashReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCrashReportViewController.m; sourceTree = "<group>"; };
+		FD6D59361C9FA55F007726E8 /* StickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickerView.h; sourceTree = "<group>"; };
+		FD6D59371C9FA55F007726E8 /* StickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickerView.m; sourceTree = "<group>"; };
 		FD760B2D1B6A33C700219284 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		FD7EBCE51C1ED5F5007C479D /* WTFontViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTFontViewController.h; sourceTree = "<group>"; };
 		FD7EBCE61C1ED5F5007C479D /* WTFontViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTFontViewController.m; sourceTree = "<group>"; };
@@ -82,8 +86,10 @@
 		FDA12B8A1B4060CE000DA235 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		FDA12B8D1B406202000DA235 /* WTNetworkStateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNetworkStateViewController.h; sourceTree = "<group>"; };
 		FDA12B8E1B406202000DA235 /* WTNetworkStateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNetworkStateViewController.m; sourceTree = "<group>"; };
-		FDBD3CDA1C033B1F000E5439 /* GIFDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIFDownloader.h; path = ../UI/TestFinder/GIFDownloader.h; sourceTree = "<group>"; };
-		FDBD3CDB1C033B1F000E5439 /* GIFDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIFDownloader.m; path = ../UI/TestFinder/GIFDownloader.m; sourceTree = "<group>"; };
+		FDCEFBAA1C9BACBF00136144 /* WTImageFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTImageFilterViewController.h; sourceTree = "<group>"; };
+		FDCEFBAB1C9BACBF00136144 /* WTImageFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTImageFilterViewController.m; sourceTree = "<group>"; };
+		FDCEFBAE1C9BB45D00136144 /* GIFDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIFDownloader.h; sourceTree = "<group>"; };
+		FDCEFBAF1C9BB45D00136144 /* GIFDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIFDownloader.m; sourceTree = "<group>"; };
 		FDCF0A191A71F2A200EE1B89 /* WaterTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaterTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDCF0A1D1A71F2A200EE1B89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDCF0A1E1A71F2A200EE1B89 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -160,13 +166,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		FD316F791C7B099000D7792B /* MRNetwork */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = MRNetwork;
-			sourceTree = "<group>";
-		};
 		FD552ED71B28482C00E96A9B /* SystemService */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,16 +195,15 @@
 		FDA12B861B40609A000DA235 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				FDCEFBAD1C9BB3FC00136144 /* UIKit */,
 				FDA12B871B4060CE000DA235 /* Network */,
 			);
-			name = Foundation;
-			path = ../Foundation;
+			path = Foundation;
 			sourceTree = "<group>";
 		};
 		FDA12B871B4060CE000DA235 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				FD316F791C7B099000D7792B /* MRNetwork */,
 				FDA12B881B4060CE000DA235 /* NetState */,
 			);
 			path = Network;
@@ -233,11 +231,14 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		FDBD3CD91C033B1F000E5439 /* TestFinder */ = {
+		FDCEFBAD1C9BB3FC00136144 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				FD6D59361C9FA55F007726E8 /* StickerView.h */,
+				FD6D59371C9FA55F007726E8 /* StickerView.m */,
 			);
-			path = TestFinder;
+			name = UIKit;
+			path = Network/UIKit;
 			sourceTree = "<group>";
 		};
 		FDCF0A101A71F2A200EE1B89 = {
@@ -265,6 +266,7 @@
 			children = (
 				FDCF0A491A721DE300EE1B89 /* ConfigFiles */,
 				FDCF0A451A71F33200EE1B89 /* UI */,
+				FDA12B861B40609A000DA235 /* Foundation */,
 				FDCF0A201A71F2A200EE1B89 /* AppDelegate.h */,
 				FDCF0A211A71F2A200EE1B89 /* AppDelegate.m */,
 				FDCF0A291A71F2A200EE1B89 /* Main.storyboard */,
@@ -311,7 +313,6 @@
 				FD552ED71B28482C00E96A9B /* SystemService */,
 				FDEACA0A1B2EC8B90074258C /* UI */,
 				FDA12B8C1B406197000DA235 /* Network */,
-				FDA12B861B40609A000DA235 /* Foundation */,
 				FD69C31A1B428F0F00C2A715 /* BaseService */,
 				FDCF0A461A71F34C00EE1B89 /* WTMainViewController.h */,
 				FDCF0A471A71F34C00EE1B89 /* WTMainViewController.m */,
@@ -365,8 +366,8 @@
 		FDDC58E01C1987DF0070E578 /* CoreVideo */ = {
 			isa = PBXGroup;
 			children = (
-				FDBD3CDA1C033B1F000E5439 /* GIFDownloader.h */,
-				FDBD3CDB1C033B1F000E5439 /* GIFDownloader.m */,
+				FDCEFBAE1C9BB45D00136144 /* GIFDownloader.h */,
+				FDCEFBAF1C9BB45D00136144 /* GIFDownloader.m */,
 				FDDC58E11C1988230070E578 /* WTCoreVideoViewController.h */,
 				FDDC58E21C1988230070E578 /* WTCoreVideoViewController.m */,
 			);
@@ -376,7 +377,6 @@
 		FDEACA0A1B2EC8B90074258C /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				FDBD3CD91C033B1F000E5439 /* TestFinder */,
 				FDEACA0B1B2EC94F0074258C /* WTBackgroundBlurViewController.h */,
 				FDEACA0C1B2EC94F0074258C /* WTBackgroundBlurViewController.m */,
 				FD196C1E1B4532CC0026CD9A /* WTTestViewController.h */,
@@ -389,6 +389,8 @@
 				FDFF5CEE1C4FCF440097FFC4 /* WTCollectionViewController.m */,
 				FD2A04671C50D21600494EF6 /* WTCollectionViewLayout.h */,
 				FD2A04681C50D21600494EF6 /* WTCollectionViewLayout.m */,
+				FDCEFBAA1C9BACBF00136144 /* WTImageFilterViewController.h */,
+				FDCEFBAB1C9BACBF00136144 /* WTImageFilterViewController.m */,
 			);
 			name = UI;
 			path = WaterTime/UI/UI;
@@ -538,6 +540,7 @@
 				FDA12B8B1B4060CE000DA235 /* Reachability.m in Sources */,
 				FDCF0A481A71F34C00EE1B89 /* WTMainViewController.m in Sources */,
 				FDEACA131B2ECF6E0074258C /* UIImage+BlurGlass.m in Sources */,
+				FDCEFBAC1C9BACBF00136144 /* WTImageFilterViewController.m in Sources */,
 				FD2A04691C50D21600494EF6 /* WTCollectionViewLayout.m in Sources */,
 				FDCF0A4E1A721FAD00EE1B89 /* WTMainTableConfigUtils.m in Sources */,
 				FDA12B8F1B406202000DA235 /* WTNetworkStateViewController.m in Sources */,
@@ -545,11 +548,12 @@
 				FD69C31D1B428F3E00C2A715 /* WTCrashReportViewController.m in Sources */,
 				FDCF0A591A72397C00EE1B89 /* WTCoreDataViewController.m in Sources */,
 				FDEACA101B2ECF320074258C /* WTMainTableJMPController.m in Sources */,
-				FDBD3CDC1C033B1F000E5439 /* GIFDownloader.m in Sources */,
 				FDEACA0D1B2EC94F0074258C /* WTBackgroundBlurViewController.m in Sources */,
+				FD6D59381C9FA55F007726E8 /* StickerView.m in Sources */,
 				FD316F781C7B08AB00D7792B /* WTMRNetworkViewController.m in Sources */,
 				FD196C231B4533710026CD9A /* WTWebView.m in Sources */,
 				FDCF0A551A722A7F00EE1B89 /* WTCommonBaseViewController.m in Sources */,
+				FDCEFBB01C9BB45D00136144 /* GIFDownloader.m in Sources */,
 				FD552EDA1B2848A600E96A9B /* WTSKStoreProductViewController.m in Sources */,
 				FD14E2521B58FF06004EB769 /* WTTakeScreenShotViewController.m in Sources */,
 				FDDC58E31C1988230070E578 /* WTCoreVideoViewController.m in Sources */,

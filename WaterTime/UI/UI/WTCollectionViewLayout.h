@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WTCollectionViewLayout : UICollectionViewLayout
+@interface WTCollectionViewLayout :  UICollectionViewFlowLayout
 {
     UIDynamicAnimator*          _animator;
 }
+
+@property (nonatomic, assign) CGSize contentItemSize;
 
 @end

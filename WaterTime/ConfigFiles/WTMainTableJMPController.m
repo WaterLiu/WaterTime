@@ -22,6 +22,7 @@
 #import "WTTestViewController.h"
 #import "WTFontViewController.h"
 #import "WTCollectionViewController.h"
+#import "WTImageFilterViewController.h"
 
 //Network
 #import "WTNetworkStateViewController.h"
@@ -97,6 +98,10 @@
         else if ([value isEqualToString:@"CollectionView"])
         {
             vc = [[WTCollectionViewController alloc] initWithNibName:nil bundle:nil];
+        }
+        else if ([value isEqualToString:@"ImageFilter"])
+        {
+            vc = [[WTImageFilterViewController alloc] initWithNibName:nil bundle:nil];
         }
         else
         {

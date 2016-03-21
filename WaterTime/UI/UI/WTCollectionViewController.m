@@ -33,17 +33,16 @@ static NSString *reuseId = @"collectionViewCellReuseId";
     [super viewDidLoad];
     
     WTCollectionViewLayout* layout = [[WTCollectionViewLayout alloc] init];
+    layout.contentItemSize = CGSizeMake(CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
 
     _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
-    
     [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseId];
-    
-    _collectionView.backgroundColor = [UIColor redColor];
+    _collectionView.backgroundColor = [UIColor blueColor];
     _collectionView.dataSource = self;
     _collectionView.delegate = self;
-
+    _collectionView.pagingEnabled = YES;
+    _collectionView.layer.masksToBounds = YES;
     [self.view addSubview:_collectionView];
-    
     [_collectionView reloadData];
 }
 
@@ -60,13 +59,13 @@ static NSString *reuseId = @"collectionViewCellReuseId";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 50;
+    return 3;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseId forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor redColor];
+    cell.backgroundColor = [UIColor yellowColor];
     return cell;
 }
 
