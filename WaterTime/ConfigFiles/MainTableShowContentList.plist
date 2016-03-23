@@ -4,6 +4,7 @@
 <dict>
 	<key>UI</key>
 	<array>
+		<string>CricleAnimation</string>
 		<string>CollectionView</string>
 		<string>Test</string>
 		<string>BackgroundBlur</string>

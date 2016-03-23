@@ -9,7 +9,6 @@
 #import "WTTestViewController.h"
 #import "WTWebView.h"
 #import "GIFDownloader.h"
-#import <objc/objc-runtime.h>
 
 @interface WTTestViewController ()
 {
@@ -22,71 +21,35 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
-//    NSString* path = [[NSBundle mainBundle] resourcePath];
-//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//    NSString *docDir = [paths objectAtIndex:0];
-//    NSString* path = [docDir stringByAppendingString:@"/test.mp4"];
-    
-    UIAlertController* ac = [UIAlertController alertControllerWithTitle:@"text" message:@"message" preferredStyle:UIAlertControllerStyleActionSheet];
-    [self presentViewController:ac animated:YES completion:nil];
     
     
-    //http://img.newyx.net/news_img/201306/20/1371714170_1812223777.gif
-//    [GIFDownloader sendAsynchronousRequest:@"http://g.hiphotos.baidu.com/zhidao/wh%3D600%2C800/sign=8761ab575b82b2b7a7ca31c2019de7d7/622762d0f703918f86c90e99533d269759eec44c.jpg" downloadFilePath:path thumbnailFilePath:nil completed:^(NSString *outputFilePath, NSError *error) {
-//       
-//        NSLog(@"outputFilePath = %@", outputFilePath);
-//        
-//    }];
+    NSString* str = @"ICIBA translation channel provides professional in English, Japanese, Korean, French and Spanish for you, all online translation services!\n ICIBA translation channel \t \r provides professional";
+    NSMutableAttributedString* attrString = [[NSMutableAttributedString alloc] initWithString:str];
+    NSMutableParagraphStyle* paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    
+    paragraphStyle.alignment = NSTextAlignmentJustified;
+    paragraphStyle.paragraphSpacing = 0.0;
+    paragraphStyle.paragraphSpacingBefore = 0.0f;
+    paragraphStyle.firstLineHeadIndent = 0.0f;
+    paragraphStyle.headIndent = 0.0f;
+    
+
+    NSDictionary* dic = @{NSForegroundColorAttributeName : [UIColor blackColor],
+                          NSFontAttributeName : [UIFont systemFontOfSize:16.0f],
+                          NSParagraphStyleAttributeName : paragraphStyle,
+                          NSUnderlineStyleAttributeName : [NSNumber numberWithInteger:NSUnderlineStyleNone]};
+    [attrString setAttributes:dic range:NSMakeRange(0, [attrString length])];
     
     
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 80.0f, CGRectGetWidth(self.view.frame), 200.0f)];
+    label.backgroundColor = [UIColor redColor];
+    label.textColor = [UIColor blackColor];
+//    label.text = @"ICIBA translation channel provides professional in English, Japanese, Korean, French and Spanish for you, all online translation services!";
+    label.attributedText = attrString;
+    label.numberOfLines = 0;
+//    label.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:label];
     
-//    WTWebView* webView = [[WTWebView alloc] initWithFrame:self.view.bounds];
-//    [webView loadRequest:[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://m.nuomi.com"]]];
-//    webView.delegate = self;
-    
-    
-//    WTWebView* webView1 = [[WTWebView alloc] initWithFrame:self.view.bounds];
-    
-//    for (UIView* v in webView.subviews)
-//    {
-//        
-//        for (UIView* vv in v.subviews)
-//        {
-//            
-//            NSLog(@"1111");
-//            
-//            NSArray* array = [v gestureRecognizers];
-//            
-//            NSInteger a = [array count];
-//            
-//            UIGestureRecognizer* recognizer = [array objectAtIndex:1];
-//            [recognizer addTarget:self action:@selector(tapEvnet:)];
-//        }
-//        
-//        NSArray* array = [v gestureRecognizers];
-//        
-//        NSInteger a = [array count];
-//        
-//        UIGestureRecognizer* recognizer = [array objectAtIndex:1];
-//        [recognizer addTarget:self action:@selector(tapEvnet:)];
-//        
-//    }
-//    
-//    _tap = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(tapEvnet:)];
-//    
-//    [webView addGestureRecognizer:_tap];
-//    _tap.delegate = self;
-//    
-//    
-//    [self.view addSubview:webView];
-    
-    
-    UIView* view = [[UIView alloc] init];
-    [UIView animateWithDuration:0.33f animations:^{
-        view.frame = CGRectMake(0.0f, 0.0f, 30.0f, 30.0f);
-    }];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -23,6 +23,7 @@
 #import "WTFontViewController.h"
 #import "WTCollectionViewController.h"
 #import "WTImageFilterViewController.h"
+#import "WTCricleAnimationViewController.h"
 
 //Network
 #import "WTNetworkStateViewController.h"
@@ -102,6 +103,10 @@
         else if ([value isEqualToString:@"ImageFilter"])
         {
             vc = [[WTImageFilterViewController alloc] initWithNibName:nil bundle:nil];
+        }
+        else if ([value isEqualToString:@"CricleAnimation"])
+        {
+            vc = [[WTCricleAnimationViewController alloc] initWithNibName:nil bundle:nil];
         }
         else
         {

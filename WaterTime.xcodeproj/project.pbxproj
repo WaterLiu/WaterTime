@@ -10,8 +10,11 @@
 		94813AA25079F2C971711013 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3150FADE4B9CE8450FD72602 /* libPods.a */; };
 		FD14E2521B58FF06004EB769 /* WTTakeScreenShotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD14E2511B58FF06004EB769 /* WTTakeScreenShotViewController.m */; };
 		FD196C201B4532CC0026CD9A /* WTTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD196C1F1B4532CC0026CD9A /* WTTestViewController.m */; };
-		FD196C231B4533710026CD9A /* WTWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD196C221B4533710026CD9A /* WTWebView.m */; };
 		FD2A04691C50D21600494EF6 /* WTCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2A04681C50D21600494EF6 /* WTCollectionViewLayout.m */; };
+		FD2A9AF21C9FEB290005ACC1 /* WTCricleAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2A9AF11C9FEB290005ACC1 /* WTCricleAnimationViewController.m */; };
+		FD2A9AF61C9FEDFE0005ACC1 /* WTCricleView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2A9AF51C9FEDFE0005ACC1 /* WTCricleView.m */; };
+		FD2A9AF91CA002C10005ACC1 /* WTCricleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2A9AF81CA002C10005ACC1 /* WTCricleCell.m */; };
+		FD2A9AFD1CA118680005ACC1 /* WTWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2A9AFC1CA118680005ACC1 /* WTWebView.m */; };
 		FD316F781C7B08AB00D7792B /* WTMRNetworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD316F771C7B08AB00D7792B /* WTMRNetworkViewController.m */; };
 		FD50B0F51A84C9040082A79E /* WTCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FD50B0F41A84C9040082A79E /* WTCoreDataManager.m */; };
 		FD552EDA1B2848A600E96A9B /* WTSKStoreProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD552ED91B2848A600E96A9B /* WTSKStoreProductViewController.m */; };
@@ -28,7 +31,6 @@
 		FDCF0A221A71F2A200EE1B89 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF0A211A71F2A200EE1B89 /* AppDelegate.m */; };
 		FDCF0A2B1A71F2A200EE1B89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDCF0A291A71F2A200EE1B89 /* Main.storyboard */; };
 		FDCF0A2D1A71F2A200EE1B89 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDCF0A2C1A71F2A200EE1B89 /* Images.xcassets */; };
-		FDCF0A3C1A71F2A200EE1B89 /* WaterTimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF0A3B1A71F2A200EE1B89 /* WaterTimeTests.m */; };
 		FDCF0A481A71F34C00EE1B89 /* WTMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF0A471A71F34C00EE1B89 /* WTMainViewController.m */; };
 		FDCF0A4B1A721E2400EE1B89 /* MainTableShowContentList.plist in Resources */ = {isa = PBXBuildFile; fileRef = FDCF0A4A1A721E2400EE1B89 /* MainTableShowContentList.plist */; };
 		FDCF0A4E1A721FAD00EE1B89 /* WTMainTableConfigUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF0A4D1A721FAD00EE1B89 /* WTMainTableConfigUtils.m */; };
@@ -45,16 +47,6 @@
 		FDFF5CEF1C4FCF440097FFC4 /* WTCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDFF5CEE1C4FCF440097FFC4 /* WTCollectionViewController.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		FDCF0A361A71F2A200EE1B89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FDCF0A111A71F2A200EE1B89 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FDCF0A181A71F2A200EE1B89;
-			remoteInfo = WaterTime;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		043C18C718179D8A07CC7C57 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		3150FADE4B9CE8450FD72602 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,10 +55,16 @@
 		FD14E2511B58FF06004EB769 /* WTTakeScreenShotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTTakeScreenShotViewController.m; sourceTree = "<group>"; };
 		FD196C1E1B4532CC0026CD9A /* WTTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTTestViewController.h; sourceTree = "<group>"; };
 		FD196C1F1B4532CC0026CD9A /* WTTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTTestViewController.m; sourceTree = "<group>"; };
-		FD196C211B4533710026CD9A /* WTWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTWebView.h; sourceTree = "<group>"; };
-		FD196C221B4533710026CD9A /* WTWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTWebView.m; sourceTree = "<group>"; };
 		FD2A04671C50D21600494EF6 /* WTCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCollectionViewLayout.h; sourceTree = "<group>"; };
 		FD2A04681C50D21600494EF6 /* WTCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCollectionViewLayout.m; sourceTree = "<group>"; };
+		FD2A9AF01C9FEB290005ACC1 /* WTCricleAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCricleAnimationViewController.h; sourceTree = "<group>"; };
+		FD2A9AF11C9FEB290005ACC1 /* WTCricleAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCricleAnimationViewController.m; sourceTree = "<group>"; };
+		FD2A9AF41C9FEDFE0005ACC1 /* WTCricleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCricleView.h; sourceTree = "<group>"; };
+		FD2A9AF51C9FEDFE0005ACC1 /* WTCricleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCricleView.m; sourceTree = "<group>"; };
+		FD2A9AF71CA002C10005ACC1 /* WTCricleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCricleCell.h; sourceTree = "<group>"; };
+		FD2A9AF81CA002C10005ACC1 /* WTCricleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCricleCell.m; sourceTree = "<group>"; };
+		FD2A9AFB1CA118680005ACC1 /* WTWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTWebView.h; sourceTree = "<group>"; };
+		FD2A9AFC1CA118680005ACC1 /* WTWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTWebView.m; sourceTree = "<group>"; };
 		FD316F761C7B08AB00D7792B /* WTMRNetworkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTMRNetworkViewController.h; sourceTree = "<group>"; };
 		FD316F771C7B08AB00D7792B /* WTMRNetworkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTMRNetworkViewController.m; sourceTree = "<group>"; };
 		FD50B0F31A84C9040082A79E /* WTCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCoreDataManager.h; sourceTree = "<group>"; };
@@ -97,7 +95,6 @@
 		FDCF0A211A71F2A200EE1B89 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FDCF0A2A1A71F2A200EE1B89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FDCF0A2C1A71F2A200EE1B89 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		FDCF0A351A71F2A200EE1B89 /* WaterTimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WaterTimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDCF0A3A1A71F2A200EE1B89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDCF0A3B1A71F2A200EE1B89 /* WaterTimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WaterTimeTests.m; sourceTree = "<group>"; };
 		FDCF0A461A71F34C00EE1B89 /* WTMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTMainViewController.h; sourceTree = "<group>"; };
@@ -138,13 +135,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FDCF0A321A71F2A200EE1B89 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -164,6 +154,19 @@
 				A9835A787E2C7B42917D3A7D /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		FD2A9AF31C9FEDE20005ACC1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FD2A9AFB1CA118680005ACC1 /* WTWebView.h */,
+				FD2A9AFC1CA118680005ACC1 /* WTWebView.m */,
+				FD2A9AF41C9FEDFE0005ACC1 /* WTCricleView.h */,
+				FD2A9AF51C9FEDFE0005ACC1 /* WTCricleView.m */,
+				FD2A9AF71CA002C10005ACC1 /* WTCricleCell.h */,
+				FD2A9AF81CA002C10005ACC1 /* WTCricleCell.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		FD552ED71B28482C00E96A9B /* SystemService */ = {
@@ -256,7 +259,6 @@
 			isa = PBXGroup;
 			children = (
 				FDCF0A191A71F2A200EE1B89 /* WaterTime.app */,
-				FDCF0A351A71F2A200EE1B89 /* WaterTimeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -377,12 +379,11 @@
 		FDEACA0A1B2EC8B90074258C /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				FD2A9AF31C9FEDE20005ACC1 /* View */,
 				FDEACA0B1B2EC94F0074258C /* WTBackgroundBlurViewController.h */,
 				FDEACA0C1B2EC94F0074258C /* WTBackgroundBlurViewController.m */,
 				FD196C1E1B4532CC0026CD9A /* WTTestViewController.h */,
 				FD196C1F1B4532CC0026CD9A /* WTTestViewController.m */,
-				FD196C211B4533710026CD9A /* WTWebView.h */,
-				FD196C221B4533710026CD9A /* WTWebView.m */,
 				FD7EBCE51C1ED5F5007C479D /* WTFontViewController.h */,
 				FD7EBCE61C1ED5F5007C479D /* WTFontViewController.m */,
 				FDFF5CED1C4FCF440097FFC4 /* WTCollectionViewController.h */,
@@ -391,6 +392,8 @@
 				FD2A04681C50D21600494EF6 /* WTCollectionViewLayout.m */,
 				FDCEFBAA1C9BACBF00136144 /* WTImageFilterViewController.h */,
 				FDCEFBAB1C9BACBF00136144 /* WTImageFilterViewController.m */,
+				FD2A9AF01C9FEB290005ACC1 /* WTCricleAnimationViewController.h */,
+				FD2A9AF11C9FEB290005ACC1 /* WTCricleAnimationViewController.m */,
 			);
 			name = UI;
 			path = WaterTime/UI/UI;
@@ -418,24 +421,6 @@
 			productReference = FDCF0A191A71F2A200EE1B89 /* WaterTime.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FDCF0A341A71F2A200EE1B89 /* WaterTimeTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FDCF0A421A71F2A200EE1B89 /* Build configuration list for PBXNativeTarget "WaterTimeTests" */;
-			buildPhases = (
-				FDCF0A311A71F2A200EE1B89 /* Sources */,
-				FDCF0A321A71F2A200EE1B89 /* Frameworks */,
-				FDCF0A331A71F2A200EE1B89 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FDCF0A371A71F2A200EE1B89 /* PBXTargetDependency */,
-			);
-			name = WaterTimeTests;
-			productName = WaterTimeTests;
-			productReference = FDCF0A351A71F2A200EE1B89 /* WaterTimeTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -453,10 +438,6 @@
 							};
 						};
 					};
-					FDCF0A341A71F2A200EE1B89 = {
-						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = FDCF0A181A71F2A200EE1B89;
-					};
 				};
 			};
 			buildConfigurationList = FDCF0A141A71F2A200EE1B89 /* Build configuration list for PBXProject "WaterTime" */;
@@ -473,7 +454,6 @@
 			projectRoot = "";
 			targets = (
 				FDCF0A181A71F2A200EE1B89 /* WaterTime */,
-				FDCF0A341A71F2A200EE1B89 /* WaterTimeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -487,13 +467,6 @@
 				FDCF0A2B1A71F2A200EE1B89 /* Main.storyboard in Resources */,
 				FDCF0A4B1A721E2400EE1B89 /* MainTableShowContentList.plist in Resources */,
 				FDCF0A2D1A71F2A200EE1B89 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FDCF0A331A71F2A200EE1B89 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,24 +516,27 @@
 				FDCEFBAC1C9BACBF00136144 /* WTImageFilterViewController.m in Sources */,
 				FD2A04691C50D21600494EF6 /* WTCollectionViewLayout.m in Sources */,
 				FDCF0A4E1A721FAD00EE1B89 /* WTMainTableConfigUtils.m in Sources */,
+				FD2A9AF91CA002C10005ACC1 /* WTCricleCell.m in Sources */,
 				FDA12B8F1B406202000DA235 /* WTNetworkStateViewController.m in Sources */,
 				FD7EBCE71C1ED5F5007C479D /* WTFontViewController.m in Sources */,
 				FD69C31D1B428F3E00C2A715 /* WTCrashReportViewController.m in Sources */,
+				FD2A9AFD1CA118680005ACC1 /* WTWebView.m in Sources */,
 				FDCF0A591A72397C00EE1B89 /* WTCoreDataViewController.m in Sources */,
 				FDEACA101B2ECF320074258C /* WTMainTableJMPController.m in Sources */,
 				FDEACA0D1B2EC94F0074258C /* WTBackgroundBlurViewController.m in Sources */,
 				FD6D59381C9FA55F007726E8 /* StickerView.m in Sources */,
 				FD316F781C7B08AB00D7792B /* WTMRNetworkViewController.m in Sources */,
-				FD196C231B4533710026CD9A /* WTWebView.m in Sources */,
 				FDCF0A551A722A7F00EE1B89 /* WTCommonBaseViewController.m in Sources */,
 				FDCEFBB01C9BB45D00136144 /* GIFDownloader.m in Sources */,
 				FD552EDA1B2848A600E96A9B /* WTSKStoreProductViewController.m in Sources */,
 				FD14E2521B58FF06004EB769 /* WTTakeScreenShotViewController.m in Sources */,
 				FDDC58E31C1988230070E578 /* WTCoreVideoViewController.m in Sources */,
+				FD2A9AF61C9FEDFE0005ACC1 /* WTCricleView.m in Sources */,
 				FDDAE55B1B6F71B70035D462 /* WTLocalAuthenticationViewController.m in Sources */,
 				FD196C201B4532CC0026CD9A /* WTTestViewController.m in Sources */,
 				FDE03C601C79FBE8006569D2 /* WTTelephonyNetworkInfoViewController.m in Sources */,
 				FDCF0A221A71F2A200EE1B89 /* AppDelegate.m in Sources */,
+				FD2A9AF21C9FEB290005ACC1 /* WTCricleAnimationViewController.m in Sources */,
 				FD50B0F51A84C9040082A79E /* WTCoreDataManager.m in Sources */,
 				FDCF0A1F1A71F2A200EE1B89 /* main.m in Sources */,
 				FDFF5CEF1C4FCF440097FFC4 /* WTCollectionViewController.m in Sources */,
@@ -569,23 +545,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FDCF0A311A71F2A200EE1B89 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FDCF0A3C1A71F2A200EE1B89 /* WaterTimeTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		FDCF0A371A71F2A200EE1B89 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FDCF0A181A71F2A200EE1B89 /* WaterTime */;
-			targetProxy = FDCF0A361A71F2A200EE1B89 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FD760B2C1B6A33C700219284 /* LaunchScreen.xib */ = {
@@ -721,40 +681,6 @@
 			};
 			name = Release;
 		};
-		FDCF0A431A71F2A200EE1B89 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = WaterTimeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WaterTime.app/WaterTime";
-			};
-			name = Debug;
-		};
-		FDCF0A441A71F2A200EE1B89 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = WaterTimeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WaterTime.app/WaterTime";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -772,15 +698,6 @@
 			buildConfigurations = (
 				FDCF0A401A71F2A200EE1B89 /* Debug */,
 				FDCF0A411A71F2A200EE1B89 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FDCF0A421A71F2A200EE1B89 /* Build configuration list for PBXNativeTarget "WaterTimeTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FDCF0A431A71F2A200EE1B89 /* Debug */,
-				FDCF0A441A71F2A200EE1B89 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
