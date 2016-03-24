@@ -16,6 +16,7 @@
 		FD2A9AF91CA002C10005ACC1 /* WTCricleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2A9AF81CA002C10005ACC1 /* WTCricleCell.m */; };
 		FD2A9AFD1CA118680005ACC1 /* WTWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2A9AFC1CA118680005ACC1 /* WTWebView.m */; };
 		FD316F781C7B08AB00D7792B /* WTMRNetworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD316F771C7B08AB00D7792B /* WTMRNetworkViewController.m */; };
+		FD40CEEA1CA3EFF500E59101 /* WTAnimationGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = FD40CEE91CA3EFF500E59101 /* WTAnimationGroup.m */; };
 		FD50B0F51A84C9040082A79E /* WTCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FD50B0F41A84C9040082A79E /* WTCoreDataManager.m */; };
 		FD552EDA1B2848A600E96A9B /* WTSKStoreProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD552ED91B2848A600E96A9B /* WTSKStoreProductViewController.m */; };
 		FD69C31D1B428F3E00C2A715 /* WTCrashReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD69C31C1B428F3E00C2A715 /* WTCrashReportViewController.m */; };
@@ -67,6 +68,8 @@
 		FD2A9AFC1CA118680005ACC1 /* WTWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTWebView.m; sourceTree = "<group>"; };
 		FD316F761C7B08AB00D7792B /* WTMRNetworkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTMRNetworkViewController.h; sourceTree = "<group>"; };
 		FD316F771C7B08AB00D7792B /* WTMRNetworkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTMRNetworkViewController.m; sourceTree = "<group>"; };
+		FD40CEE81CA3EFF500E59101 /* WTAnimationGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTAnimationGroup.h; sourceTree = "<group>"; };
+		FD40CEE91CA3EFF500E59101 /* WTAnimationGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTAnimationGroup.m; sourceTree = "<group>"; };
 		FD50B0F31A84C9040082A79E /* WTCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCoreDataManager.h; sourceTree = "<group>"; };
 		FD50B0F41A84C9040082A79E /* WTCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCoreDataManager.m; sourceTree = "<group>"; };
 		FD552ED81B2848A600E96A9B /* WTSKStoreProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSKStoreProductViewController.h; sourceTree = "<group>"; };
@@ -159,6 +162,8 @@
 		FD2A9AF31C9FEDE20005ACC1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FD40CEE81CA3EFF500E59101 /* WTAnimationGroup.h */,
+				FD40CEE91CA3EFF500E59101 /* WTAnimationGroup.m */,
 				FD2A9AFB1CA118680005ACC1 /* WTWebView.h */,
 				FD2A9AFC1CA118680005ACC1 /* WTWebView.m */,
 				FD2A9AF41C9FEDFE0005ACC1 /* WTCricleView.h */,
@@ -539,6 +544,7 @@
 				FD2A9AF21C9FEB290005ACC1 /* WTCricleAnimationViewController.m in Sources */,
 				FD50B0F51A84C9040082A79E /* WTCoreDataManager.m in Sources */,
 				FDCF0A1F1A71F2A200EE1B89 /* main.m in Sources */,
+				FD40CEEA1CA3EFF500E59101 /* WTAnimationGroup.m in Sources */,
 				FDFF5CEF1C4FCF440097FFC4 /* WTCollectionViewController.m in Sources */,
 				FDCF0A521A722A4E00EE1B89 /* WTLayoutBaseViewController.m in Sources */,
 				FD976CAC1B79F024005CE35D /* WTURLProtocolViewController.m in Sources */,

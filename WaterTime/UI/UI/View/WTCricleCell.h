@@ -15,6 +15,9 @@
 
 - (void)cellbeganMove:(WTCricleCell*)cell withLocation:(CGPoint)point;
 - (void)cellDidEndMoved:(WTCricleCell*)cell withLocation:(CGPoint)point;
+- (void)cellDidMoved:(WTCricleCell*)cell withLocation:(CGPoint)point;
+
+- (void)cellTouched:(WTCricleCell*)cell;
 
 @end
 

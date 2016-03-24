@@ -20,6 +20,8 @@
     CGFloat         _deviation_Radian;      //偏移弧度
     CGFloat         _average_radina;        //平均弧度
     CGFloat         _radius;                //半径长度
+    NSInteger       _current_index;         //当前用户选择Index
+    BOOL            _is_clockwise;
 
     
     NSMutableArray* _cellArray;

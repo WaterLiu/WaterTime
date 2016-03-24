@@ -11,9 +11,9 @@
 @implementation WTCricleCell
 
 
-- (instancetype)init
+- (instancetype)initWithFrame:(CGRect)frame
 {
-    self = [super init];
+    self = [super initWithFrame:frame];
     if (self)
     {
         /*增加单击事件*/
@@ -43,7 +43,6 @@
 
 - (void)handleSingleTap:(UITapGestureRecognizer*)gestureRecognizer
 {
-    NSLog(@"handleSingleTap");
     switch (gestureRecognizer.state)
     {
         case UIGestureRecognizerStateBegan:
@@ -53,7 +52,10 @@
             break;
         case UIGestureRecognizerStateEnded:
         {
-            
+            if (_delegate != nil && [_delegate respondsToSelector:@selector(cellTouched:)])
+            {
+                [_delegate cellTouched:self];
+            }
         }
             break;
         case UIGestureRecognizerStateFailed:
@@ -80,13 +82,12 @@
 
 - (void)handleSinglePan:(UIPanGestureRecognizer*)gestureRecognizer
 {
-    NSLog(@"handleSinglePan");
     static CGPoint beganPoint;
     switch (gestureRecognizer.state)
     {
         case UIGestureRecognizerStateBegan:
         {
-            beganPoint = [gestureRecognizer locationInView:self];
+            beganPoint = [gestureRecognizer locationInView:self.superview];
             if (_delegate != nil && [_delegate respondsToSelector:@selector(cellbeganMove:withLocation:)])
             {
                 [_delegate cellbeganMove:self withLocation:beganPoint];
@@ -95,7 +96,11 @@
             break;
         case UIGestureRecognizerStateEnded:
         {
-            
+            CGPoint point = [gestureRecognizer locationInView:self.superview];
+            if (_delegate != nil && [_delegate respondsToSelector:@selector(cellDidEndMoved:withLocation:)])
+            {
+                [_delegate cellDidEndMoved:self withLocation:point];
+            }
         }
             break;
         case UIGestureRecognizerStateFailed:
@@ -110,11 +115,10 @@
             break;
         case UIGestureRecognizerStateChanged:
         {
-            CGPoint point = [gestureRecognizer locationInView:self];
-//            CGPoint movedPoint = CGPointMake(point.x - beganPoint.x, point.y - beganPoint.y);
-            if (_delegate != nil && [_delegate respondsToSelector:@selector(cellDidEndMoved:withLocation:)])
+            CGPoint point = [gestureRecognizer locationInView:self.superview];
+            if (_delegate != nil && [_delegate respondsToSelector:@selector(cellDidMoved:withLocation:)])
             {
-                [_delegate cellDidEndMoved:self withLocation:point];
+                [_delegate cellDidMoved:self withLocation:point];
             }
         }
             break;
