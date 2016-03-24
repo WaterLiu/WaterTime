@@ -22,6 +22,8 @@
     CGFloat         _radius;                //半径长度
     NSInteger       _current_index;         //当前用户选择Index
     BOOL            _is_clockwise;
+    
+    BOOL            _is_drag_animation;
 
     
     NSMutableArray* _cellArray;
