@@ -261,7 +261,7 @@
     for (int i = 0; i < [_cellArray count]; i++)
     {
 //        ++drag_animation_count;
-        [self animateWithDuration:3.25f * (temp_value / _average_radina)
+        [self animateWithDuration:0.25f * (temp_value / _average_radina)
                      animateDelay:0.0f
                       changeIndex:(_current_index + i) % [_cellArray count]
                           toIndex:i
