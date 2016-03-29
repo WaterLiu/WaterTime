@@ -11,7 +11,7 @@
 #import <SafariServices/SafariServices.h>
 
 
-#define Elements_Count  7
+#define Elements_Count  6.0f
 
 @implementation WTCricleView
 
@@ -39,13 +39,13 @@
             CGFloat cell_radina = [self getRadinaByRadian:(i * _average_radina + _deviation_Radian)];
             cell.current_radian = cell_radina;
             cell.radian = cell_radina;
+            cell.view_point = [self getPointByRadian:cell_radina centreOfCircle:_center_point radiusOfCircle:_radius];
             cell.animation_radian = [self getAnimationRadianByRadian:cell_radina];
             cell.current_animation_radian = cell.animation_radian;
             cell.center = [self getPointByRadian:cell_radina
                                   centreOfCircle:_center_point
                                   radiusOfCircle:_radius];
         }
-        
     }
     return self;
 }
@@ -68,7 +68,6 @@
 - (CGFloat)schAtan2f:(CGFloat)a theB:(CGFloat)b
 {
     CGFloat rd = atan2f(a,b);
-    
     if(rd < 0.0f)
     {
         return M_PI * 2 + rd;
@@ -144,11 +143,10 @@
     
     /*拖动*/
 //    [self dragPoint:_drag_point movePoint:point circleCenterPoint:_center_point];
-
+    
     /*修正圆*/
     [self reviseCirclePoint];
 }
-
 
 
 - (void)cellTouched:(WTCricleCell*)cell
@@ -169,9 +167,8 @@
     {
         WTCricleCell *cell = [_cellArray objectAtIndex:i];
         cell.current_radian = [self getRadinaByRadian:cell.current_radian + change_radian];
+        cell.current_animation_radian = [self getAnimationRadianByRadian:cell.current_radian];;
         cell.center = [self getPointByRadian:cell.current_radian centreOfCircle:_center_point radiusOfCircle:_radius];
-        
-        NSLog(@"center = %@", NSStringFromCGPoint(cell.center));
     }
 }
 
@@ -189,10 +186,9 @@
     /*圆*/
     CAKeyframeAnimation * animation = [CAKeyframeAnimation animationWithKeyPath:[NSString stringWithFormat:@"position"]];
     CGMutablePathRef path = CGPathCreateMutable();
-    CGPathMoveToPoint(path, NULL,change_cell.layer.position.x,change_cell.layer.position.y);
+    CGPathMoveToPoint(path, NULL, change_cell.layer.position.x, change_cell.layer.position.y);
 
-    
-    int clockwise = is_clockwise ? 0 : 1;
+    BOOL clockwise = is_clockwise ? NO : YES;
     
     CGPathAddArc(path,
                  nil,
@@ -203,10 +199,11 @@
     
     animation.path = path;
     CGPathRelease(path);
+    
     animation.fillMode = kCAFillModeForwards;
     animation.repeatCount = 1;
     animation.removedOnCompletion = NO;
-    animation.calculationMode = @"paced";
+    animation.calculationMode = kCAAnimationPaced;
     
     /*缩放*/
 //    CABasicAnimation *scale_anim  = [CABasicAnimation animationWithKeyPath:@"transform"];
@@ -217,7 +214,7 @@
 //    scale_anim.removedOnCompletion = NO;
     
     /*动画组合*/
-    WTAnimationGroup *anim_group  = [WTAnimationGroup animation];
+    WTAnimationGroup* anim_group = [WTAnimationGroup animation];
     anim_group.animations = [NSArray arrayWithObjects:animation, /* scale_anim, */ nil];
     anim_group.duration = time + delay;
     anim_group.delegate = self;
@@ -256,6 +253,8 @@
         _current_index = ([_cellArray count] - ++temp_number)% [_cellArray count];
     }
     
+    
+    
     /*动画*/
     _is_drag_animation = YES;
     
@@ -269,29 +268,21 @@
                       circleArray:_cellArray
                         clockwise:_is_clockwise];
     }
-    
-    
 }
 
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
 {
     /*拖动动画结束*/
+    for (int i = 0; i < [_cellArray count]; ++i)
+    {
+        WTCricleCell* change_cell = [_cellArray objectAtIndex:(_current_index + i) % [_cellArray count]];
+        WTCricleCell* to_cell = [_cellArray objectAtIndex:i];
     
-    
-//        if(0 == drag_animation_count)
-//        {
-            for (int i = 0; i < [_cellArray count]; ++i)
-            {
-                WTCricleCell *change_cell = [_cellArray objectAtIndex:(_current_index + i) % [_cellArray count]];
-                WTCricleCell *to_cell     = [_cellArray objectAtIndex:i];
-                [change_cell.layer removeAllAnimations];
-                
-//                change_cell.center    = to_cell.view_point;
-//                change_cell.transform = CGAffineTransformMakeScale(to_cell.scale, to_cell.scale);
-            }
-//        }
+        [change_cell.layer removeAllAnimations];
+        change_cell.center = to_cell.view_point;
     }
+}
 
 
 @end
