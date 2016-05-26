@@ -9,5 +9,8 @@
 #import "WTCommonBaseViewController.h"
 
 @interface WTTestViewController : WTCommonBaseViewController <UIWebViewDelegate, UIGestureRecognizerDelegate>
+{
+    NSHashTable* hashTabe;
+}
 
 @end

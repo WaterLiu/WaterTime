@@ -10,6 +10,7 @@
 		<string>BackgroundBlur</string>
 		<string>Font</string>
 		<string>ImageFilter</string>
+		<string>TextView</string>
 	</array>
 	<key>SystemService</key>
 	<array>

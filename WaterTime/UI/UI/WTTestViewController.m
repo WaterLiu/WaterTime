@@ -50,6 +50,32 @@
 //    label.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:label];
     
+    NSArray* array = @[@"1",@"2"];
+    
+    hashTabe = [[NSHashTable alloc] initWithOptions:NSPointerFunctionsWeakMemory capacity:10];
+    
+    
+    NSString* water = @"water";
+    NSString* waterTest = [water copy];
+    
+    NSInteger b = YES;
+    NSNumber* number = [NSNumber numberWithBool:b];
+    
+    
+//    [hashTabe addObject:waterTest];
+    [hashTabe addObject:waterTest];
+    [hashTabe addObject:array];
+    [hashTabe addObject:number];
+    NSArray* array1 = [hashTabe allObjects];
+     NSLog(@"111");
+}
+
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    NSArray* array = [hashTabe allObjects];
+    
+    NSLog(@"111");
 }
 
 - (void)didReceiveMemoryWarning {

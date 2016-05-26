@@ -24,6 +24,7 @@
 #import "WTCollectionViewController.h"
 #import "WTImageFilterViewController.h"
 #import "WTCricleAnimationViewController.h"
+#import "WTTextViewViewController.h"
 
 //Network
 #import "WTNetworkStateViewController.h"
@@ -107,6 +108,10 @@
         else if ([value isEqualToString:@"CricleAnimation"])
         {
             vc = [[WTCricleAnimationViewController alloc] initWithNibName:nil bundle:nil];
+        }
+        else if ([value isEqualToString:@"TextView"])
+        {
+            vc = [[WTTextViewViewController alloc] initWithNibName:nil bundle:nil];
         }
         else
         {
