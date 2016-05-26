@@ -53,8 +53,10 @@
                                                   object:self];
 }
 
-- (instancetype)initWithFrame:(CGRect)frame textContainer:(NSTextContainer *)textContainer{
-    if (self = [super initWithFrame:frame textContainer:textContainer]) {
+- (instancetype)initWithFrame:(CGRect)frame textContainer:(NSTextContainer *)textContainer
+{
+    if (self = [super initWithFrame:frame textContainer:textContainer])
+    {
         [self _placeholderSetup];
         [self _commonSetup];
         [self _registerObserver];
@@ -62,7 +64,8 @@
     return self;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame
+{
     if (self = [super initWithFrame:frame]) {
         [self _placeholderSetup];
         [self _commonSetup];

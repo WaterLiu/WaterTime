@@ -18,10 +18,6 @@ FOUNDATION_EXPORT NSString * const DQImageAttachmentViewClose;
 
 @property (nonatomic, strong) NSMutableDictionary *attachmentDictionary;
 
-- (instancetype)initArticleTextContainerWithFrame:(CGRect)frame;
-
 - (void)insertAttachmentWithMediaURL:(id)mediaURL imageSize:(CGSize)imageSize;
-
-- (instancetype)initArticleTextContainerWithArticleTextContainer:(NTCArticleTextContainer*)textContainer withFrame:(CGRect)frame;
 
 @end

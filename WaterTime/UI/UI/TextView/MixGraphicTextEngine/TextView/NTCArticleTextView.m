@@ -24,11 +24,33 @@ NSString * const DQImageAttachmentViewClose = @"DQImageAttachmentViewClose";
 
 @implementation NTCArticleTextView
 
-- (void)dealloc{
+- (void)dealloc
+{
     [self removeObserver:self forKeyPath:NTCFontObserverName];
 }
 
-- (instancetype)initArticleTextContainerWithFrame:(CGRect)frame{
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    NTCArticleTextStorage *textStorage = [[NTCArticleTextStorage alloc]init];
+    NTCArticleLayoutManager *layoutManager = [[NTCArticleLayoutManager alloc]init];
+    [textStorage addLayoutManager:layoutManager];
+    NTCArticleTextContainer *textContainer = [[NTCArticleTextContainer alloc]initWithSize:frame.size];
+    textContainer.widthTracksTextView = YES;
+    [layoutManager addTextContainer:textContainer];
+    
+    if (self = [super initWithFrame:frame textContainer:textContainer])
+    {
+        textStorage.attachmentDelegate = self;
+        self.attachmentDictionary = [@{} mutableCopy];
+        
+        [self addObserver:self forKeyPath:NTCFontObserverName options:NSKeyValueObservingOptionNew context:nil];
+    }
+    return self;
+}
+
+- (instancetype)initArticleTextContainerWithFrame:(CGRect)frame
+{
     NTCArticleTextStorage *textStorage = [[NTCArticleTextStorage alloc]init];
     NTCArticleLayoutManager *layoutManager = [[NTCArticleLayoutManager alloc]init];
     [textStorage addLayoutManager:layoutManager];
@@ -46,21 +68,21 @@ NSString * const DQImageAttachmentViewClose = @"DQImageAttachmentViewClose";
     return self;
 }
 
-- (instancetype)initArticleTextContainerWithArticleTextContainer:(NTCArticleTextContainer*)textContainer withFrame:(CGRect)frame
-{
-    if (self = [super initWithFrame:frame textContainer:textContainer])
-    {
-        if (textContainer.layoutManager.textStorage != nil && [textContainer.layoutManager.textStorage isKindOfClass:[NTCArticleTextStorage class]])
-        {
-            NTCArticleTextStorage* textStorage = (NTCArticleTextStorage*)textContainer.layoutManager.textStorage;
-            textStorage.attachmentDelegate = self;
-            self.attachmentDictionary = [@{} mutableCopy];
-        }
-        [self addObserver:self forKeyPath:NTCFontObserverName options:NSKeyValueObservingOptionNew context:nil];
-    }
-    
-    return self;
-}
+//- (instancetype)initArticleTextContainerWithArticleTextContainer:(NTCArticleTextContainer*)textContainer withFrame:(CGRect)frame
+//{
+//    if (self = [super initWithFrame:frame textContainer:textContainer])
+//    {
+//        if (textContainer.layoutManager.textStorage != nil && [textContainer.layoutManager.textStorage isKindOfClass:[NTCArticleTextStorage class]])
+//        {
+//            NTCArticleTextStorage* textStorage = (NTCArticleTextStorage*)textContainer.layoutManager.textStorage;
+//            textStorage.attachmentDelegate = self;
+//            self.attachmentDictionary = [@{} mutableCopy];
+//        }
+//        [self addObserver:self forKeyPath:NTCFontObserverName options:NSKeyValueObservingOptionNew context:nil];
+//    }
+//    
+//    return self;
+//}
 
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{

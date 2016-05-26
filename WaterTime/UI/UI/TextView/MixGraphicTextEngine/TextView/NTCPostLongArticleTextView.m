@@ -11,18 +11,35 @@
 
 @implementation NTCPostLongArticleTextView
 
-- (instancetype)initArticleTextContainerWithFrame:(CGRect)frame{
-    if (self = [super initArticleTextContainerWithFrame:frame]) {
-        
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self)
+    {
         NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
         paragraphStyle.lineSpacing = 8.5f;// 字体的行间距
         [(NTCArticleTextStorage *)self.textStorage setDefaultAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15.0],
                                                                           NSForegroundColorAttributeName : [UIColor blackColor],
                                                                           NSParagraphStyleAttributeName : paragraphStyle
                                                                           }];
+        
     }
     return self;
 }
+
+//- (instancetype)initArticleTextContainerWithFrame:(CGRect)frame{
+//    if (self = [super initArticleTextContainerWithFrame:frame]) {
+//        
+//        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+//        paragraphStyle.lineSpacing = 8.5f;// 字体的行间距
+//        [(NTCArticleTextStorage *)self.textStorage setDefaultAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15.0],
+//                                                                          NSForegroundColorAttributeName : [UIColor blackColor],
+//                                                                          NSParagraphStyleAttributeName : paragraphStyle
+//                                                                          }];
+//    }
+//    return self;
+//}
 
 
 - (void)insertAttachmentWithMediaURL:(id)mediaURL autoScaleImageOriginalSize:(CGSize)imageSize{

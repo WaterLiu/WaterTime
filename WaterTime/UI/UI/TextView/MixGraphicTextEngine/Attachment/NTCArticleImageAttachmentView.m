@@ -7,7 +7,7 @@
 //
 
 #import "NTCArticleImageAttachmentView.h"
-#import "UIImageView+WebCache.h"
+//#import "UIImageView+WebCache.h"
 #import "UIImage+Compress.h"
 #import "AssetHelper.h"
 
@@ -41,7 +41,6 @@ static NSString *const NTCArticleAttachmentMediaURLName = @"mediaURL";
         self.layer.cornerRadius = 4.0f;
         self.imageView.layer.cornerRadius = 4.0f;
         self.imageView.layer.masksToBounds = YES;
-
     }
     return self;
 }
