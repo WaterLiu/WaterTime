@@ -20,6 +20,7 @@ UIKIT_EXTERN NSString *const UIImageCompressVerticalAlignmentAttributeName;
  *  @param complection
  */
 - (UIImage *)compressToSize:(CGSize)size;
+
 - (void)compressToSize:(CGSize)size complection:(void (^) (UIImage *))complection;
 
 /**
@@ -32,5 +33,15 @@ UIKIT_EXTERN NSString *const UIImageCompressVerticalAlignmentAttributeName;
  */
 - (UIImage *)compressToSize:(CGSize)size fillSize:(CGSize)fillSize attributes:(NSDictionary *)attributes;
 - (void)compressToSize:(CGSize)size fillSize:(CGSize)fillSize attributes:(NSDictionary *)attributes complection:(void (^) (UIImage *))complection;
+
+/**
+ *  UIImage 旋转
+ *
+ *  @param orientation 方向
+ */
+
+- (UIImage *)adjustOrientation:(UIImageOrientation)orientation;
+
+- (UIImage *)roundedCornerImageWithCornerRadius:(CGFloat)cornerRadius;
 
 @end

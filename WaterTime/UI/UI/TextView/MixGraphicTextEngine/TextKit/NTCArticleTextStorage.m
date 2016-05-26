@@ -69,11 +69,6 @@
         [string appendAttributedString:[[NSAttributedString alloc] initWithString:@"\n"]];
     }
     
-    /*
-    [string appendAttributedString:[[NSAttributedString alloc] initWithString:@"\n"]];
-    [string appendAttributedString:[NSAttributedString attributedStringWithAttachment:attachment]];
-    [string appendAttributedString:[[NSAttributedString alloc] initWithString:@"\n"]];
-    */
     
     [self replaceCharactersInRange:range withAttributedString:string];
     

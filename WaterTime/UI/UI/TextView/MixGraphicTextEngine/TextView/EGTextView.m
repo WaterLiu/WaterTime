@@ -122,7 +122,8 @@
                                                object:nil];
 }
 
-- (void)_commonSetup{
+- (void)_commonSetup
+{
     self.editing = NO;
     self.automaticHeightWhenKeyboard = NO;
     self.automaticTransformInset = UIEdgeInsetsMake(0, 0, 10, 0);
@@ -144,8 +145,10 @@
     self.textAlignment = NSTextAlignmentLeft;
 }
 
-- (void)_needUpdateDisplayPlaceholder{
-    if([self.text length] == 0 && self.placeHolder) {
+- (void)_needUpdateDisplayPlaceholder
+{
+    if([self.text length] == 0 && self.placeHolder)
+    {
         _placeHolderLabel.attributedText = _placeHolder;
         [_placeHolderLabel sizeToFit];
         
@@ -154,20 +157,24 @@
                                             firstGlyph.origin.y,
                                             _placeHolderLabel.bounds.size.width,
                                             firstGlyph.size.height);
-        _placeHolderLabel.frame     =  placeHolderRect;
-        _placeHolderLabel.hidden    =  NO;
-    }else{
-        _placeHolderLabel.hidden    =  YES;
+        _placeHolderLabel.frame = placeHolderRect;
+        _placeHolderLabel.hidden = NO;
+    }
+    else
+    {
+        _placeHolderLabel.hidden = YES;
     }
 }
 
 #pragma mark - Observer
-- (void)textViewTextDidChange:(NSNotification *)noti{
+- (void)textViewTextDidChange:(NSNotification *)noti
+{
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         UITextView *textView = noti.object;
         CGRect line = [textView caretRectForPosition:textView.selectedTextRange.start];
         CGFloat overflow = line.origin.y + line.size.height - ( textView.contentOffset.y + textView.bounds.size.height - textView.contentInset.bottom - textView.contentInset.top );
-        if ( overflow > 0 ) {
+        if ( overflow > 0 )
+        {
             CGPoint offset = textView.contentOffset;
             offset.y += overflow + 7;
             
@@ -181,46 +188,53 @@
     });
 }
 
-- (void)textViewTextDidBegin:(NSNotification *)noti{
+- (void)textViewTextDidBegin:(NSNotification *)noti
+{
     self.editing = YES;
     _heightWhenKeyboard = self.frame.size.height;
 }
 
-- (void)textViewTextDidEnd:(NSNotification *)noti{
+- (void)textViewTextDidEnd:(NSNotification *)noti
+{
     self.editing = NO;
 }
 
--(void)keyboardDidShow:(NSNotification *)notification{
-    if (!self.isEditing || !self.automaticHeightWhenKeyboard) {
+-(void)keyboardDidShow:(NSNotification *)notification
+{
+    if (!self.isEditing || !self.automaticHeightWhenKeyboard)
+    {
         return;
     }
     NSValue *keyboardObject = [[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey];
-    CGRect  keyboardRect    = [keyboardObject CGRectValue];
-    CGRect  containRect     = CGRectIntersection(self.frame, keyboardRect);
+    CGRect  keyboardRect = [keyboardObject CGRectValue];
+    CGRect  containRect = CGRectIntersection(self.frame, keyboardRect);
     [UIView animateWithDuration:EGAUTOMATIC_HEIGHT_ANIMATION_DURATION delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        CGRect rect         = self.frame;
-        rect.size.height    = _heightWhenKeyboard - containRect.size.height - self.automaticTransformInset.bottom;
-        self.frame          = rect;
+        CGRect rect = self.frame;
+        rect.size.height = _heightWhenKeyboard - containRect.size.height - self.automaticTransformInset.bottom;
+        self.frame = rect;
     } completion:nil];
 }
 
--(void)keyboardWillHidden:(NSNotification *)notification{
-    if (!self.isEditing || !self.automaticHeightWhenKeyboard) {
+-(void)keyboardWillHidden:(NSNotification *)notification
+{
+    if (!self.isEditing || !self.automaticHeightWhenKeyboard)
+    {
         return;
     }
     [UIView animateWithDuration:EGAUTOMATIC_HEIGHT_ANIMATION_DURATION delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        CGRect rect      = self.frame;
+        CGRect rect = self.frame;
         rect.size.height = _heightWhenKeyboard;
-        self.frame       = rect;
+        self.frame = rect;
     } completion:nil];
 }
 
 #pragma mark - SET/GET
-- (void)setPlaceHolder:(NSAttributedString *)placeHolder {
-    if([placeHolder isEqualToAttributedString:_placeHolder]) {
+- (void)setPlaceHolder:(NSAttributedString *)placeHolder
+{
+    if([placeHolder isEqualToAttributedString:_placeHolder])
+    {
         return;
     }
-    
     _placeHolder = [placeHolder copy];
     [self _needUpdateDisplayPlaceholder];
 }

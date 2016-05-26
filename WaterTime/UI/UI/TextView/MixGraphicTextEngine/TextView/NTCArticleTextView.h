@@ -8,6 +8,12 @@
 
 #import "EGTextView.h"
 
+FOUNDATION_EXPORT NSString * const DQImageAttachmentViewClose;
+
+
+
+@class NTCArticleTextContainer;
+
 @interface NTCArticleTextView : EGTextView
 
 @property (nonatomic, strong) NSMutableDictionary *attachmentDictionary;
@@ -15,5 +21,7 @@
 - (instancetype)initArticleTextContainerWithFrame:(CGRect)frame;
 
 - (void)insertAttachmentWithMediaURL:(id)mediaURL imageSize:(CGSize)imageSize;
+
+- (instancetype)initArticleTextContainerWithArticleTextContainer:(NTCArticleTextContainer*)textContainer withFrame:(CGRect)frame;
 
 @end

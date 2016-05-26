@@ -15,6 +15,8 @@
 #import "NTCArticleImageAttachmentView.h"
 
 static NSString* const NTCFontObserverName = @"font";
+NSString * const DQImageAttachmentViewClose = @"DQImageAttachmentViewClose";
+
 
 @interface NTCArticleTextView () <NTCArticleTextStorageDelegate, NTCArticleImageAttachmentDelegate>
 
@@ -43,6 +45,23 @@ static NSString* const NTCFontObserverName = @"font";
     
     return self;
 }
+
+- (instancetype)initArticleTextContainerWithArticleTextContainer:(NTCArticleTextContainer*)textContainer withFrame:(CGRect)frame
+{
+    if (self = [super initWithFrame:frame textContainer:textContainer])
+    {
+        if (textContainer.layoutManager.textStorage != nil && [textContainer.layoutManager.textStorage isKindOfClass:[NTCArticleTextStorage class]])
+        {
+            NTCArticleTextStorage* textStorage = (NTCArticleTextStorage*)textContainer.layoutManager.textStorage;
+            textStorage.attachmentDelegate = self;
+            self.attachmentDictionary = [@{} mutableCopy];
+        }
+        [self addObserver:self forKeyPath:NTCFontObserverName options:NSKeyValueObservingOptionNew context:nil];
+    }
+    
+    return self;
+}
+
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     if ([keyPath isEqualToString:NTCFontObserverName]) {
@@ -91,16 +110,18 @@ static NSString* const NTCFontObserverName = @"font";
 - (void)imageAttachmentViewDidClickClose:(NTCArticleImageAttachmentView *)attachmentView{
     [self.textStorage enumerateAttribute:NSAttachmentAttributeName inRange:NSMakeRange(0, [self.textStorage length]) options:0 usingBlock:^(id value, NSRange range, BOOL *stop) {
         if (value && value == attachmentView.attachment) {
-            NSRange deleteRange = range;
-            [self.textStorage deleteCharactersInRange:deleteRange];//从textStroage删除
+            [self deleteAttachment:range];
             *stop = YES;
         }
     }];
+    
 }
 
 #pragma mark - NTCArticleTextStorageDelegate
 - (void)textStroage:(NSTextStorage *)textStorage willAddAttachment:(NTCArticleTextAttachment *)attachment atTextRange:(NSRange)range{
-    NTCArticleImageAttachmentView *view = [[NTCArticleImageAttachmentView alloc]initWithMediaURL:attachment.mediaURL imageSize:attachment.imageSize];
+    NTCArticleImageAttachmentView *view = [[NTCArticleImageAttachmentView alloc] initWithMediaURL:attachment.mediaURL imageSize:attachment.imageSize];
+    attachment.displaySize = CGSizeMake(self.textContainer.size.width - self.textContainer.lineFragmentPadding * 2.0f, attachment.imageSize.height);
+    [attachment updateContentSize];
     view.attachment = attachment;
     view.delegate = self;
     [self addSubview:view];
@@ -109,6 +130,12 @@ static NSString* const NTCFontObserverName = @"font";
 
 - (void)textStroage:(NSTextStorage *)textStorage willRemove:(NTCArticleTextAttachment *)attachment atTextRange:(NSRange)range{
     [self deleteAttachmentForKey:[attachment hashString]];
+   
+}
+
+- (void)textStroage:(NSTextStorage *)textStorage didRemove:(NTCArticleTextAttachment *)attachment atTextRange:(NSRange)range
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:DQImageAttachmentViewClose object:nil]; 
 }
 
 - (void)deleteAttachmentForKey:(NSString *)key{
@@ -119,6 +146,36 @@ static NSString* const NTCFontObserverName = @"font";
         view = nil;
     }
 }
+
+- (void)deleteAttachment:(NSRange )range
+{
+    NSRange deleteRange = range;
+    if (range.location > 0) {
+        /**
+         *  找\n前缀
+         */
+        NSRange __range = NSMakeRange(range.location - 1, 1);
+        if ((__range.length+__range.location) <= [self.textStorage string].length) {
+            NSString *charater = [[self.textStorage string] substringWithRange:__range];
+            if ([charater isEqualToString:@"\n"]){
+                deleteRange = NSMakeRange(deleteRange.location, deleteRange.length+__range.length);
+            }   
+        }
+    }
+    /**
+     *  \n后缀
+     */
+    NSRange __range = NSMakeRange(deleteRange.location + deleteRange.length, 1);
+    if ((__range.length+__range.location) <= [self.textStorage string].length) {
+        NSString *charater = [[self.textStorage string] substringWithRange:__range];
+        if ([charater isEqualToString:@"\n"]){
+            deleteRange = NSMakeRange(deleteRange.location, deleteRange.length+__range.length);
+        }   
+    }
+    [self.textStorage deleteCharactersInRange:deleteRange];//从textStroage删除
+    
+}
+
 
 @end
 

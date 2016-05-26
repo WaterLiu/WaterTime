@@ -8,7 +8,9 @@
 
 #import "NTCArticleImageAttachmentView.h"
 #import "UIImageView+WebCache.h"
+#import "UIImage+Compress.h"
 #import "AssetHelper.h"
+
 static NSString *const NTCArticleAttachmentImageSizeName = @"imageSize";
 static NSString *const NTCArticleAttachmentMediaURLName = @"mediaURL";
 
@@ -35,19 +37,26 @@ static NSString *const NTCArticleAttachmentMediaURLName = @"mediaURL";
         
         self.imageView.alpha = 0.0;
         self.closeButton.alpha = 0.0;
+        
+        self.layer.cornerRadius = 4.0f;
+        self.imageView.layer.cornerRadius = 4.0f;
+        self.imageView.layer.masksToBounds = YES;
+
     }
     return self;
 }
 
 - (instancetype)initWithMediaURL:(NSString *)mediaURL imageSize:(CGSize)size{
-    if (self = [self initWithFrame:CGRectZero]) {
+    if (self = [self initWithFrame:CGRectZero])
+    {
         self.mediaURL = mediaURL;
         self.imageSize = size;
     }
     return self;
 }
 
-- (void)setAnimatedImage:(UIImage *)image{
+- (void)setAnimatedImage:(UIImage *)image
+{
     self.imageView.image = image;
     self.imageView.alpha = 0.0;
     self.closeButton.alpha = 0.3;
@@ -65,16 +74,19 @@ static NSString *const NTCArticleAttachmentMediaURLName = @"mediaURL";
             [[AssetHelper sharedAssetHelper].assetsLibrary assetForURL:[NSURL URLWithString:url] resultBlock:^(ALAsset *asset) {
                 //                UIImage *image = [UIImage imageWithCGImage:[asset thumbnail]];
                 ALAssetRepresentation* representation = [asset defaultRepresentation];
-                UIImage* image = [UIImage imageWithCGImage:[representation fullResolutionImage]];
-                image = [self fixOrientation:image withOrientation:representation.orientation];
-                [self compressToSize:self.imageSize complection:^(UIImage* newImage) {
-                    [self performSelector:@selector(setAnimatedImage:) withObject:image afterDelay:.0 inModes:@[NSDefaultRunLoopMode]];
-                } withImage:image];
-                
+                @autoreleasepool {
+                    UIImage* image = [UIImage imageWithCGImage:[representation fullResolutionImage]];
+                    [image compressToSize:self.imageSize complection:^(UIImage* newImage) {
+                        newImage = [newImage adjustOrientation:representation.orientation];
+                        [self performSelector:@selector(setAnimatedImage:) withObject:newImage afterDelay:.0 inModes:@[NSDefaultRunLoopMode]];
+                    }];
+                }
             } failureBlock:^(NSError *error) {
                 
             }];
-        }else{
+        }
+        else
+        {
             self.imageView.image = nil;
         }
     }
@@ -130,26 +142,6 @@ static NSString *const NTCArticleAttachmentMediaURLName = @"mediaURL";
 
 
 #pragma mark - Utils
-
-- (void)compressToSize:(CGSize)size complection:(void (^) (UIImage *))complection withImage:(UIImage*)image
-{
-    if (image.size.width <= size.width && image.size.height <= size.height) {
-        if (complection) {
-            complection(image);
-        }
-        return;
-    }
-    dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
-    dispatch_async(queue, ^{
-        UIGraphicsBeginImageContext(size);
-        [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
-        UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if(complection){ complection(newImage); }
-        });
-    });
-}
 
 - (UIImage *)fixOrientation:(UIImage *)aImage withOrientation:(UIImageOrientation)orientation {
     

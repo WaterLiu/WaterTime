@@ -12,13 +12,24 @@ static NSString *const NTCArticleTextAttachmentBoundsName = @"bounds";
 
 @implementation NTCArticleTextAttachment
 
-- (void)dealloc{
+- (void)dealloc
+{
     [self removeObserver:self forKeyPath:NTCArticleTextAttachmentBoundsName];
+    
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self)
+    {
+        [self addObserver:self forKeyPath:NTCArticleTextAttachmentBoundsName options:NSKeyValueObservingOptionNew context:NULL];
+    }
+    return self;
 }
 
 - (instancetype)initWithMediaURL:(NSString *)mediaURL imageSize:(CGSize)size{
     if (self = [self init]) {
-        [self addObserver:self forKeyPath:NTCArticleTextAttachmentBoundsName options:NSKeyValueObservingOptionNew context:NULL];
         self.imageSize          = size;
         self.displaySize        = size;
         self.mediaURL           = mediaURL;
@@ -37,7 +48,9 @@ static NSString *const NTCArticleTextAttachmentBoundsName = @"bounds";
             CGRect rect = [value CGRectValue];
             UIGraphicsBeginImageContext(rect.size);
             [[UIColor colorWithWhite:225.0/255.0 alpha:1.0] setFill];
-            UIRectFill(CGRectMake(0, 0, rect.size.width, rect.size.height));
+            UIBezierPath* path = [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:4.0f];
+            [path addClip];
+            [path fill];
             UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
             UIGraphicsEndImageContext();
             
@@ -49,15 +62,26 @@ static NSString *const NTCArticleTextAttachmentBoundsName = @"bounds";
 
 #pragma mark -
 - (CGRect)attachmentBoundsForTextContainer:(NSTextContainer *)textContainer proposedLineFragment:(CGRect)lineFrag glyphPosition:(CGPoint)position characterIndex:(NSUInteger)charIndex{
-    UIImage *image = self.image;
-    CGSize size = image.size;
-    CGRect rect = CGRectMake(0, 0, size.width, size.height);
-    
+    CGRect rect = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
     return rect;
 }
 
 - (NSString *)hashString{
     return @([self hash]).stringValue;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:[NSValue valueWithCGSize:self.displaySize] forKey:@"self.displaySize"];
+    [aCoder encodeObject:[NSValue valueWithCGSize:self.imageSize] forKey:@"self.imageSize"];
+    [aCoder encodeObject:self.mediaURL forKey:@"self.mediaURL"];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [self init];
+    self.displaySize = ((NSValue *)[aDecoder decodeObjectForKey:@"self.displaySize"]).CGSizeValue;
+    self.imageSize = ((NSValue *)[aDecoder decodeObjectForKey:@"self.imageSize"]).CGSizeValue;
+    self.mediaURL = [aDecoder decodeObjectForKey:@"self.mediaURL"];
+    return self;
 }
 
 
