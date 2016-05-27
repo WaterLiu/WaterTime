@@ -10,9 +10,9 @@
 #import "NTCPostLongArticleTextView.h"
 
 
-@interface WTTextViewViewController : WTCommonBaseViewController <UITextViewDelegate>
+@interface WTTextViewViewController : WTCommonBaseViewController <UITextViewDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
-    NTCPostLongArticleTextView*     _textView;
+    NTCArticleTextView*     _textView;
 }
 
 @end

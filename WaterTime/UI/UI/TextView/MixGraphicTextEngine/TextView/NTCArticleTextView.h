@@ -15,9 +15,16 @@ FOUNDATION_EXPORT NSString * const DQImageAttachmentViewClose;
 @class NTCArticleTextContainer;
 
 @interface NTCArticleTextView : EGTextView
+{
+    NSMutableDictionary*    _imageViewCache;
+}
 
-@property (nonatomic, strong) NSMutableDictionary *attachmentDictionary;
+@property (nonatomic, assign) CGFloat imagesCornerRadius;
 
-- (void)insertAttachmentWithMediaURL:(id)mediaURL imageSize:(CGSize)imageSize;
+
+
+- (instancetype)initWithFrame:(CGRect)frame;
+
+- (void)insertImage:(UIImage*)image;
 
 @end

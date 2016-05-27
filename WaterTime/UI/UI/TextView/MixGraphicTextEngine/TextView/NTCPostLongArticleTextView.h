@@ -12,4 +12,6 @@
 
 - (void)insertAttachmentWithMediaURL:(id)mediaURL autoScaleImageOriginalSize:(CGSize)imageSize;
 
+- (void)insertAttachmentWithImage:(UIImage *)image;
+
 @end

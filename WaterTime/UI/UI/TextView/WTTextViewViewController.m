@@ -14,19 +14,21 @@
 
 @implementation WTTextViewViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self addShowTestButtons:@[@"相机"]];
     
-    _textView = [[NTCPostLongArticleTextView alloc] initWithFrame:CGRectMake(0.0f, 64.0f, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame))];
-    _textView.frame = CGRectMake(0.0f, 64.0f, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
-    _textView.backgroundColor = [UIColor redColor];
+    _textView = [[NTCArticleTextView alloc] initWithFrame:CGRectMake(0.0f, 120.0f, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame) - 140.0f)];
+    _textView.backgroundColor = [UIColor clearColor];
     _textView.delegate = self;
-
+    _textView.bounces = YES;
     [self.view addSubview:_textView];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -38,14 +40,53 @@
     [_textView becomeFirstResponder];
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - Private
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)showTestButtonsClicked:(id)sender
+{
+    static int a = 0;
+    
+    if (a == 0)
+    {
+        [_textView insertImage:[UIImage imageNamed:@"Image"]];
+    }
+    else
+    {
+        [_textView insertImage:[UIImage imageNamed:@"Image1"]];
+    }
+    
+    
+    a++;
+    
+    return;
+    UIButton* button = (UIButton*)sender;
+    if ([button.titleLabel.text isEqualToString:@"相机"])
+    {
+        UIImagePickerController* imagePicker = [[UIImagePickerController alloc] init];
+        imagePicker.delegate = self;
+//        [self.navigationController pushViewController:imagePicker animated:YES];
+        [self presentViewController:imagePicker animated:YES completion:^{
+            
+        }];
+    }
 }
-*/
+
+
+#pragma mark - UIImagePickerControllerDelegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    if (info != nil)
+    {
+        UIImage* image = [info objectForKey:UIImagePickerControllerOriginalImage];
+//        [_textView insertAttachmentWithMediaURL:url autoScaleImageOriginalSize:CGSizeMake(1000, 1000)];
+//        [_textView insertAttachmentWithImage:image];
+    }
+    
+    [picker dismissViewControllerAnimated:YES completion:^{
+    
+    }];
+}
+
 
 @end

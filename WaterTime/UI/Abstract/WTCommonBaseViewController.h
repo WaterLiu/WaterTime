@@ -34,6 +34,7 @@
  *
  */
 - (void)addShowTestButtons:(NSArray*)btns;
+- (void)showTestButtonsClicked:(id)sender;
 
 
 - (void)addDescriptionLable:(BOOL)isAdd;

@@ -9,14 +9,16 @@
 #import <UIKit/UIKit.h>
 
 @interface NTCArticleTextAttachment : NSTextAttachment
+{
+    
+    CGSize  _imageSize;
+}
 
-@property (nonatomic, assign) CGSize displaySize;
-@property (nonatomic, assign) CGSize imageSize;
-@property (nonatomic, strong) NSString *mediaURL;
+@property (nonatomic, assign) CGFloat cornerRadius;         //占位图圆角
 
-- (instancetype)initWithMediaURL:(NSString *)mediaURL imageSize:(CGSize)size;
 
-- (void)updateContentSize;
+- (instancetype)initWithImageSize:(CGSize)size;
+
 - (NSString *)hashString;
 
 @end

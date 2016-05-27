@@ -28,27 +28,28 @@ static NSString *const NTCArticleTextAttachmentBoundsName = @"bounds";
     return self;
 }
 
-- (instancetype)initWithMediaURL:(NSString *)mediaURL imageSize:(CGSize)size{
-    if (self = [self init]) {
-        self.imageSize          = size;
-        self.displaySize        = size;
-        self.mediaURL           = mediaURL;
+- (instancetype)initWithImageSize:(CGSize)size
+{
+    if (self = [self init])
+    {
+        self.bounds = CGRectMake(0.0f, 0.0f, size.width, size.height);
     }
     return self;
 }
 
-- (void)updateContentSize{
-    self.bounds = CGRectMake(0, 0, _displaySize.width, _displaySize.height);
-}
+#pragma mark - Private
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
-    if ([keyPath isEqualToString:NTCArticleTextAttachmentBoundsName]) {
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:NTCArticleTextAttachmentBoundsName])
+    {
         NSValue *value = change[NSKeyValueChangeNewKey];
-        if (value) {
+        if (value)
+        {
             CGRect rect = [value CGRectValue];
             UIGraphicsBeginImageContext(rect.size);
             [[UIColor colorWithWhite:225.0/255.0 alpha:1.0] setFill];
-            UIBezierPath* path = [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:4.0f];
+            UIBezierPath* path = [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:self.cornerRadius];
             [path addClip];
             [path fill];
             UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
@@ -59,30 +60,17 @@ static NSString *const NTCArticleTextAttachmentBoundsName = @"bounds";
     }
 }
 
+#pragma mark - NSTextAttachment Override
 
-#pragma mark -
-- (CGRect)attachmentBoundsForTextContainer:(NSTextContainer *)textContainer proposedLineFragment:(CGRect)lineFrag glyphPosition:(CGPoint)position characterIndex:(NSUInteger)charIndex{
-    CGRect rect = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
+- (CGRect)attachmentBoundsForTextContainer:(NSTextContainer *)textContainer proposedLineFragment:(CGRect)lineFrag glyphPosition:(CGPoint)position characterIndex:(NSUInteger)charIndex
+{
+    CGRect rect = CGRectMake(0.0f, 0.0f, self.bounds.size.width, self.bounds.size.height);
     return rect;
 }
 
-- (NSString *)hashString{
+- (NSString *)hashString
+{
     return @([self hash]).stringValue;
 }
-
-- (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:[NSValue valueWithCGSize:self.displaySize] forKey:@"self.displaySize"];
-    [aCoder encodeObject:[NSValue valueWithCGSize:self.imageSize] forKey:@"self.imageSize"];
-    [aCoder encodeObject:self.mediaURL forKey:@"self.mediaURL"];
-}
-
-- (id)initWithCoder:(NSCoder *)aDecoder {
-    self = [self init];
-    self.displaySize = ((NSValue *)[aDecoder decodeObjectForKey:@"self.displaySize"]).CGSizeValue;
-    self.imageSize = ((NSValue *)[aDecoder decodeObjectForKey:@"self.imageSize"]).CGSizeValue;
-    self.mediaURL = [aDecoder decodeObjectForKey:@"self.mediaURL"];
-    return self;
-}
-
 
 @end

@@ -34,7 +34,8 @@
 @implementation EGTextView
 
 #pragma mark - Life Circle
-- (void)dealloc {
+- (void)dealloc
+{
     _placeHolder = [NSAttributedString new];
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:UITextViewTextDidChangeNotification
@@ -66,7 +67,8 @@
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
-    if (self = [super initWithFrame:frame]) {
+    if (self = [super initWithFrame:frame])
+    {
         [self _placeholderSetup];
         [self _commonSetup];
         [self _registerObserver];
@@ -74,7 +76,8 @@
     return self;
 }
 
-- (void)awakeFromNib{
+- (void)awakeFromNib
+{
     [super awakeFromNib];
     [self _placeholderSetup];
     [self _commonSetup];
@@ -87,7 +90,8 @@
 }
 
 #pragma mark - Set up method
-- (void)_placeholderSetup{
+- (void)_placeholderSetup
+{
     _placeHolderLabel = [[UILabel alloc]initWithFrame:CGRectZero];
     _placeHolderLabel.hidden = YES;
     [self insertSubview:_placeHolderLabel atIndex:0];
@@ -189,6 +193,8 @@
         }
         [self _needUpdateDisplayPlaceholder];
     });
+    
+    
 }
 
 - (void)textViewTextDidBegin:(NSNotification *)noti
@@ -201,6 +207,8 @@
 {
     self.editing = NO;
 }
+
+#pragma mark - Keyboard
 
 -(void)keyboardDidShow:(NSNotification *)notification
 {

@@ -12,13 +12,10 @@
 
 @interface NTCArticleImageAttachmentView : NTCArticleAttachmentView
 
-@property (nonatomic, strong) NSString *mediaURL;
-@property (nonatomic, assign) CGSize imageSize;
 @property (nonatomic, weak) id<NTCArticleImageAttachmentDelegate> delegate;
+@property (nonatomic, readonly) UIImage* image;
 
-- (instancetype)initWithMediaURL:(NSString *)mediaURL imageSize:(CGSize)size;
-
-
+- (instancetype)initWithImage:(UIImage*)image;
 
 @end
 
