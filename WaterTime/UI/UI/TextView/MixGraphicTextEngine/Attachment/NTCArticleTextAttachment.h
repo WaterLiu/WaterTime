@@ -10,7 +10,6 @@
 
 @interface NTCArticleTextAttachment : NSTextAttachment
 {
-    
     CGSize  _imageSize;
 }
 

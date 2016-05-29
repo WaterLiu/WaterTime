@@ -18,20 +18,12 @@ static NSString *const NTCArticleTextAttachmentBoundsName = @"bounds";
     
 }
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self)
-    {
-        [self addObserver:self forKeyPath:NTCArticleTextAttachmentBoundsName options:NSKeyValueObservingOptionNew context:NULL];
-    }
-    return self;
-}
-
 - (instancetype)initWithImageSize:(CGSize)size
 {
-    if (self = [self init])
+    if (self = [super initWithData:nil ofType:nil])
     {
+        [self addObserver:self forKeyPath:NTCArticleTextAttachmentBoundsName options:NSKeyValueObservingOptionNew context:NULL];
+        _imageSize = size;
         self.bounds = CGRectMake(0.0f, 0.0f, size.width, size.height);
     }
     return self;
@@ -64,7 +56,7 @@ static NSString *const NTCArticleTextAttachmentBoundsName = @"bounds";
 
 - (CGRect)attachmentBoundsForTextContainer:(NSTextContainer *)textContainer proposedLineFragment:(CGRect)lineFrag glyphPosition:(CGPoint)position characterIndex:(NSUInteger)charIndex
 {
-    CGRect rect = CGRectMake(0.0f, 0.0f, self.bounds.size.width, self.bounds.size.height);
+    CGRect rect = CGRectMake(0.0f, 0.0f, _imageSize.width, _imageSize.height);
     return rect;
 }
 

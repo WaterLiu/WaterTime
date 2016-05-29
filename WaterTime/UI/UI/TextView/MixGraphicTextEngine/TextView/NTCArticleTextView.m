@@ -75,6 +75,7 @@ NSString * const DQImageAttachmentViewClose = @"DQImageAttachmentViewClose";
 
 - (void)layoutSubviews
 {
+    [super layoutSubviews];
     [self.textStorage enumerateAttribute:NSAttachmentAttributeName inRange:NSMakeRange(0, [self.textStorage length]) options:0 usingBlock:^(id value, NSRange range, BOOL *stop) {
         if (value)
         {
@@ -85,7 +86,7 @@ NSString * const DQImageAttachmentViewClose = @"DQImageAttachmentViewClose";
         }
     }];
     
-    [super layoutSubviews];
+
 }
 
 
@@ -141,6 +142,8 @@ NSString * const DQImageAttachmentViewClose = @"DQImageAttachmentViewClose";
     
     NSAttributedString *attachmentString = [storage replaceCharactersInRange:selectedRange withTextAttachment:attachment];
     [self setSelectedRange:NSMakeRange(self.selectedRange.location + [attachmentString length] , 0)];
+    
+    self.textContainer.size = CGSizeMake(self.textContainer.size.width, self.textContainer.size.height + image.size.height);
 }
 
 #pragma mark - NTCArticleImageAttachmentDelegate

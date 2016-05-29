@@ -84,7 +84,8 @@
     [self _registerObserver];
 }
 
-- (void)layoutSubviews{
+- (void)layoutSubviews
+{
     [super layoutSubviews];
     [self _needUpdateDisplayPlaceholder];
 }
@@ -97,7 +98,8 @@
     [self insertSubview:_placeHolderLabel atIndex:0];
 }
 
-- (void)_registerObserver{
+- (void)_registerObserver
+{
     // UITextViewTextDidChangeNotification
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(textViewTextDidChange:)
@@ -133,7 +135,7 @@
 {
     self.editing = NO;
     self.automaticHeightWhenKeyboard = NO;
-    self.automaticTransformInset = UIEdgeInsetsMake(0, 0, 10, 0);
+    self.automaticTransformInset = UIEdgeInsetsMake(0.0f, 0.0f, 10.0f, 0.0f);
     
     self.layoutManager.allowsNonContiguousLayout = NO;
     self.scrollsToTop = NO;

@@ -117,6 +117,7 @@
     }];
     
     [self beginEditing];
+//    [_imp insertAttributedString:attrString atIndex:range.location];
     [_imp replaceCharactersInRange:range withAttributedString:attrString];
     [self edited:NSTextStorageEditedCharacters | NSTextStorageEditedAttributes range:range changeInLength:attrString.length - range.length];
     [self endEditing];
