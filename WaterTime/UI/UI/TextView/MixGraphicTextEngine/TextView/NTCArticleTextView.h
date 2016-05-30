@@ -2,7 +2,7 @@
 //  NTCArticleTextView.h
 //  TextView
 //
-//  Created by NetEase on 15/9/8.
+//  Created by WaterLiu on 16/06/30.
 //  Copyright (c) 2015年 NetEase. All rights reserved.
 //
 
@@ -17,14 +17,20 @@ FOUNDATION_EXPORT NSString * const DQImageAttachmentViewClose;
 @interface NTCArticleTextView : EGTextView
 {
     NSMutableDictionary*    _imageViewCache;
+    NSMutableDictionary*    _imagePathDic;
 }
 
+// 配置添加的图片的圆角
 @property (nonatomic, assign) CGFloat imagesCornerRadius;
 
+@property (nonatomic, assign) CGSize imageDisplaySize;
 
 
 - (instancetype)initWithFrame:(CGRect)frame;
 
-- (void)insertImage:(UIImage*)image;
+- (void)insertImage:(UIImage*)image withDisplaySize:(CGSize)size;
+
+- (void)synchronizeToDisk;
+- (void)synchronizeToUI;
 
 @end

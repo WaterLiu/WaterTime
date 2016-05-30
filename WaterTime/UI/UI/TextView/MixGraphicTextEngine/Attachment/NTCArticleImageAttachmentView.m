@@ -7,7 +7,7 @@
 //
 
 #import "NTCArticleImageAttachmentView.h"
-#import "UIImage+Compress.h"
+#import "UIImage+Utilities.h"
 #import "AssetHelper.h"
 
 
@@ -22,7 +22,7 @@
 
 - (void)dealloc
 {
-
+    
 }
 
 - (instancetype)initWithImage:(UIImage*)image
@@ -71,7 +71,7 @@
     if (!_closeButton)
     {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button setImage:[UIImage imageNamed:@"imageDelete"] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:@"TextView_ImageDelete_Button"] forState:UIControlStateNormal];
         [button setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
         [button setContentVerticalAlignment:UIControlContentVerticalAlignmentTop];
         [button addTarget:self action:@selector(closeButtonClickAction:) forControlEvents:UIControlEventTouchUpInside];

@@ -11,7 +11,7 @@
 UIKIT_EXTERN NSString *const UIImageCompressHorizontalAlignmentAttributeName;
 UIKIT_EXTERN NSString *const UIImageCompressVerticalAlignmentAttributeName;
 
-@interface UIImage (Compress)
+@interface UIImage (Utilities)
 
 /**
  *  压缩图片到指定大小
@@ -42,6 +42,7 @@ UIKIT_EXTERN NSString *const UIImageCompressVerticalAlignmentAttributeName;
 
 - (UIImage *)adjustOrientation:(UIImageOrientation)orientation;
 
-- (UIImage *)roundedCornerImageWithCornerRadius:(CGFloat)cornerRadius;
+
++ (UIImage *)imageWithSize:(CGSize)size withCornerRadius:(CGFloat)cornerRadius;
 
 @end

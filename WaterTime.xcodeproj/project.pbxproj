@@ -18,15 +18,11 @@
 		FD316F781C7B08AB00D7792B /* WTMRNetworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD316F771C7B08AB00D7792B /* WTMRNetworkViewController.m */; };
 		FD36C0511CF6A8D400CC347B /* NTCArticleAttachmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD36C0391CF6A8D400CC347B /* NTCArticleAttachmentView.m */; };
 		FD36C0521CF6A8D400CC347B /* NTCArticleImageAttachmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD36C03B1CF6A8D400CC347B /* NTCArticleImageAttachmentView.m */; };
-		FD36C0531CF6A8D400CC347B /* NTCArticleTextAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = FD36C03D1CF6A8D400CC347B /* NTCArticleTextAttachment.m */; };
-		FD36C0541CF6A8D400CC347B /* NTCArticleLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FD36C0401CF6A8D400CC347B /* NTCArticleLayoutManager.m */; };
-		FD36C0551CF6A8D400CC347B /* NTCArticleTextContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = FD36C0421CF6A8D400CC347B /* NTCArticleTextContainer.m */; };
 		FD36C0561CF6A8D400CC347B /* NTCArticleTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = FD36C0441CF6A8D400CC347B /* NTCArticleTextStorage.m */; };
 		FD36C0571CF6A8D400CC347B /* EGTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD36C0471CF6A8D400CC347B /* EGTextView.m */; };
 		FD36C0581CF6A8D400CC347B /* NTCArticleTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD36C0491CF6A8D400CC347B /* NTCArticleTextView.m */; };
-		FD36C0591CF6A8D400CC347B /* NTCPostLongArticleTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD36C04B1CF6A8D400CC347B /* NTCPostLongArticleTextView.m */; };
 		FD36C05A1CF6A8D400CC347B /* AssetHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FD36C04E1CF6A8D400CC347B /* AssetHelper.m */; };
-		FD36C05B1CF6A8D400CC347B /* UIImage+Compress.m in Sources */ = {isa = PBXBuildFile; fileRef = FD36C0501CF6A8D400CC347B /* UIImage+Compress.m */; };
+		FD36C05B1CF6A8D400CC347B /* UIImage+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FD36C0501CF6A8D400CC347B /* UIImage+Utilities.m */; };
 		FD40CEEA1CA3EFF500E59101 /* WTAnimationGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = FD40CEE91CA3EFF500E59101 /* WTAnimationGroup.m */; };
 		FD50B0F51A84C9040082A79E /* WTCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FD50B0F41A84C9040082A79E /* WTCoreDataManager.m */; };
 		FD552EDA1B2848A600E96A9B /* WTSKStoreProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD552ED91B2848A600E96A9B /* WTSKStoreProductViewController.m */; };
@@ -84,24 +80,16 @@
 		FD36C0391CF6A8D400CC347B /* NTCArticleAttachmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTCArticleAttachmentView.m; sourceTree = "<group>"; };
 		FD36C03A1CF6A8D400CC347B /* NTCArticleImageAttachmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTCArticleImageAttachmentView.h; sourceTree = "<group>"; };
 		FD36C03B1CF6A8D400CC347B /* NTCArticleImageAttachmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTCArticleImageAttachmentView.m; sourceTree = "<group>"; };
-		FD36C03C1CF6A8D400CC347B /* NTCArticleTextAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTCArticleTextAttachment.h; sourceTree = "<group>"; };
-		FD36C03D1CF6A8D400CC347B /* NTCArticleTextAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTCArticleTextAttachment.m; sourceTree = "<group>"; };
-		FD36C03F1CF6A8D400CC347B /* NTCArticleLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTCArticleLayoutManager.h; sourceTree = "<group>"; };
-		FD36C0401CF6A8D400CC347B /* NTCArticleLayoutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTCArticleLayoutManager.m; sourceTree = "<group>"; };
-		FD36C0411CF6A8D400CC347B /* NTCArticleTextContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTCArticleTextContainer.h; sourceTree = "<group>"; };
-		FD36C0421CF6A8D400CC347B /* NTCArticleTextContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTCArticleTextContainer.m; sourceTree = "<group>"; };
 		FD36C0431CF6A8D400CC347B /* NTCArticleTextStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTCArticleTextStorage.h; sourceTree = "<group>"; };
 		FD36C0441CF6A8D400CC347B /* NTCArticleTextStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTCArticleTextStorage.m; sourceTree = "<group>"; };
 		FD36C0461CF6A8D400CC347B /* EGTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGTextView.h; sourceTree = "<group>"; };
 		FD36C0471CF6A8D400CC347B /* EGTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGTextView.m; sourceTree = "<group>"; };
 		FD36C0481CF6A8D400CC347B /* NTCArticleTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTCArticleTextView.h; sourceTree = "<group>"; };
 		FD36C0491CF6A8D400CC347B /* NTCArticleTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTCArticleTextView.m; sourceTree = "<group>"; };
-		FD36C04A1CF6A8D400CC347B /* NTCPostLongArticleTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTCPostLongArticleTextView.h; sourceTree = "<group>"; };
-		FD36C04B1CF6A8D400CC347B /* NTCPostLongArticleTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTCPostLongArticleTextView.m; sourceTree = "<group>"; };
 		FD36C04D1CF6A8D400CC347B /* AssetHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetHelper.h; sourceTree = "<group>"; };
 		FD36C04E1CF6A8D400CC347B /* AssetHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetHelper.m; sourceTree = "<group>"; };
-		FD36C04F1CF6A8D400CC347B /* UIImage+Compress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Compress.h"; sourceTree = "<group>"; };
-		FD36C0501CF6A8D400CC347B /* UIImage+Compress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Compress.m"; sourceTree = "<group>"; };
+		FD36C04F1CF6A8D400CC347B /* UIImage+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Utilities.h"; sourceTree = "<group>"; };
+		FD36C0501CF6A8D400CC347B /* UIImage+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Utilities.m"; sourceTree = "<group>"; };
 		FD40CEE81CA3EFF500E59101 /* WTAnimationGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTAnimationGroup.h; sourceTree = "<group>"; };
 		FD40CEE91CA3EFF500E59101 /* WTAnimationGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTAnimationGroup.m; sourceTree = "<group>"; };
 		FD50B0F31A84C9040082A79E /* WTCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCoreDataManager.h; sourceTree = "<group>"; };
@@ -238,8 +226,6 @@
 				FD36C0391CF6A8D400CC347B /* NTCArticleAttachmentView.m */,
 				FD36C03A1CF6A8D400CC347B /* NTCArticleImageAttachmentView.h */,
 				FD36C03B1CF6A8D400CC347B /* NTCArticleImageAttachmentView.m */,
-				FD36C03C1CF6A8D400CC347B /* NTCArticleTextAttachment.h */,
-				FD36C03D1CF6A8D400CC347B /* NTCArticleTextAttachment.m */,
 			);
 			path = Attachment;
 			sourceTree = "<group>";
@@ -247,10 +233,6 @@
 		FD36C03E1CF6A8D400CC347B /* TextKit */ = {
 			isa = PBXGroup;
 			children = (
-				FD36C03F1CF6A8D400CC347B /* NTCArticleLayoutManager.h */,
-				FD36C0401CF6A8D400CC347B /* NTCArticleLayoutManager.m */,
-				FD36C0411CF6A8D400CC347B /* NTCArticleTextContainer.h */,
-				FD36C0421CF6A8D400CC347B /* NTCArticleTextContainer.m */,
 				FD36C0431CF6A8D400CC347B /* NTCArticleTextStorage.h */,
 				FD36C0441CF6A8D400CC347B /* NTCArticleTextStorage.m */,
 			);
@@ -264,8 +246,6 @@
 				FD36C0471CF6A8D400CC347B /* EGTextView.m */,
 				FD36C0481CF6A8D400CC347B /* NTCArticleTextView.h */,
 				FD36C0491CF6A8D400CC347B /* NTCArticleTextView.m */,
-				FD36C04A1CF6A8D400CC347B /* NTCPostLongArticleTextView.h */,
-				FD36C04B1CF6A8D400CC347B /* NTCPostLongArticleTextView.m */,
 			);
 			path = TextView;
 			sourceTree = "<group>";
@@ -275,8 +255,8 @@
 			children = (
 				FD36C04D1CF6A8D400CC347B /* AssetHelper.h */,
 				FD36C04E1CF6A8D400CC347B /* AssetHelper.m */,
-				FD36C04F1CF6A8D400CC347B /* UIImage+Compress.h */,
-				FD36C0501CF6A8D400CC347B /* UIImage+Compress.m */,
+				FD36C04F1CF6A8D400CC347B /* UIImage+Utilities.h */,
+				FD36C0501CF6A8D400CC347B /* UIImage+Utilities.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -623,7 +603,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD36C0541CF6A8D400CC347B /* NTCArticleLayoutManager.m in Sources */,
 				FDA12B8B1B4060CE000DA235 /* Reachability.m in Sources */,
 				FDCF0A481A71F34C00EE1B89 /* WTMainViewController.m in Sources */,
 				FDEACA131B2ECF6E0074258C /* UIImage+BlurGlass.m in Sources */,
@@ -634,7 +613,6 @@
 				FD36C0561CF6A8D400CC347B /* NTCArticleTextStorage.m in Sources */,
 				FDA12B8F1B406202000DA235 /* WTNetworkStateViewController.m in Sources */,
 				FD36C05A1CF6A8D400CC347B /* AssetHelper.m in Sources */,
-				FD36C0551CF6A8D400CC347B /* NTCArticleTextContainer.m in Sources */,
 				FD36C0511CF6A8D400CC347B /* NTCArticleAttachmentView.m in Sources */,
 				FD7EBCE71C1ED5F5007C479D /* WTFontViewController.m in Sources */,
 				FD69C31D1B428F3E00C2A715 /* WTCrashReportViewController.m in Sources */,
@@ -645,7 +623,6 @@
 				FDEACA0D1B2EC94F0074258C /* WTBackgroundBlurViewController.m in Sources */,
 				FD6D59381C9FA55F007726E8 /* StickerView.m in Sources */,
 				FD36C0521CF6A8D400CC347B /* NTCArticleImageAttachmentView.m in Sources */,
-				FD36C0591CF6A8D400CC347B /* NTCPostLongArticleTextView.m in Sources */,
 				FD316F781C7B08AB00D7792B /* WTMRNetworkViewController.m in Sources */,
 				FDCF0A551A722A7F00EE1B89 /* WTCommonBaseViewController.m in Sources */,
 				FDCEFBB01C9BB45D00136144 /* GIFDownloader.m in Sources */,
@@ -663,9 +640,8 @@
 				FDCF0A1F1A71F2A200EE1B89 /* main.m in Sources */,
 				FD40CEEA1CA3EFF500E59101 /* WTAnimationGroup.m in Sources */,
 				FD36C0571CF6A8D400CC347B /* EGTextView.m in Sources */,
-				FD36C0531CF6A8D400CC347B /* NTCArticleTextAttachment.m in Sources */,
 				FDFF5CEF1C4FCF440097FFC4 /* WTCollectionViewController.m in Sources */,
-				FD36C05B1CF6A8D400CC347B /* UIImage+Compress.m in Sources */,
+				FD36C05B1CF6A8D400CC347B /* UIImage+Utilities.m in Sources */,
 				FDCF0A521A722A4E00EE1B89 /* WTLayoutBaseViewController.m in Sources */,
 				FD976CAC1B79F024005CE35D /* WTURLProtocolViewController.m in Sources */,
 			);

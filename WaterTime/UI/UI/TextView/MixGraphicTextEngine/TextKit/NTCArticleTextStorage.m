@@ -43,7 +43,7 @@
     return [_imp attributesAtIndex:location effectiveRange:range];
 }
 
-- (NSAttributedString *)replaceCharactersInRange:(NSRange)range withTextAttachment:(NTCArticleTextAttachment *)attachment
+- (NSAttributedString *)replaceCharactersInRange:(NSRange)range withTextAttachment:(NSTextAttachment*)attachment
 {
     NSRange _range = NSMakeRange(0, [_imp length]);
     NSMutableAttributedString *string = [[NSMutableAttributedString alloc] init];

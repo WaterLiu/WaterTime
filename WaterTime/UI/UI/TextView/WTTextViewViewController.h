@@ -7,7 +7,7 @@
 //
 
 #import "WTCommonBaseViewController.h"
-#import "NTCPostLongArticleTextView.h"
+#import "NTCArticleTextView.h"
 
 
 @interface WTTextViewViewController : WTCommonBaseViewController <UITextViewDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate>

@@ -24,6 +24,7 @@
     _textView.backgroundColor = [UIColor clearColor];
     _textView.delegate = self;
     _textView.bounces = YES;
+    _textView.imagesCornerRadius = 4.0f;
     [self.view addSubview:_textView];
 }
 
@@ -48,12 +49,20 @@
     
     if (a == 0)
     {
-        [_textView insertImage:[UIImage imageNamed:@"Image"]];
+        [_textView insertImage:[UIImage imageNamed:@"Image"] withDisplaySize:CGSizeMake(150, 150)];
     }
     else
     {
-        [_textView insertImage:[UIImage imageNamed:@"Image1"]];
+        [_textView insertImage:[UIImage imageNamed:@"Image1"] withDisplaySize:CGSizeMake(150, 150)];
     }
+    
+    
+    [_textView synchronizeToDisk];
+    
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [_textView synchronizeToUI];
+    });
     
     
     a++;

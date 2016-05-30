@@ -6,16 +6,19 @@
 //  Copyright (c) 2015年 NetEase. All rights reserved.
 //
 
-#import "UIImage+Compress.h"
+#import "UIImage+Utilities.h"
 
 NSString *const UIImageCompressHorizontalAlignmentAttributeName = @"NSContentHorizontalAlignmentAttributeName";
 NSString *const UIImageCompressVerticalAlignmentAttributeName = @"NSControlContentVerticalAlignmentAttributeName";
 
 @implementation UIImage (Compress)
 
-- (void)compressToSize:(CGSize)size complection:(void (^) (UIImage *))complection{
-    if (self.size.width <= size.width && self.size.height <= size.height) {
-        if (complection) {
+- (void)compressToSize:(CGSize)size complection:(void (^) (UIImage *))complection
+{
+    if (self.size.width <= size.width && self.size.height <= size.height)
+    {
+        if (complection)
+        {
             complection(self);
         }
         return;
@@ -32,8 +35,10 @@ NSString *const UIImageCompressVerticalAlignmentAttributeName = @"NSControlConte
     });
 }
 
-- (UIImage *)compressToSize:(CGSize)size{
-    if (self.size.width <= size.width && self.size.height <= size.height) {
+- (UIImage *)compressToSize:(CGSize)size
+{
+    if (self.size.width <= size.width && self.size.height <= size.height)
+    {
         return nil;
     }
     UIGraphicsBeginImageContext(size);
@@ -44,7 +49,8 @@ NSString *const UIImageCompressVerticalAlignmentAttributeName = @"NSControlConte
     return newImage;
 }
 
-- (UIImage *)compressToSize:(CGSize)size fillSize:(CGSize)fillSize attributes:(NSDictionary *)attributes{
+- (UIImage *)compressToSize:(CGSize)size fillSize:(CGSize)fillSize attributes:(NSDictionary *)attributes
+{
     UIControlContentHorizontalAlignment horizontalAlignment = [attributes objectForKey:UIImageCompressHorizontalAlignmentAttributeName]
     ? [[attributes objectForKey:UIImageCompressHorizontalAlignmentAttributeName] intValue] : UIControlContentHorizontalAlignmentLeft;
     UIControlContentVerticalAlignment verticalAlignment = [attributes objectForKey:UIImageCompressVerticalAlignmentAttributeName]
@@ -78,7 +84,8 @@ NSString *const UIImageCompressVerticalAlignmentAttributeName = @"NSControlConte
             break;
     }
     
-    switch (verticalAlignment) {
+    switch (verticalAlignment)
+    {
         case UIControlContentVerticalAlignmentTop:
         {
             _origin.y = 0.0f;
@@ -112,8 +119,8 @@ NSString *const UIImageCompressVerticalAlignmentAttributeName = @"NSControlConte
     return newImage;
 }
 
-- (void)compressToSize:(CGSize)size fillSize:(CGSize)fillSize attributes:(NSDictionary *)attributes complection:(void (^) (UIImage *))complection{
-    
+- (void)compressToSize:(CGSize)size fillSize:(CGSize)fillSize attributes:(NSDictionary *)attributes complection:(void (^) (UIImage *))complection
+{
     UIControlContentHorizontalAlignment horizontalAlignment = [attributes objectForKey:UIImageCompressHorizontalAlignmentAttributeName]
     ? [[attributes objectForKey:UIImageCompressHorizontalAlignmentAttributeName] intValue] : UIControlContentHorizontalAlignmentLeft;
     UIControlContentVerticalAlignment verticalAlignment = [attributes objectForKey:UIImageCompressVerticalAlignmentAttributeName]
@@ -125,7 +132,8 @@ NSString *const UIImageCompressVerticalAlignmentAttributeName = @"NSControlConte
             CGPoint _origin = CGPointZero;
             CGSize  _size   = compressedImage.size;
             
-            switch (horizontalAlignment) {
+            switch (horizontalAlignment)
+            {
                 case UIControlContentHorizontalAlignmentLeft:
                 {
                     _origin.x = 0.0f;
@@ -186,7 +194,8 @@ NSString *const UIImageCompressVerticalAlignmentAttributeName = @"NSControlConte
     }];
 }
 
-- (void)compressedToFixableWidth:(CGFloat)fixableWidth verticalSpacing:(CGFloat)verticalSpacing complection:(void (^) (UIImage *))complection{
+- (void)compressedToFixableWidth:(CGFloat)fixableWidth verticalSpacing:(CGFloat)verticalSpacing complection:(void (^) (UIImage *))complection
+{
     dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
     dispatch_async(queue, ^{
         @autoreleasepool {
@@ -316,7 +325,8 @@ NSString *const UIImageCompressVerticalAlignmentAttributeName = @"NSControlConte
                                              CGImageGetColorSpace(self.CGImage),
                                              CGImageGetBitmapInfo(self.CGImage));
     CGContextConcatCTM(ctx, transform);
-    switch (orientation) {
+    switch (orientation)
+    {
         case UIImageOrientationLeft:
         case UIImageOrientationLeftMirrored:
         case UIImageOrientationRight:
@@ -339,22 +349,27 @@ NSString *const UIImageCompressVerticalAlignmentAttributeName = @"NSControlConte
 }
 
 
-- (UIImage *)roundedCornerImageWithCornerRadius:(CGFloat)cornerRadius
++ (UIImage *)imageWithSize:(CGSize)size withCornerRadius:(CGFloat)cornerRadius
 {
-    CGFloat w = self.size.width;
-    CGFloat h = self.size.height;
     CGFloat scale = [UIScreen mainScreen].scale;
+    
     // 防止圆角半径小于0，或者大于宽/高中较小值的一半。
-    if (cornerRadius < 0)
-        cornerRadius = 0;
-    else if (cornerRadius > MIN(w, h))
-        cornerRadius = MIN(w, h) / 2.;
+    if (cornerRadius < 0.0f)
+    {
+        cornerRadius = 0.0f;
+    }
+    else if (cornerRadius > MIN(size.width, size.height))
+    {
+        cornerRadius = MIN(size.width, size.height) / 2.0f;
+    }
     
     UIImage *image = nil;
-    CGRect imageFrame = CGRectMake(0., 0., w, h);
-    UIGraphicsBeginImageContextWithOptions(self.size, NO, scale);
-    [[UIBezierPath bezierPathWithRoundedRect:imageFrame cornerRadius:cornerRadius] addClip];
-    [self drawInRect:imageFrame];
+    CGRect imageFrame = CGRectMake(0.0f, 0.0f, size.width, size.height);
+    UIGraphicsBeginImageContextWithOptions(size, NO, scale);
+    [[UIColor colorWithWhite:225.0/255.0 alpha:1.0] setFill];
+    UIBezierPath* bezierPath = [UIBezierPath bezierPathWithRoundedRect:imageFrame cornerRadius:cornerRadius];
+    [bezierPath addClip];
+    [bezierPath fill];
     image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     

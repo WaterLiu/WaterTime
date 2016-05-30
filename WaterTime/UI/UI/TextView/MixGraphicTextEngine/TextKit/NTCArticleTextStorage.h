@@ -7,28 +7,26 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NTCArticleTextAttachment.h"
+
+@protocol NTCArticleTextStorageDelegate <NSObject>
+@optional
+
+- (void)textStroage:(NSTextStorage*)textStorage willAddAttachment:(NSTextAttachment*)attachment atTextRange:(NSRange)range;
+- (void)textStroage:(NSTextStorage*)textStorage didAddAttachment:(NSTextAttachment*)attachment atTextRange:(NSRange)range;
+- (void)textStroage:(NSTextStorage*)textStorage willRemove:(NSTextAttachment*)attachment atTextRange:(NSRange)range;
+- (void)textStroage:(NSTextStorage*)textStorage didRemove:(NSTextAttachment*)attachment atTextRange:(NSRange)range;
+
+@end
+
 
 @protocol NTCArticleTextStorageDelegate;
 
 @interface NTCArticleTextStorage : NSTextStorage
 
 @property (nonatomic, strong) NSDictionary *defaultAttributes;
-@property (nonatomic, weak)   id <NTCArticleTextStorageDelegate> attachmentDelegate;
+@property (nonatomic, weak) id <NTCArticleTextStorageDelegate> attachmentDelegate;
 
-- (NSAttributedString *)replaceCharactersInRange:(NSRange)range withTextAttachment:(NTCArticleTextAttachment *)attachment;
-
-@end
-
-
-@protocol NTCArticleTextStorageDelegate <NSObject>
-
-@optional
-
-- (void)textStroage:(NSTextStorage *)textStorage willAddAttachment:(NTCArticleTextAttachment *)attachment atTextRange:(NSRange)range;
-- (void)textStroage:(NSTextStorage *)textStorage didAddAttachment:(NTCArticleTextAttachment *)attachment atTextRange:(NSRange)range;
-
-- (void)textStroage:(NSTextStorage *)textStorage willRemove:(NTCArticleTextAttachment *)attachment atTextRange:(NSRange)range;
-- (void)textStroage:(NSTextStorage *)textStorage didRemove:(NTCArticleTextAttachment *)attachment atTextRange:(NSRange)range;
+- (NSAttributedString *)replaceCharactersInRange:(NSRange)range withTextAttachment:(NSTextAttachment*)attachment;
 
 @end
+
