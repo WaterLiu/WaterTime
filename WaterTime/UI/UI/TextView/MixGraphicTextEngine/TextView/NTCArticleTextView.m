@@ -82,6 +82,10 @@ NSString * const DQImageAttachmentViewClose = @"DQImageAttachmentViewClose";
             NTCArticleImageAttachmentView* view = [_imageViewCache objectForKey:[NSValue valueWithRange:range]];
             view.frame = attachmentRect;
             
+            if (view == nil)
+            {
+                NSLog(@"NILNILNILNILNILNIL");
+            }
             
             NSLog(@"rect = %@", NSStringFromCGRect(attachmentRect));
         }
@@ -241,26 +245,26 @@ NSString * const DQImageAttachmentViewClose = @"DQImageAttachmentViewClose";
 - (void)synchronizeToUI
 {
     
-    NSArray* views = [_imageViewCache allValues];
-    for (int i = 0; i < [views count]; i++)
-    {
-        UIView* view = [views objectAtIndex:i];
-        if (view.superview)
-        {
-            [view removeFromSuperview];
-        }
-    }
-    
-    [_imagePathDic removeAllObjects];
-    [_imageViewCache removeAllObjects];
-    
-    NSString* folder = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"TextViewImages"];
-    NSMutableString* imageIndexPath = [NSMutableString stringWithFormat:@"%@/%@",folder, NTCArticleTextView_AttributedString_Name];
-    if ([[NSFileManager defaultManager] fileExistsAtPath:imageIndexPath])
-    {
-        NSAttributedString* attributedString = [NSKeyedUnarchiver unarchiveObjectWithFile:imageIndexPath];
-        self.attributedText = attributedString;
-    }
+//    NSArray* views = [_imageViewCache allValues];
+//    for (int i = 0; i < [views count]; i++)
+//    {
+//        UIView* view = [views objectAtIndex:i];
+//        if (view.superview)
+//        {
+//            [view removeFromSuperview];
+//        }
+//    }
+//    
+//    [_imagePathDic removeAllObjects];
+//    [_imageViewCache removeAllObjects];
+//    
+//    NSString* folder = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"TextViewImages"];
+//    NSMutableString* imageIndexPath = [NSMutableString stringWithFormat:@"%@/%@",folder, NTCArticleTextView_AttributedString_Name];
+//    if ([[NSFileManager defaultManager] fileExistsAtPath:imageIndexPath])
+//    {
+//        NSAttributedString* attributedString = [NSKeyedUnarchiver unarchiveObjectWithFile:imageIndexPath];
+//        self.attributedText = attributedString;
+//    }
 }
 
 #pragma mark - NTCArticleImageAttachmentDelegate
