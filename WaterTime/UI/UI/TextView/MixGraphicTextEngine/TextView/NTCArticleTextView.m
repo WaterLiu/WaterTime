@@ -7,7 +7,6 @@
 //
 
 #import "NTCArticleTextView.h"
-#import "NTCArticleTextStorage.h"
 #import "NTCArticleImageAttachmentView.h"
 #import "UIImage+Utilities.h"
 
@@ -16,13 +15,11 @@
 #define NTCArticleTextView_AttributedString_Name    @"AttributedString"
 
 
-static NSString* const NTCFontObserverName = @"font";
 NSString * const DQImageAttachmentViewClose = @"DQImageAttachmentViewClose";
 
 
-@interface NTCArticleTextView () <NTCArticleTextStorageDelegate, NTCArticleImageAttachmentDelegate>
+@interface NTCArticleTextView () <NTCArticleImageAttachmentDelegate, NSTextStorageDelegate>
 
-@property(nonatomic, strong)NTCArticleTextStorage* ss;
 
 @end
 
@@ -30,8 +27,6 @@ NSString * const DQImageAttachmentViewClose = @"DQImageAttachmentViewClose";
 
 - (void)dealloc
 {
-    [self removeObserver:self forKeyPath:NTCFontObserverName];
-    
     _imageViewCache = nil;
     _imagePathDic = nil;
 }
@@ -39,7 +34,8 @@ NSString * const DQImageAttachmentViewClose = @"DQImageAttachmentViewClose";
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
-    NTCArticleTextStorage* textStorage = [[NTCArticleTextStorage alloc] init];
+    NSTextStorage* textStorage = [[NSTextStorage alloc] init];
+    textStorage.delegate = self;    
     NSLayoutManager* layoutManager = [[NSLayoutManager alloc] init];
     [textStorage addLayoutManager:layoutManager];
     NSTextContainer *textContainer = [[NSTextContainer alloc] init];
@@ -48,48 +44,39 @@ NSString * const DQImageAttachmentViewClose = @"DQImageAttachmentViewClose";
     
     if (self = [super initWithFrame:frame textContainer:textContainer])
     {
-        textStorage.attachmentDelegate = self;
-        [self addObserver:self forKeyPath:NTCFontObserverName options:NSKeyValueObservingOptionNew context:nil];
-        
         _imageViewCache = [[NSMutableDictionary alloc] initWithCapacity:10];
         _imagePathDic = [[NSMutableDictionary alloc] initWithCapacity:10];
+        
+        self.delegate = self;
     }
     return self;
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
-    if ([keyPath isEqualToString:NTCFontObserverName])
-    {
-        UIFont *font = change[NSKeyValueChangeNewKey];
-        if (font)
-        {
-            NTCArticleTextStorage *textStorage = (NTCArticleTextStorage *)self.textStorage;
-            NSMutableDictionary *attributes = [textStorage.defaultAttributes mutableCopy];
-            [attributes setObject:font forKey:NSFontAttributeName];
-            textStorage.defaultAttributes = attributes;
-        }
-    }
-}
 
-- (void)layoutSubviews
+- (NSMutableDictionary*)layoutAttachmentView
 {
-    [super layoutSubviews];
+    NSMutableDictionary* dic = [[NSMutableDictionary alloc] initWithCapacity:10];
     [self.textStorage enumerateAttribute:NSAttachmentAttributeName inRange:NSMakeRange(0, [self.textStorage length]) options:0 usingBlock:^(id value, NSRange range, BOOL *stop) {
         if (value)
         {
-            CGRect rect = [self.layoutManager boundingRectForGlyphRange:range inTextContainer:self.textContainer];
-            CGRect attachmentRect = CGRectOffset(rect, self.textContainerInset.left, self.textContainerInset.top);
-            NTCArticleImageAttachmentView* view = [_imageViewCache objectForKey:[NSValue valueWithRange:range]];
-            view.frame = attachmentRect;
             
-            if (view == nil)
+            NSArray* views = [_imageViewCache allValues];
+            for (int i = 0; i < [views count]; i++)
             {
-                NSLog(@"NILNILNILNILNILNIL");
+                NTCArticleImageAttachmentView* view = [views objectAtIndex:i];
+                if (view.attachment == value)
+                {
+                    [dic setObject:view forKey:[NSValue valueWithRange:range]];
+                    CGRect rect = [self.layoutManager boundingRectForGlyphRange:range inTextContainer:self.textContainer];
+                    CGRect attachmentRect = CGRectOffset(rect, self.textContainerInset.left, self.textContainerInset.top);
+//                    NTCArticleImageAttachmentView* view = [_imageViewCache objectForKey:[NSValue valueWithRange:range]];
+                    view.frame = attachmentRect;
+                }
             }
-            
-            NSLog(@"rect = %@", NSStringFromCGRect(attachmentRect));
         }
     }];
+    
+    return dic;
 }
 
 
@@ -104,28 +91,30 @@ NSString * const DQImageAttachmentViewClose = @"DQImageAttachmentViewClose";
          *  找\n前缀
          */
         NSRange __range = NSMakeRange(range.location - 1, 1);
-        if ((__range.length+__range.location) <= [self.textStorage string].length)
+        if (__range.location < [self.textStorage string].length)
         {
             NSString *charater = [[self.textStorage string] substringWithRange:__range];
             if ([charater isEqualToString:@"\n"])
             {
-                deleteRange = NSMakeRange(deleteRange.location, deleteRange.length+__range.length);
+                deleteRange = NSMakeRange(__range.location, deleteRange.length + __range.length);
             }
         }
     }
     /**
      *  \n后缀
      */
-    NSRange __range = NSMakeRange(deleteRange.location + deleteRange.length, 1);
-    if ((__range.length+__range.location) <= [self.textStorage string].length)
+    NSRange __range = NSMakeRange(range.location + 1, 1);
+    if (__range.location < [self.textStorage string].length)
     {
         NSString *charater = [[self.textStorage string] substringWithRange:__range];
         if ([charater isEqualToString:@"\n"])
         {
-            deleteRange = NSMakeRange(deleteRange.location, deleteRange.length+__range.length);
+            deleteRange = NSMakeRange(deleteRange.location, deleteRange.length + __range.length);
         }
     }
+    
     [self.textStorage deleteCharactersInRange:deleteRange];//从textStroage删除
+    
 }
 
 - (NSString*)saveImageToDisk:(UIImage*)image withFileName:(NSString*)fileName
@@ -195,6 +184,34 @@ NSString * const DQImageAttachmentViewClose = @"DQImageAttachmentViewClose";
     }
 }
 
+- (NSRange)doInsertAttachment:(NSTextAttachment*)attachment
+{    
+    NSInteger location;
+    NSMutableAttributedString* attributedString = [[NSMutableAttributedString alloc] init];
+
+    //前插入 \n
+    if ([self.textStorage.string length] > 0 && ![[self.textStorage.string substringWithRange:NSMakeRange(self.selectedRange.location - 1, 1)] isEqualToString:@"\n"])
+    {
+        [attributedString appendAttributedString:[[NSAttributedString alloc] initWithString:@"\n"]];
+    }
+    
+    location = self.selectedRange.location + [attributedString length];
+    
+    [attributedString appendAttributedString:[NSAttributedString attributedStringWithAttachment:attachment]];
+    
+    if (self.selectedRange.location >= [self.textStorage length] || ![[self.textStorage.string substringWithRange:NSMakeRange(self.selectedRange.location, 1)] isEqualToString:@"\n"])
+    {
+        [attributedString appendAttributedString:[[NSAttributedString alloc] initWithString:@"\n"]];
+    }
+    
+//    [self.textStorage replaceCharactersInRange:self.selectedRange withAttributedString:attributedString];
+    [self.textStorage insertAttributedString:attributedString atIndex:self.selectedRange.location];
+    
+    self.selectedRange = NSMakeRange(self.selectedRange.location + [attributedString length], 0);
+    
+    return NSMakeRange(location, 1);
+}
+
 #pragma mark - Public
 
 - (void)insertImage:(UIImage*)image withDisplaySize:(CGSize)size
@@ -204,25 +221,20 @@ NSString * const DQImageAttachmentViewClose = @"DQImageAttachmentViewClose";
     NSTextAttachment* attachment = [[NSTextAttachment alloc] initWithData:nil ofType:nil];
     attachment.image = [UIImage imageWithSize:image.size withCornerRadius:self.imagesCornerRadius];
     attachment.bounds = CGRectMake(0.0f, 0.0f, size.width, size.height);
-    NSRange selectedRange = self.selectedRange;
-    NTCArticleTextStorage *storage = (NTCArticleTextStorage *)self.textStorage;
     
     NTCArticleImageAttachmentView* attachmentView = [[NTCArticleImageAttachmentView alloc] initWithImage:thumbnailImage];
     attachmentView.attachment = attachment;
     attachmentView.delegate = self;
     attachmentView.layer.masksToBounds = YES;
     attachmentView.layer.cornerRadius = self.imagesCornerRadius;
+    [self addSubview:attachmentView];
     
-    [_imageViewCache setObject:attachmentView forKey:[NSValue valueWithRange:NSMakeRange(selectedRange.location, 1)]];
+    NSRange range = [self doInsertAttachment:attachment];
+    [_imageViewCache setObject:attachmentView forKey:[NSValue valueWithRange:range]];
     
-    NSAttributedString *attachmentString = [storage replaceCharactersInRange:selectedRange withTextAttachment:attachment];
-    [self setSelectedRange:NSMakeRange(self.selectedRange.location + [attachmentString length] , 0)];
- 
-    NSString* imagePath = [self saveImageToDisk:image withFileName:NSStringFromRange(NSMakeRange(selectedRange.location + 1, 1))];
-    if (imagePath)
-    {
-        [_imagePathDic setObject:imagePath forKey:[NSString stringWithFormat:@"%ld", [attachment hash]]];
-    }
+    CGRect rect = [self.layoutManager boundingRectForGlyphRange:range inTextContainer:self.textContainer];
+    CGRect attachmentRect = CGRectOffset(rect, self.textContainerInset.left, self.textContainerInset.top);
+    attachmentView.frame = attachmentRect;
 }
 
 - (void)synchronizeToDisk
@@ -280,47 +292,39 @@ NSString * const DQImageAttachmentViewClose = @"DQImageAttachmentViewClose";
     }];
 }
 
-#pragma mark - NTCArticleTextStorageDelegate
 
-- (void)textStroage:(NSTextStorage*)textStorage willAddAttachment:(NSTextAttachment*)attachment atTextRange:(NSRange)range
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
-    NTCArticleImageAttachmentView* attachmentView = [_imageViewCache objectForKey:[NSValue valueWithRange:range]];
-    if (attachmentView != nil)
-    {
-        attachment.bounds = CGRectMake(0.0f, 0.0f, attachmentView.image.size.width, attachmentView.image.size.height);
-        [self addSubview:attachmentView];
-    }
-    else
-    {
-        UIImage* thumbnailImage = [self thumbnailImage:range];
-        
-        NTCArticleImageAttachmentView* attachmentView = [[NTCArticleImageAttachmentView alloc] initWithImage:thumbnailImage];
-        attachmentView.attachment = attachment;
-        attachmentView.delegate = self;
-        attachmentView.layer.masksToBounds = YES;
-        attachmentView.layer.cornerRadius = self.imagesCornerRadius;
-        attachmentView.attachment.image = thumbnailImage;
-        [_imageViewCache setObject:attachmentView forKey:[NSValue valueWithRange:range]];
-        
-        
-        attachment.bounds = CGRectMake(0.0f, 0.0f, thumbnailImage.size.width, thumbnailImage.size.height);
-    }
+    return YES;
 }
 
-- (void)textStroage:(NSTextStorage*)textStorage willRemove:(NSTextAttachment*)attachment atTextRange:(NSRange)range
-{
-    NTCArticleAttachmentView* attachmentView =[_imageViewCache objectForKey:[NSValue valueWithRange:range]];
-    if (attachmentView)
-    {
-        [attachmentView removeFromSuperview];
-        [_imageViewCache removeObjectForKey:[NSValue valueWithRange:range]];
-        attachmentView = nil;
-    }
-}
 
-- (void)textStroage:(NSTextStorage*)textStorage didRemove:(NSTextAttachment*)attachment atTextRange:(NSRange)range
+- (void)textStorage:(NSTextStorage *)textStorage willProcessEditing:(NSTextStorageEditActions)editedMask range:(NSRange)editedRange changeInLength:(NSInteger)delta
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:DQImageAttachmentViewClose object:nil]; 
+    //删除逻辑
+    if (delta < 0)
+    {
+        NSRange deleteRange = NSMakeRange(editedRange.location, labs(delta));
+        
+        NSArray* keys = [_imageViewCache allKeys];
+        for (int i = 0; i < [keys count]; i++)
+        {
+            NSRange range = ((NSValue*)[keys objectAtIndex:i]).rangeValue;
+            if (range.location >= deleteRange.location && range.location < (deleteRange.location + deleteRange.length) && deleteRange.length > 0)
+            {
+                UIView* view = [_imageViewCache objectForKey:[keys objectAtIndex:i]];
+                if (view != nil)
+                {
+                    [view removeFromSuperview];
+                    view = nil;
+                    [_imageViewCache removeObjectForKey:[keys objectAtIndex:i]];
+                }
+                
+        
+                _imageViewCache = [self layoutAttachmentView];
+            }
+        }
+    }
 }
 
 @end

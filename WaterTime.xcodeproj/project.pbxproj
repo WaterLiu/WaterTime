@@ -18,7 +18,6 @@
 		FD316F781C7B08AB00D7792B /* WTMRNetworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD316F771C7B08AB00D7792B /* WTMRNetworkViewController.m */; };
 		FD36C0511CF6A8D400CC347B /* NTCArticleAttachmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD36C0391CF6A8D400CC347B /* NTCArticleAttachmentView.m */; };
 		FD36C0521CF6A8D400CC347B /* NTCArticleImageAttachmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD36C03B1CF6A8D400CC347B /* NTCArticleImageAttachmentView.m */; };
-		FD36C0561CF6A8D400CC347B /* NTCArticleTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = FD36C0441CF6A8D400CC347B /* NTCArticleTextStorage.m */; };
 		FD36C0571CF6A8D400CC347B /* EGTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD36C0471CF6A8D400CC347B /* EGTextView.m */; };
 		FD36C0581CF6A8D400CC347B /* NTCArticleTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD36C0491CF6A8D400CC347B /* NTCArticleTextView.m */; };
 		FD36C05A1CF6A8D400CC347B /* AssetHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FD36C04E1CF6A8D400CC347B /* AssetHelper.m */; };
@@ -50,6 +49,8 @@
 		FDDC58E31C1988230070E578 /* WTCoreVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDC58E21C1988230070E578 /* WTCoreVideoViewController.m */; };
 		FDE03C601C79FBE8006569D2 /* WTTelephonyNetworkInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE03C5F1C79FBE8006569D2 /* WTTelephonyNetworkInfoViewController.m */; };
 		FDE03C621C79FC32006569D2 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDE03C611C79FC32006569D2 /* CoreTelephony.framework */; };
+		FDE3BAFD1CFD39F400CF1E78 /* TextView_ImageDelete_Button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDE3BAFB1CFD39F400CF1E78 /* TextView_ImageDelete_Button@2x.png */; };
+		FDE3BAFE1CFD39F400CF1E78 /* TextView_ImageDelete_Button@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDE3BAFC1CFD39F400CF1E78 /* TextView_ImageDelete_Button@3x.png */; };
 		FDEACA0D1B2EC94F0074258C /* WTBackgroundBlurViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEACA0C1B2EC94F0074258C /* WTBackgroundBlurViewController.m */; };
 		FDEACA101B2ECF320074258C /* WTMainTableJMPController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEACA0F1B2ECF320074258C /* WTMainTableJMPController.m */; };
 		FDEACA131B2ECF6E0074258C /* UIImage+BlurGlass.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEACA121B2ECF6E0074258C /* UIImage+BlurGlass.m */; };
@@ -80,12 +81,10 @@
 		FD36C0391CF6A8D400CC347B /* NTCArticleAttachmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTCArticleAttachmentView.m; sourceTree = "<group>"; };
 		FD36C03A1CF6A8D400CC347B /* NTCArticleImageAttachmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTCArticleImageAttachmentView.h; sourceTree = "<group>"; };
 		FD36C03B1CF6A8D400CC347B /* NTCArticleImageAttachmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTCArticleImageAttachmentView.m; sourceTree = "<group>"; };
-		FD36C0431CF6A8D400CC347B /* NTCArticleTextStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTCArticleTextStorage.h; sourceTree = "<group>"; };
-		FD36C0441CF6A8D400CC347B /* NTCArticleTextStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTCArticleTextStorage.m; sourceTree = "<group>"; };
 		FD36C0461CF6A8D400CC347B /* EGTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGTextView.h; sourceTree = "<group>"; };
 		FD36C0471CF6A8D400CC347B /* EGTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGTextView.m; sourceTree = "<group>"; };
 		FD36C0481CF6A8D400CC347B /* NTCArticleTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTCArticleTextView.h; sourceTree = "<group>"; };
-		FD36C0491CF6A8D400CC347B /* NTCArticleTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTCArticleTextView.m; sourceTree = "<group>"; };
+		FD36C0491CF6A8D400CC347B /* NTCArticleTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NTCArticleTextView.m; path = UI/UI/TextView/MixGraphicTextEngine/TextView/NTCArticleTextView.m; sourceTree = "<group>"; };
 		FD36C04D1CF6A8D400CC347B /* AssetHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetHelper.h; sourceTree = "<group>"; };
 		FD36C04E1CF6A8D400CC347B /* AssetHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetHelper.m; sourceTree = "<group>"; };
 		FD36C04F1CF6A8D400CC347B /* UIImage+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Utilities.h"; sourceTree = "<group>"; };
@@ -142,6 +141,8 @@
 		FDE03C5E1C79FBE8006569D2 /* WTTelephonyNetworkInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTTelephonyNetworkInfoViewController.h; sourceTree = "<group>"; };
 		FDE03C5F1C79FBE8006569D2 /* WTTelephonyNetworkInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTTelephonyNetworkInfoViewController.m; sourceTree = "<group>"; };
 		FDE03C611C79FC32006569D2 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		FDE3BAFB1CFD39F400CF1E78 /* TextView_ImageDelete_Button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TextView_ImageDelete_Button@2x.png"; sourceTree = "<group>"; };
+		FDE3BAFC1CFD39F400CF1E78 /* TextView_ImageDelete_Button@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TextView_ImageDelete_Button@3x.png"; sourceTree = "<group>"; };
 		FDEACA0B1B2EC94F0074258C /* WTBackgroundBlurViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTBackgroundBlurViewController.h; sourceTree = "<group>"; };
 		FDEACA0C1B2EC94F0074258C /* WTBackgroundBlurViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTBackgroundBlurViewController.m; sourceTree = "<group>"; };
 		FDEACA0E1B2ECF320074258C /* WTMainTableJMPController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTMainTableJMPController.h; sourceTree = "<group>"; };
@@ -222,6 +223,7 @@
 		FD36C0371CF6A8D400CC347B /* Attachment */ = {
 			isa = PBXGroup;
 			children = (
+				FDE3BAFA1CFD39F400CF1E78 /* icon */,
 				FD36C0381CF6A8D400CC347B /* NTCArticleAttachmentView.h */,
 				FD36C0391CF6A8D400CC347B /* NTCArticleAttachmentView.m */,
 				FD36C03A1CF6A8D400CC347B /* NTCArticleImageAttachmentView.h */,
@@ -233,8 +235,6 @@
 		FD36C03E1CF6A8D400CC347B /* TextKit */ = {
 			isa = PBXGroup;
 			children = (
-				FD36C0431CF6A8D400CC347B /* NTCArticleTextStorage.h */,
-				FD36C0441CF6A8D400CC347B /* NTCArticleTextStorage.m */,
 			);
 			path = TextKit;
 			sourceTree = "<group>";
@@ -245,7 +245,6 @@
 				FD36C0461CF6A8D400CC347B /* EGTextView.h */,
 				FD36C0471CF6A8D400CC347B /* EGTextView.m */,
 				FD36C0481CF6A8D400CC347B /* NTCArticleTextView.h */,
-				FD36C0491CF6A8D400CC347B /* NTCArticleTextView.m */,
 			);
 			path = TextView;
 			sourceTree = "<group>";
@@ -359,6 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				FDCF0A491A721DE300EE1B89 /* ConfigFiles */,
+				FD36C0491CF6A8D400CC347B /* NTCArticleTextView.m */,
 				FDCF0A451A71F33200EE1B89 /* UI */,
 				FDA12B861B40609A000DA235 /* Foundation */,
 				FDCF0A201A71F2A200EE1B89 /* AppDelegate.h */,
@@ -468,6 +468,15 @@
 			path = CoreVideo;
 			sourceTree = "<group>";
 		};
+		FDE3BAFA1CFD39F400CF1E78 /* icon */ = {
+			isa = PBXGroup;
+			children = (
+				FDE3BAFB1CFD39F400CF1E78 /* TextView_ImageDelete_Button@2x.png */,
+				FDE3BAFC1CFD39F400CF1E78 /* TextView_ImageDelete_Button@3x.png */,
+			);
+			path = icon;
+			sourceTree = "<group>";
+		};
 		FDEACA0A1B2EC8B90074258C /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -557,8 +566,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD760B2E1B6A33C700219284 /* LaunchScreen.xib in Resources */,
+				FDE3BAFD1CFD39F400CF1E78 /* TextView_ImageDelete_Button@2x.png in Resources */,
 				FDCF0A2B1A71F2A200EE1B89 /* Main.storyboard in Resources */,
 				FDCF0A4B1A721E2400EE1B89 /* MainTableShowContentList.plist in Resources */,
+				FDE3BAFE1CFD39F400CF1E78 /* TextView_ImageDelete_Button@3x.png in Resources */,
 				FDCF0A2D1A71F2A200EE1B89 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -610,7 +621,6 @@
 				FD2A04691C50D21600494EF6 /* WTCollectionViewLayout.m in Sources */,
 				FDCF0A4E1A721FAD00EE1B89 /* WTMainTableConfigUtils.m in Sources */,
 				FD2A9AF91CA002C10005ACC1 /* WTCricleCell.m in Sources */,
-				FD36C0561CF6A8D400CC347B /* NTCArticleTextStorage.m in Sources */,
 				FDA12B8F1B406202000DA235 /* WTNetworkStateViewController.m in Sources */,
 				FD36C05A1CF6A8D400CC347B /* AssetHelper.m in Sources */,
 				FD36C0511CF6A8D400CC347B /* NTCArticleAttachmentView.m in Sources */,

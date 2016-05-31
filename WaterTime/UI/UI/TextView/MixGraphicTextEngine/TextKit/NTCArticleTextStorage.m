@@ -85,6 +85,11 @@
     return string;
 }
 
+- (void)removeAttribute:(NSString *)name range:(NSRange)range
+{
+    
+}
+
 - (void)replaceCharactersInRange:(NSRange)range withAttributedString:(NSAttributedString *)attrString
 {
     if ([attrString length])
@@ -101,23 +106,25 @@
         {
             if (self.attachmentDelegate && [self.attachmentDelegate respondsToSelector:@selector(textStroage:willAddAttachment:atTextRange:)])
             {
-                [self.attachmentDelegate textStroage:self willAddAttachment:_value atTextRange:_range];
+//                [self.attachmentDelegate textStroage:self willAddAttachment:_value atTextRange:_range];
+                [self.attachmentDelegate textStroage:self willAddAttachment:_value atTextRange:NSMakeRange(range.location, 1)];
             }
         }
     }];
     //便利将要修改原有的string,返回代理
     NSAttributedString *string = [_imp attributedSubstringFromRange:range];
     [string enumerateAttribute:NSAttachmentAttributeName inRange:NSMakeRange(0, [string length]) options:0 usingBlock:^(id value, NSRange range1, BOOL *stop) {
-        if (value) {
+        if (value)
+        {
             if (self.attachmentDelegate && [self.attachmentDelegate respondsToSelector:@selector(textStroage:willRemove:atTextRange:)])
             {
-                [self.attachmentDelegate textStroage:self willRemove:value atTextRange:range1];
+//                [self.attachmentDelegate textStroage:self willRemove:value atTextRange:range1];
+                [self.attachmentDelegate textStroage:self willRemove:value atTextRange:NSMakeRange(range.location, 1)];
             }
         }
     }];
     
     [self beginEditing];
-//    [_imp insertAttributedString:attrString atIndex:range.location];
     [_imp replaceCharactersInRange:range withAttributedString:attrString];
     [self edited:NSTextStorageEditedCharacters | NSTextStorageEditedAttributes range:range changeInLength:attrString.length - range.length];
     [self endEditing];
@@ -129,7 +136,8 @@
         {
             if (self.attachmentDelegate && [self.attachmentDelegate respondsToSelector:@selector(textStroage:didAddAttachment:atTextRange:)])
             {
-                [self.attachmentDelegate textStroage:self didAddAttachment:value atTextRange:range1];
+//                [self.attachmentDelegate textStroage:self didAddAttachment:value atTextRange:range1];
+                [self.attachmentDelegate textStroage:self didAddAttachment:value atTextRange:NSMakeRange(range.location, 1)];
             }
         }
     }];
@@ -139,7 +147,8 @@
         if (value) {
             if (self.attachmentDelegate && [self.attachmentDelegate respondsToSelector:@selector(textStroage:didRemove:atTextRange:)])
             {
-                [self.attachmentDelegate textStroage:self didRemove:value atTextRange:range1];
+//                [self.attachmentDelegate textStroage:self didRemove:value atTextRange:range1];
+                [self.attachmentDelegate textStroage:self didRemove:value atTextRange:NSMakeRange(range.location, 1)];
             }
         }
     }];

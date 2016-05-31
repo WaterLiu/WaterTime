@@ -14,7 +14,7 @@ FOUNDATION_EXPORT NSString * const DQImageAttachmentViewClose;
 
 @class NTCArticleTextContainer;
 
-@interface NTCArticleTextView : EGTextView
+@interface NTCArticleTextView : EGTextView <UITextViewDelegate>
 {
     NSMutableDictionary*    _imageViewCache;
     NSMutableDictionary*    _imagePathDic;

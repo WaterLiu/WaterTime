@@ -32,6 +32,9 @@
         self.imageView.frame = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
         self.imageView.image = image;
         [self addSubview:self.imageView];
+        
+        self.closeButton.frame = CGRectMake(CGRectGetWidth(self.imageView.frame) - 33.0f, 3.0f, 30.0f, 30.0f);
+        [self addSubview:self.closeButton];
     }
     return self;
 }
