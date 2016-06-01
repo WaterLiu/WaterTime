@@ -16,8 +16,9 @@ FOUNDATION_EXPORT NSString * const DQImageAttachmentViewClose;
 
 @interface NTCArticleTextView : EGTextView <UITextViewDelegate>
 {
-    NSMutableDictionary*    _imageViewCache;
     NSMutableDictionary*    _imagePathDic;
+    
+    NSMutableArray*         _imageViewArray;
 }
 
 // 配置添加的图片的圆角

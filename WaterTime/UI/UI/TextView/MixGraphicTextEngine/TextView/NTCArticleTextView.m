@@ -27,7 +27,6 @@ NSString * const DQImageAttachmentViewClose = @"DQImageAttachmentViewClose";
 
 - (void)dealloc
 {
-    _imageViewCache = nil;
     _imagePathDic = nil;
 }
 
@@ -44,7 +43,7 @@ NSString * const DQImageAttachmentViewClose = @"DQImageAttachmentViewClose";
     
     if (self = [super initWithFrame:frame textContainer:textContainer])
     {
-        _imageViewCache = [[NSMutableDictionary alloc] initWithCapacity:10];
+        _imageViewArray = [NSMutableArray arrayWithCapacity:10];
         _imagePathDic = [[NSMutableDictionary alloc] initWithCapacity:10];
         
         self.delegate = self;
@@ -53,32 +52,11 @@ NSString * const DQImageAttachmentViewClose = @"DQImageAttachmentViewClose";
 }
 
 
-- (NSMutableDictionary*)layoutAttachmentView
+- (void)layoutSubviews
 {
-    NSMutableDictionary* dic = [[NSMutableDictionary alloc] initWithCapacity:10];
-    [self.textStorage enumerateAttribute:NSAttachmentAttributeName inRange:NSMakeRange(0, [self.textStorage length]) options:0 usingBlock:^(id value, NSRange range, BOOL *stop) {
-        if (value)
-        {
-            
-            NSArray* views = [_imageViewCache allValues];
-            for (int i = 0; i < [views count]; i++)
-            {
-                NTCArticleImageAttachmentView* view = [views objectAtIndex:i];
-                if (view.attachment == value)
-                {
-                    [dic setObject:view forKey:[NSValue valueWithRange:range]];
-                    CGRect rect = [self.layoutManager boundingRectForGlyphRange:range inTextContainer:self.textContainer];
-                    CGRect attachmentRect = CGRectOffset(rect, self.textContainerInset.left, self.textContainerInset.top);
-//                    NTCArticleImageAttachmentView* view = [_imageViewCache objectForKey:[NSValue valueWithRange:range]];
-                    view.frame = attachmentRect;
-                }
-            }
-        }
-    }];
-    
-    return dic;
-}
+    [super layoutSubviews];
 
+}
 
 #pragma mark - Private
 
@@ -114,6 +92,8 @@ NSString * const DQImageAttachmentViewClose = @"DQImageAttachmentViewClose";
     }
     
     [self.textStorage deleteCharactersInRange:deleteRange];//从textStroage删除
+    
+    self.selectedRange = NSMakeRange(deleteRange.location, 0);
     
 }
 
@@ -204,7 +184,6 @@ NSString * const DQImageAttachmentViewClose = @"DQImageAttachmentViewClose";
         [attributedString appendAttributedString:[[NSAttributedString alloc] initWithString:@"\n"]];
     }
     
-//    [self.textStorage replaceCharactersInRange:self.selectedRange withAttributedString:attributedString];
     [self.textStorage insertAttributedString:attributedString atIndex:self.selectedRange.location];
     
     self.selectedRange = NSMakeRange(self.selectedRange.location + [attributedString length], 0);
@@ -230,7 +209,8 @@ NSString * const DQImageAttachmentViewClose = @"DQImageAttachmentViewClose";
     [self addSubview:attachmentView];
     
     NSRange range = [self doInsertAttachment:attachment];
-    [_imageViewCache setObject:attachmentView forKey:[NSValue valueWithRange:range]];
+//    [_imageViewCache setObject:attachmentView forKey:[NSValue valueWithRange:range]];
+    [_imageViewArray addObject:attachmentView];
     
     CGRect rect = [self.layoutManager boundingRectForGlyphRange:range inTextContainer:self.textContainer];
     CGRect attachmentRect = CGRectOffset(rect, self.textContainerInset.left, self.textContainerInset.top);
@@ -239,19 +219,17 @@ NSString * const DQImageAttachmentViewClose = @"DQImageAttachmentViewClose";
 
 - (void)synchronizeToDisk
 {
-    NSArray* keys = [_imageViewCache allKeys];
-    for (int i = 0; i < [keys count]; i++)
-    {
-        id key = [keys objectAtIndex:i];
-        NTCArticleImageAttachmentView* view = [_imageViewCache objectForKey:key];
-        [self saveImageToDisk:view.image withFileName:[NSString stringWithFormat:@"thumnailImage_%@", NSStringFromRange([(NSValue*)key rangeValue])]];
-    }
-    [self imageIndexFileSynchronize];
-
-    
-    NSString* folder = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"TextViewImages"];
-    NSMutableString* imageIndexPath = [NSMutableString stringWithFormat:@"%@/%@",folder, NTCArticleTextView_AttributedString_Name];
-    [NSKeyedArchiver archiveRootObject:self.attributedText toFile:imageIndexPath];
+//    for (int i = 0; i < [_imageViewArray count]; i++)
+//    {
+//        NTCArticleImageAttachmentView* view = [_imageViewArray objectAtIndex:i];
+//        [self saveImageToDisk:view.image withFileName:[NSString stringWithFormat:@"thumnailImage_%@", NSStringFromRange([(NSValue*)key rangeValue])]];
+//    }
+//    [self imageIndexFileSynchronize];
+//
+//    
+//    NSString* folder = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"TextViewImages"];
+//    NSMutableString* imageIndexPath = [NSMutableString stringWithFormat:@"%@/%@",folder, NTCArticleTextView_AttributedString_Name];
+//    [NSKeyedArchiver archiveRootObject:self.attributedText toFile:imageIndexPath];
 }
 
 - (void)synchronizeToUI
@@ -292,39 +270,42 @@ NSString * const DQImageAttachmentViewClose = @"DQImageAttachmentViewClose";
     }];
 }
 
-
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+- (void)textStorage:(NSTextStorage *)textStorage didProcessEditing:(NSTextStorageEditActions)editedMask range:(NSRange)editedRange changeInLength:(NSInteger)delta
 {
-    return YES;
-}
-
-
-- (void)textStorage:(NSTextStorage *)textStorage willProcessEditing:(NSTextStorageEditActions)editedMask range:(NSRange)editedRange changeInLength:(NSInteger)delta
-{
-    //删除逻辑
-    if (delta < 0)
-    {
-        NSRange deleteRange = NSMakeRange(editedRange.location, labs(delta));
-        
-        NSArray* keys = [_imageViewCache allKeys];
-        for (int i = 0; i < [keys count]; i++)
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if (delta < 0)
         {
-            NSRange range = ((NSValue*)[keys objectAtIndex:i]).rangeValue;
-            if (range.location >= deleteRange.location && range.location < (deleteRange.location + deleteRange.length) && deleteRange.length > 0)
-            {
-                UIView* view = [_imageViewCache objectForKey:[keys objectAtIndex:i]];
-                if (view != nil)
+            NSMutableArray* imageArray = [NSMutableArray arrayWithCapacity:10];
+            
+            [self.textStorage enumerateAttribute:NSAttachmentAttributeName inRange:NSMakeRange(0, [self.textStorage length]) options:0 usingBlock:^(id  _Nullable value, NSRange range, BOOL * _Nonnull stop) {
+                for (int i = 0; i < [_imageViewArray count]; i++)
                 {
-                    [view removeFromSuperview];
-                    view = nil;
-                    [_imageViewCache removeObjectForKey:[keys objectAtIndex:i]];
+                    NTCArticleImageAttachmentView* view = [_imageViewArray objectAtIndex:i];
+                    if (value == view.attachment)
+                    {
+                        CGRect rect = [self.layoutManager boundingRectForGlyphRange:range inTextContainer:self.textContainer];
+                        CGRect attachmentRect = CGRectOffset(rect, self.textContainerInset.left, self.textContainerInset.top);
+                        view.frame = attachmentRect;
+                        [imageArray addObject:view];
+                        
+                        break;
+                        
+                    }
                 }
-                
-        
-                _imageViewCache = [self layoutAttachmentView];
+            }];
+            
+            [_imageViewArray removeObjectsInArray:imageArray];
+            
+            for (int i = 0; i < [_imageViewArray count]; i++)
+            {
+                NTCArticleImageAttachmentView* view = [_imageViewArray objectAtIndex:i];
+                [view removeFromSuperview];
+                view = nil;
             }
+            _imageViewArray = imageArray;
         }
-    }
+    });
 }
 
 @end

@@ -51,6 +51,7 @@
 		FDE03C621C79FC32006569D2 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDE03C611C79FC32006569D2 /* CoreTelephony.framework */; };
 		FDE3BAFD1CFD39F400CF1E78 /* TextView_ImageDelete_Button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDE3BAFB1CFD39F400CF1E78 /* TextView_ImageDelete_Button@2x.png */; };
 		FDE3BAFE1CFD39F400CF1E78 /* TextView_ImageDelete_Button@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDE3BAFC1CFD39F400CF1E78 /* TextView_ImageDelete_Button@3x.png */; };
+		FDE3BB011CFDB49000CF1E78 /* NTCArticleTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE3BB001CFDB49000CF1E78 /* NTCArticleTextStorage.m */; };
 		FDEACA0D1B2EC94F0074258C /* WTBackgroundBlurViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEACA0C1B2EC94F0074258C /* WTBackgroundBlurViewController.m */; };
 		FDEACA101B2ECF320074258C /* WTMainTableJMPController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEACA0F1B2ECF320074258C /* WTMainTableJMPController.m */; };
 		FDEACA131B2ECF6E0074258C /* UIImage+BlurGlass.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEACA121B2ECF6E0074258C /* UIImage+BlurGlass.m */; };
@@ -84,7 +85,7 @@
 		FD36C0461CF6A8D400CC347B /* EGTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGTextView.h; sourceTree = "<group>"; };
 		FD36C0471CF6A8D400CC347B /* EGTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGTextView.m; sourceTree = "<group>"; };
 		FD36C0481CF6A8D400CC347B /* NTCArticleTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTCArticleTextView.h; sourceTree = "<group>"; };
-		FD36C0491CF6A8D400CC347B /* NTCArticleTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NTCArticleTextView.m; path = UI/UI/TextView/MixGraphicTextEngine/TextView/NTCArticleTextView.m; sourceTree = "<group>"; };
+		FD36C0491CF6A8D400CC347B /* NTCArticleTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTCArticleTextView.m; sourceTree = "<group>"; };
 		FD36C04D1CF6A8D400CC347B /* AssetHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetHelper.h; sourceTree = "<group>"; };
 		FD36C04E1CF6A8D400CC347B /* AssetHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetHelper.m; sourceTree = "<group>"; };
 		FD36C04F1CF6A8D400CC347B /* UIImage+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Utilities.h"; sourceTree = "<group>"; };
@@ -143,6 +144,8 @@
 		FDE03C611C79FC32006569D2 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		FDE3BAFB1CFD39F400CF1E78 /* TextView_ImageDelete_Button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TextView_ImageDelete_Button@2x.png"; sourceTree = "<group>"; };
 		FDE3BAFC1CFD39F400CF1E78 /* TextView_ImageDelete_Button@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TextView_ImageDelete_Button@3x.png"; sourceTree = "<group>"; };
+		FDE3BAFF1CFDB49000CF1E78 /* NTCArticleTextStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTCArticleTextStorage.h; sourceTree = "<group>"; };
+		FDE3BB001CFDB49000CF1E78 /* NTCArticleTextStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTCArticleTextStorage.m; sourceTree = "<group>"; };
 		FDEACA0B1B2EC94F0074258C /* WTBackgroundBlurViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTBackgroundBlurViewController.h; sourceTree = "<group>"; };
 		FDEACA0C1B2EC94F0074258C /* WTBackgroundBlurViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTBackgroundBlurViewController.m; sourceTree = "<group>"; };
 		FDEACA0E1B2ECF320074258C /* WTMainTableJMPController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTMainTableJMPController.h; sourceTree = "<group>"; };
@@ -235,6 +238,8 @@
 		FD36C03E1CF6A8D400CC347B /* TextKit */ = {
 			isa = PBXGroup;
 			children = (
+				FDE3BAFF1CFDB49000CF1E78 /* NTCArticleTextStorage.h */,
+				FDE3BB001CFDB49000CF1E78 /* NTCArticleTextStorage.m */,
 			);
 			path = TextKit;
 			sourceTree = "<group>";
@@ -245,6 +250,7 @@
 				FD36C0461CF6A8D400CC347B /* EGTextView.h */,
 				FD36C0471CF6A8D400CC347B /* EGTextView.m */,
 				FD36C0481CF6A8D400CC347B /* NTCArticleTextView.h */,
+				FD36C0491CF6A8D400CC347B /* NTCArticleTextView.m */,
 			);
 			path = TextView;
 			sourceTree = "<group>";
@@ -358,7 +364,6 @@
 			isa = PBXGroup;
 			children = (
 				FDCF0A491A721DE300EE1B89 /* ConfigFiles */,
-				FD36C0491CF6A8D400CC347B /* NTCArticleTextView.m */,
 				FDCF0A451A71F33200EE1B89 /* UI */,
 				FDA12B861B40609A000DA235 /* Foundation */,
 				FDCF0A201A71F2A200EE1B89 /* AppDelegate.h */,
@@ -649,6 +654,7 @@
 				FD50B0F51A84C9040082A79E /* WTCoreDataManager.m in Sources */,
 				FDCF0A1F1A71F2A200EE1B89 /* main.m in Sources */,
 				FD40CEEA1CA3EFF500E59101 /* WTAnimationGroup.m in Sources */,
+				FDE3BB011CFDB49000CF1E78 /* NTCArticleTextStorage.m in Sources */,
 				FD36C0571CF6A8D400CC347B /* EGTextView.m in Sources */,
 				FDFF5CEF1C4FCF440097FFC4 /* WTCollectionViewController.m in Sources */,
 				FD36C05B1CF6A8D400CC347B /* UIImage+Utilities.m in Sources */,
