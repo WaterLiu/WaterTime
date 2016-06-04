@@ -1,2 +1,8 @@
 platform:ios, '7.0'
-pod "KSCrash" 
+
+target "WaterTime" do
+    
+pod 'KSCrash'
+pod 'ReactiveCocoa'
+
+end
