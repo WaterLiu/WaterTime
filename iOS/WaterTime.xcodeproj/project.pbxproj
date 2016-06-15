@@ -30,7 +30,6 @@
 		FD760B2E1B6A33C700219284 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD760B2C1B6A33C700219284 /* LaunchScreen.xib */; };
 		FD7EBCE71C1ED5F5007C479D /* WTFontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7EBCE61C1ED5F5007C479D /* WTFontViewController.m */; };
 		FD976CAC1B79F024005CE35D /* WTURLProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD976CAB1B79F024005CE35D /* WTURLProtocolViewController.m */; };
-		FD9D6C2F1D02796900C03914 /* WTTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9D6C2E1D02796900C03914 /* WTTest.m */; };
 		FDA12B8B1B4060CE000DA235 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA12B8A1B4060CE000DA235 /* Reachability.m */; };
 		FDA12B8F1B406202000DA235 /* WTNetworkStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA12B8E1B406202000DA235 /* WTNetworkStateViewController.m */; };
 		FDCA8FDC1CF70DE100541BB3 /* WTTextViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCA8FDB1CF70DE100541BB3 /* WTTextViewViewController.m */; };
@@ -59,37 +58,6 @@
 		FDFF5CEF1C4FCF440097FFC4 /* WTCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDFF5CEE1C4FCF440097FFC4 /* WTCollectionViewController.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		FD280DE51D118D48007A2198 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FD280DE01D118D48007A2198 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 05181EAA1E6A6933F7EFA2C73D9AB6A9;
-			remoteInfo = KSCrash;
-		};
-		FD280DE71D118D48007A2198 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FD280DE01D118D48007A2198 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F4E20E65D7A6A9CC5163CEBDC70E2414;
-			remoteInfo = Pods;
-		};
-		FD280DEE1D118D4A007A2198 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FD280DE91D118D4A007A2198 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 05181EAA1E6A6933F7EFA2C73D9AB6A9;
-			remoteInfo = KSCrash;
-		};
-		FD280DF01D118D4A007A2198 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FD280DE91D118D4A007A2198 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F4E20E65D7A6A9CC5163CEBDC70E2414;
-			remoteInfo = Pods;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		8342060FC105C355986DF4C6 /* Pods-WaterTime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaterTime.release.xcconfig"; path = "Pods/Target Support Files/Pods-WaterTime/Pods-WaterTime.release.xcconfig"; sourceTree = "<group>"; };
 		979A7CD4F5DB41BF9D30B47D /* libPods-WaterTime.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WaterTime.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,8 +66,6 @@
 		FD14E2511B58FF06004EB769 /* WTTakeScreenShotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTTakeScreenShotViewController.m; sourceTree = "<group>"; };
 		FD196C1E1B4532CC0026CD9A /* WTTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTTestViewController.h; sourceTree = "<group>"; };
 		FD196C1F1B4532CC0026CD9A /* WTTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTTestViewController.m; sourceTree = "<group>"; };
-		FD280DE01D118D48007A2198 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
-		FD280DE91D118D4A007A2198 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		FD2A04671C50D21600494EF6 /* WTCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCollectionViewLayout.h; sourceTree = "<group>"; };
 		FD2A04681C50D21600494EF6 /* WTCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCollectionViewLayout.m; sourceTree = "<group>"; };
 		FD2A9AF01C9FEB290005ACC1 /* WTCricleAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCricleAnimationViewController.h; sourceTree = "<group>"; };
@@ -139,8 +105,6 @@
 		FD7EBCE61C1ED5F5007C479D /* WTFontViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTFontViewController.m; sourceTree = "<group>"; };
 		FD976CAA1B79F024005CE35D /* WTURLProtocolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTURLProtocolViewController.h; sourceTree = "<group>"; };
 		FD976CAB1B79F024005CE35D /* WTURLProtocolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTURLProtocolViewController.m; sourceTree = "<group>"; };
-		FD9D6C2D1D02796900C03914 /* WTTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTTest.h; sourceTree = "<group>"; };
-		FD9D6C2E1D02796900C03914 /* WTTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTTest.m; sourceTree = "<group>"; };
 		FDA12B891B4060CE000DA235 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		FDA12B8A1B4060CE000DA235 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		FDA12B8D1B406202000DA235 /* WTNetworkStateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNetworkStateViewController.h; sourceTree = "<group>"; };
@@ -221,24 +185,6 @@
 				8342060FC105C355986DF4C6 /* Pods-WaterTime.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		FD280DE11D118D48007A2198 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FD280DE61D118D48007A2198 /* libKSCrash.a */,
-				FD280DE81D118D48007A2198 /* libPods.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		FD280DEA1D118D4A007A2198 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FD280DEF1D118D4A007A2198 /* libKSCrash.a */,
-				FD280DF11D118D4A007A2198 /* libPods.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		FD2A9AF31C9FEDE20005ACC1 /* View */ = {
@@ -346,15 +292,6 @@
 			path = WaterTime/UI/BaseService;
 			sourceTree = SOURCE_ROOT;
 		};
-		FD9D6C2C1D02795600C03914 /* Test */ = {
-			isa = PBXGroup;
-			children = (
-				FD9D6C2D1D02796900C03914 /* WTTest.h */,
-				FD9D6C2E1D02796900C03914 /* WTTest.m */,
-			);
-			path = Test;
-			sourceTree = "<group>";
-		};
 		FDA12B861B40609A000DA235 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
@@ -407,8 +344,6 @@
 		FDCF0A101A71F2A200EE1B89 = {
 			isa = PBXGroup;
 			children = (
-				FD280DE91D118D4A007A2198 /* Pods.xcodeproj */,
-				FD280DE01D118D48007A2198 /* Pods.xcodeproj */,
 				FDCF0A1B1A71F2A200EE1B89 /* WaterTime */,
 				FDCF0A381A71F2A200EE1B89 /* WaterTimeTests */,
 				FDCF0A1A1A71F2A200EE1B89 /* Products */,
@@ -550,7 +485,6 @@
 		FDEACA0A1B2EC8B90074258C /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				FD9D6C2C1D02795600C03914 /* Test */,
 				FD36C0351CF6A8D400CC347B /* TextView */,
 				FD2A9AF31C9FEDE20005ACC1 /* View */,
 				FDEACA0B1B2EC94F0074258C /* WTBackgroundBlurViewController.h */,
@@ -625,53 +559,12 @@
 			mainGroup = FDCF0A101A71F2A200EE1B89;
 			productRefGroup = FDCF0A1A1A71F2A200EE1B89 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = FD280DE11D118D48007A2198 /* Products */;
-					ProjectRef = FD280DE01D118D48007A2198 /* Pods.xcodeproj */;
-				},
-				{
-					ProductGroup = FD280DEA1D118D4A007A2198 /* Products */;
-					ProjectRef = FD280DE91D118D4A007A2198 /* Pods.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				FDCF0A181A71F2A200EE1B89 /* WaterTime */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		FD280DE61D118D48007A2198 /* libKSCrash.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libKSCrash.a;
-			remoteRef = FD280DE51D118D48007A2198 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FD280DE81D118D48007A2198 /* libPods.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libPods.a;
-			remoteRef = FD280DE71D118D48007A2198 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FD280DEF1D118D4A007A2198 /* libKSCrash.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libKSCrash.a;
-			remoteRef = FD280DEE1D118D4A007A2198 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FD280DF11D118D4A007A2198 /* libPods.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libPods.a;
-			remoteRef = FD280DF01D118D4A007A2198 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		FDCF0A171A71F2A200EE1B89 /* Resources */ = {
@@ -770,7 +663,6 @@
 				FD2A9AF61C9FEDFE0005ACC1 /* WTCricleView.m in Sources */,
 				FDDAE55B1B6F71B70035D462 /* WTLocalAuthenticationViewController.m in Sources */,
 				FD196C201B4532CC0026CD9A /* WTTestViewController.m in Sources */,
-				FD9D6C2F1D02796900C03914 /* WTTest.m in Sources */,
 				FDE03C601C79FBE8006569D2 /* WTTelephonyNetworkInfoViewController.m in Sources */,
 				FDCF0A221A71F2A200EE1B89 /* AppDelegate.m in Sources */,
 				FD36C0581CF6A8D400CC347B /* NTCArticleTextView.m in Sources */,
