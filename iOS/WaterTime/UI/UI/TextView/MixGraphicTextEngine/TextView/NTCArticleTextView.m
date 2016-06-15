@@ -71,6 +71,8 @@ NSString * const DQImageAttachmentViewClose = @"DQImageAttachmentViewClose";
                     CGRect attachmentRect = CGRectOffset(rect, self.textContainerInset.left, self.textContainerInset.top);
 //                    NTCArticleImageAttachmentView* view = [_imageViewCache objectForKey:[NSValue valueWithRange:range]];
                     view.frame = attachmentRect;
+                    
+                    
                 }
             }
         }

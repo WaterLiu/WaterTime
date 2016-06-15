@@ -2,9 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:WaterTime.xcodeproj">
+      location = "group:Mac/WaterTimeMac.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Pods/Pods.xcodeproj">
+      location = "group:iOS/WaterTime.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:iOS/Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>
