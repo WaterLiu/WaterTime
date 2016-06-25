@@ -1,61 +1,83 @@
 PODS:
-  - KSCrash (0.0.4):
-    - KSCrash/Installations (= 0.0.4)
-    - KSCrash/Recording (= 0.0.4)
-    - KSCrash/Reporting (= 0.0.4)
-  - KSCrash/Installations (0.0.4):
+  - KSCrash (1.6.0):
+    - KSCrash/Installations (= 1.6.0)
+  - KSCrash/Installations (1.6.0):
     - KSCrash/Recording
     - KSCrash/Reporting
-  - KSCrash/Recording (0.0.4)
-  - KSCrash/Reporting (0.0.4):
+  - KSCrash/no-arc (1.6.0)
+  - KSCrash/Recording (1.6.0):
+    - KSCrash/no-arc
+  - KSCrash/Reporting (1.6.0):
     - KSCrash/Recording
-    - KSCrash/Reporting/Filters (= 0.0.4)
-    - KSCrash/Reporting/Sinks (= 0.0.4)
-    - KSCrash/Reporting/Tools (= 0.0.4)
-  - KSCrash/Reporting/Filters (0.0.4):
+    - KSCrash/Reporting/Filters (= 1.6.0)
+    - KSCrash/Reporting/MessageUI (= 1.6.0)
+    - KSCrash/Reporting/Sinks (= 1.6.0)
+    - KSCrash/Reporting/Tools (= 1.6.0)
+  - KSCrash/Reporting/Filters (1.6.0):
     - KSCrash/Recording
-    - KSCrash/Reporting/Filters/Alert (= 0.0.4)
-    - KSCrash/Reporting/Filters/AppleFmt (= 0.0.4)
-    - KSCrash/Reporting/Filters/Base (= 0.0.4)
-    - KSCrash/Reporting/Filters/Basic (= 0.0.4)
-    - KSCrash/Reporting/Filters/GZip (= 0.0.4)
-    - KSCrash/Reporting/Filters/JSON (= 0.0.4)
-    - KSCrash/Reporting/Filters/Sets (= 0.0.4)
-  - KSCrash/Reporting/Filters/Alert (0.0.4):
-    - KSCrash/Recording
-    - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/AppleFmt (0.0.4):
-    - KSCrash/Recording
-    - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/Base (0.0.4):
-    - KSCrash/Recording
-  - KSCrash/Reporting/Filters/Basic (0.0.4):
+    - KSCrash/Reporting/Filters/Alert (= 1.6.0)
+    - KSCrash/Reporting/Filters/AppleFmt (= 1.6.0)
+    - KSCrash/Reporting/Filters/Base (= 1.6.0)
+    - KSCrash/Reporting/Filters/Basic (= 1.6.0)
+    - KSCrash/Reporting/Filters/GZip (= 1.6.0)
+    - KSCrash/Reporting/Filters/JSON (= 1.6.0)
+    - KSCrash/Reporting/Filters/Sets (= 1.6.0)
+    - KSCrash/Reporting/Filters/Stringify (= 1.6.0)
+    - KSCrash/Reporting/Filters/Tools (= 1.6.0)
+  - KSCrash/Reporting/Filters/Alert (1.6.0):
     - KSCrash/Recording
     - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/GZip (0.0.4):
+  - KSCrash/Reporting/Filters/AppleFmt (1.6.0):
     - KSCrash/Recording
     - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/JSON (0.0.4):
+  - KSCrash/Reporting/Filters/Base (1.6.0):
+    - KSCrash/Recording
+  - KSCrash/Reporting/Filters/Basic (1.6.0):
     - KSCrash/Recording
     - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/Sets (0.0.4):
+  - KSCrash/Reporting/Filters/GZip (1.6.0):
+    - KSCrash/Recording
+    - KSCrash/Reporting/Filters/Base
+  - KSCrash/Reporting/Filters/JSON (1.6.0):
+    - KSCrash/Recording
+    - KSCrash/Reporting/Filters/Base
+  - KSCrash/Reporting/Filters/Sets (1.6.0):
     - KSCrash/Recording
     - KSCrash/Reporting/Filters/AppleFmt
     - KSCrash/Reporting/Filters/Base
     - KSCrash/Reporting/Filters/Basic
     - KSCrash/Reporting/Filters/GZip
     - KSCrash/Reporting/Filters/JSON
-  - KSCrash/Reporting/Sinks (0.0.4):
+    - KSCrash/Reporting/Filters/Stringify
+  - KSCrash/Reporting/Filters/Stringify (1.6.0):
+    - KSCrash/Recording
+    - KSCrash/Reporting/Filters/Base
+  - KSCrash/Reporting/Filters/Tools (1.6.0):
+    - KSCrash/Recording
+  - KSCrash/Reporting/MessageUI (1.6.0):
+    - KSCrash/Recording
+  - KSCrash/Reporting/Sinks (1.6.0):
     - KSCrash/Recording
     - KSCrash/Reporting/Filters
     - KSCrash/Reporting/Tools
-  - KSCrash/Reporting/Tools (0.0.4):
+  - KSCrash/Reporting/Tools (1.6.0):
     - KSCrash/Recording
+  - ReactiveCocoa (2.5):
+    - ReactiveCocoa/UI (= 2.5)
+  - ReactiveCocoa/Core (2.5):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.5)
+  - ReactiveCocoa/UI (2.5):
+    - ReactiveCocoa/Core
 
 DEPENDENCIES:
   - KSCrash
+  - ReactiveCocoa
 
 SPEC CHECKSUMS:
-  KSCrash: a17f93c9b300753bf66dd7d72260cace0d307b1b
+  KSCrash: 73fc2bcec2b6bcd1d948d200e11904c39d532a0e
+  ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
 
-COCOAPODS: 0.38.2
+PODFILE CHECKSUM: 4e3317786b9bed7cfd5bf61cd37ec34db18437dd
+
+COCOAPODS: 1.0.1

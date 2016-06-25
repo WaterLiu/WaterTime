@@ -8,6 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface WTViewController : NSViewController
+@interface WTViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate>
+{
+    NSTableView             *_tableView;
+    
+    NSMutableArray          *_cellArray;
+}
+
+
 
 @end

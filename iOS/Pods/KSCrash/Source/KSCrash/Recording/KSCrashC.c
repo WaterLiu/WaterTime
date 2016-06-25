@@ -139,8 +139,12 @@ KSCrashType kscrash_install(const char* const crashReportFilePath,
     g_installed = 1;
 
     ksmach_init();
-    ksobjc_init();
-
+    
+    if(context->config.introspectionRules.enabled)
+    {
+        ksobjc_init();
+    }
+    
     kscrash_reinstall(crashReportFilePath,
                       recrashReportFilePath,
                       stateFilePath,
@@ -181,30 +185,15 @@ void kscrash_reinstall(const char* const crashReportFilePath,
 
 KSCrashType kscrash_setHandlingCrashTypes(KSCrashType crashTypes)
 {
-    if((crashTypes & KSCrashTypeDebuggerUnsafe) && ksmach_isBeingTraced())
-    {
-        KSLOGBASIC_WARN("KSCrash: App is running in a debugger. The following crash types have been disabled:");
-        KSCrashType disabledCrashTypes = crashTypes & KSCrashTypeDebuggerUnsafe;
-        for(int i = 0; i < 31; i++)
-        {
-            KSCrashType type = 1 << i;
-            if(disabledCrashTypes & type)
-            {
-                KSLOGBASIC_WARN("* %s", kscrashtype_name(type));
-            }
-        }
-
-        crashTypes &= KSCrashTypeDebuggerSafe;
-    }
-
     KSCrash_Context* context = crashContext();
     context->config.handlingCrashTypes = crashTypes;
-
+    
     if(g_installed)
     {
         kscrashsentry_uninstall(~crashTypes);
         crashTypes = kscrashsentry_installWithContext(&context->crash, crashTypes, kscrash_i_onCrash);
     }
+
     return crashTypes;
 }
 
@@ -213,15 +202,6 @@ void kscrash_setUserInfoJSON(const char* const userInfoJSON)
     KSLOG_TRACE("set userInfoJSON to %p", userInfoJSON);
     KSCrash_Context* context = crashContext();
     ksstring_replace(&context->config.userInfoJSON, userInfoJSON);
-}
-
-void kscrash_setZombieCacheSize(size_t zombieCacheSize)
-{
-    kszombie_uninstall();
-    if(zombieCacheSize > 0)
-    {
-        kszombie_install(zombieCacheSize);
-    }
 }
 
 void kscrash_setDeadlockWatchdogInterval(double deadlockWatchdogInterval)
@@ -247,6 +227,11 @@ void kscrash_setSearchQueueNames(bool shouldSearchQueueNames)
 void kscrash_setIntrospectMemory(bool introspectMemory)
 {
     crashContext()->config.introspectionRules.enabled = introspectMemory;
+}
+
+void kscrash_setCatchZombies(bool catchZombies)
+{
+    kszombie_setEnabled(catchZombies);
 }
 
 void kscrash_setDoNotIntrospectClasses(const char** doNotIntrospectClasses, size_t length)
@@ -293,6 +278,7 @@ void kscrash_setCrashNotifyCallback(const KSReportWriteCallback onCrashNotify)
 
 void kscrash_reportUserException(const char* name,
                                  const char* reason,
+                                 const char* language,
                                  const char* lineOfCode,
                                  const char** stackTrace,
                                  size_t stackTraceCount,
@@ -300,6 +286,7 @@ void kscrash_reportUserException(const char* name,
 {
     kscrashsentry_reportUserException(name,
                                       reason,
+                                      language,
                                       lineOfCode,
                                       stackTrace,
                                       stackTraceCount,

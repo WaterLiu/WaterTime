@@ -12,7 +12,7 @@ of a lot more that they COULD do. Here are some key features of KSCrash:
 * On-device symbolication in a way that supports re-symbolication offline
   (necessary for iOS versions where many functions have been redacted).
 * Generates full Apple reports, with every field filled in.
-* 32-bit and 64-bit mode (EXPERIMENTAL).
+* 32-bit and 64-bit mode.
 * Handles errors that can only be caught at the mach level, such as stack
   overflow.
 * Tracks the REAL cause of an uncaught C++ exception.
@@ -127,11 +127,6 @@ See KSCrash.h for details.
 The following features should be considered "unstable" and are disabled by default:
 
 - Deadlock detection
-
-
-### 64-bit ARM Support
-
-64-bit ARM support is EXPERIMENTAL. Although it compiles and runs in 64-bit mode in the simulator, I don't have an iPhone 5 to test with.
 
 
 ### Incompatible API Change Notice
@@ -293,11 +288,6 @@ print its contents. Certain kinds of memory corruption or stack corruption
 crashes can cause the exception to deallocate early, further twarting efforts
 to debug your app, so this feature can be quite handy at times.
 
-Each cache entry takes up 8 bytes on a 32-bit architecture, and 16 bytes on a
-64-bit architecture. The recommended minimum is 16384, which translates to
-128k of RAM used for zombie tracking on a 32-bit machine. Generally, the more
-objects you tend to have in your app, the larger you'll want to make the cache.
-
 Trade off: Zombie tracking at the cost of adding very slight overhead to object
            deallocation, and having some memory reserved.
 
@@ -359,17 +349,6 @@ Trade off: Custom crash handling code, but you must be careful what you put
 This takes whatever KSCrash would have printed to the console, and writes it
 to a file instead. I mostly use this for debugging KSCrash itself, but it could
 be useful for other purposes, so I've exposed an API for it.
-
-
-
-KSCrashLite
------------
-
-KSCrashLite is intended for use in custom crash frameworks that have special
-needs. It doesn't include any sinks (except for console); it is expected that
-the user will supply their own. Unlike the regular KSCrash framework,
-KSCrashLite has no dependencies on MessageUI.framework or zlib (it still
-requires SystemConfiguration.framework).
 
 
 

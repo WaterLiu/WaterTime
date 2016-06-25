@@ -68,6 +68,7 @@
     [hashTabe addObject:number];
     NSArray* array1 = [hashTabe allObjects];
      NSLog(@"111");
+
 }
 
 

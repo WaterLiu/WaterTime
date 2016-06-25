@@ -20,25 +20,8 @@
 {
     // Insert code here to initialize your application
     
-    WTViewController* vc = [[WTViewController alloc] initWithNibName:nil bundle:nil];
-    
-    id view = vc.view;
-    
-    
-    [self.window.contentView addSubview:vc.view];
-    
-    [self.window.contentView setWantsLayer:YES];
-    
-    if (self.window.contentView.layer)
-    {
-        NSLog(@"YES");
-    }
-    else
-    {
-        NSLog(@"NO");
-    }
-    
-    self.window.contentView.layer.backgroundColor = [NSColor yellowColor].CGColor;
+    _vc = [[WTViewController alloc] initWithNibName:nil bundle:nil];
+    [self.window.contentView addSubview:_vc.view];
     
 //    vc.view.frame = self.window.contentView.bounds;
 }

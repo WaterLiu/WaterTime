@@ -60,6 +60,9 @@
 /** If true, the application crashed on the previous launch. */
 @property(nonatomic,readonly,assign) BOOL crashedLastLaunch;
 
+/** Max number of reports to store on disk before throwing older reports out. (default 5) */
+@property(nonatomic,readwrite,assign) int maxStoredReports;
+
 /** The total number of unsent reports. Note: This is an expensive operation.
  */
 - (NSUInteger) reportCount;
@@ -70,6 +73,9 @@
 
 
 #pragma mark - Configuration -
+
+/** Init KSCrash instance with custom report files directory path. */
+- (id) initWithReportFilesDirectory:(NSString *)reportFilesDirectory;
 
 /** Store containing all crash reports. */
 @property(nonatomic, readwrite, retain) KSCrashReportStore* crashReportStore;

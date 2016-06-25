@@ -7,8 +7,12 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "WTViewController.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
+{
+    WTViewController            *_vc;
+}
 
 
 @end

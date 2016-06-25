@@ -31,6 +31,8 @@
 #import <objc/runtime.h>
 
 
+#define CACHE_SIZE 0x8000
+
 // Compiler hints for "if" statements
 #define likely_if(x) if(__builtin_expect(x,1))
 #define unlikely_if(x) if(__builtin_expect(x,0))
@@ -89,7 +91,7 @@ typedef struct
     const char* className;
 } Zombie;
 
-static Zombie* g_zombieCache;
+static volatile Zombie* g_zombieCache;
 static size_t g_zombieHashMask;
 
 static struct
@@ -111,11 +113,6 @@ static inline size_t hashIndex(const id object)
     uintptr_t objPtr = (uintptr_t)object;
     objPtr >>= (sizeof(object)-1);
     return objPtr & g_zombieHashMask;
-}
-
-static inline bool isPowerOf2(const size_t value)
-{
-    return value && !(value & (value - 1));
 }
 
 static void storeException(NSException* exception)
@@ -142,57 +139,49 @@ static void storeException(NSException* exception)
 
 static inline void handleDealloc(id self)
 {
-    Zombie* zombie = g_zombieCache + hashIndex(self);
-    zombie->object = self;
-    Class class = object_getClass(self);
-    zombie->className = class_getName(class);
-    for(; class != nil; class = class_getSuperclass(class))
+    volatile Zombie* cache = g_zombieCache;
+    likely_if(cache != NULL)
     {
-        unlikely_if(class == g_lastDeallocedException.class)
+        Zombie* zombie = (Zombie*)cache + hashIndex(self);
+        zombie->object = self;
+        Class class = object_getClass(self);
+        zombie->className = class_getName(class);
+        for(; class != nil; class = class_getSuperclass(class))
         {
-            storeException(self);
+            unlikely_if(class == g_lastDeallocedException.class)
+            {
+                storeException(self);
+            }
         }
     }
 }
 
-#define CREATE_ZOMBIE_CATEGORY(CLASS) \
-@implementation CLASS (KSZombie) \
-- (void) dealloc_KSZombieOrig \
+#define CREATE_ZOMBIE_HANDLER_INSTALLER(CLASS) \
+static IMP g_originalDealloc_ ## CLASS; \
+static void handleDealloc_ ## CLASS(id self, SEL _cmd) \
 { \
     handleDealloc(self); \
-    [self dealloc_KSZombieOrig]; \
+    typedef void (*fn)(id,SEL); \
+    fn f = (fn)g_originalDealloc_ ## CLASS; \
+    f(self, _cmd); \
 } \
-@end
-
-CREATE_ZOMBIE_CATEGORY(NSObject)
-CREATE_ZOMBIE_CATEGORY(NSProxy)
-
-static void swizzleDealloc(Class cls)
-{
-    method_exchangeImplementations(class_getInstanceMethod(cls, @selector(dealloc)),
-                                   class_getClassMethod(cls, @selector(dealloc_KSZombieOrig)));
+static void installDealloc_ ## CLASS() \
+{ \
+    Method method = class_getInstanceMethod([CLASS class], @selector(dealloc)); \
+    g_originalDealloc_ ## CLASS = method_getImplementation(method); \
+    method_setImplementation(method, (IMP)handleDealloc_ ## CLASS); \
+} \
+static void uninstallDealloc_ ## CLASS() \
+{ \
+    method_setImplementation(class_getInstanceMethod([CLASS class], @selector(dealloc)), g_originalDealloc_ ## CLASS); \
 }
 
-void kszombie_install(size_t cacheSize)
+CREATE_ZOMBIE_HANDLER_INSTALLER(NSObject)
+CREATE_ZOMBIE_HANDLER_INSTALLER(NSProxy)
+
+static void install()
 {
-    if(g_zombieCache != NULL)
-    {
-        NSLog(@"KSZombie already installed.");
-        return;
-    }
-
-    if(cacheSize < 2)
-    {
-        NSLog(@"Error: cacheSize must be greater than 1. KSZombie NOT installed!");
-        return;
-    }
-
-    if(!isPowerOf2(cacheSize))
-    {
-        NSLog(@"Error: %ld is not a power of 2. KSZombie NOT installed!", cacheSize);
-        return;
-    }
-
+    size_t cacheSize = CACHE_SIZE;
     g_zombieHashMask = cacheSize - 1;
     g_zombieCache = calloc(cacheSize, sizeof(*g_zombieCache));
     if(g_zombieCache == NULL)
@@ -207,36 +196,46 @@ void kszombie_install(size_t cacheSize)
     g_lastDeallocedException.name[0] = 0;
     g_lastDeallocedException.reason[0] = 0;
 
-    swizzleDealloc([NSObject class]);
-    swizzleDealloc([NSProxy class]);
+    installDealloc_NSObject();
+    installDealloc_NSProxy();
 }
 
-void kszombie_uninstall(void)
+static void uninstall(void)
 {
-    if(g_zombieCache == NULL)
-    {
-        return;
-    }
+    uninstallDealloc_NSObject();
+    uninstallDealloc_NSProxy();
 
-    swizzleDealloc([NSObject class]);
-    swizzleDealloc([NSProxy class]);
-
-    void* ptr = g_zombieCache;
+    void* ptr = (void*)g_zombieCache;
     g_zombieCache = NULL;
-    dispatch_async(dispatch_get_main_queue(), ^
+    dispatch_time_t tenSeconds = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10.0 * NSEC_PER_SEC));
+    dispatch_after(tenSeconds, dispatch_get_main_queue(), ^
     {
         free(ptr);
     });
 }
 
+void kszombie_setEnabled(bool shouldEnable)
+{
+    bool isCurrentlyEnabled = g_zombieCache != NULL;
+    if(shouldEnable && !isCurrentlyEnabled)
+    {
+        install();
+    }
+    else if(!shouldEnable && isCurrentlyEnabled)
+    {
+        uninstall();
+    }
+}
+
 const char* kszombie_className(const void* object)
 {
-    if(g_zombieCache == NULL || object == NULL)
+    volatile Zombie* cache = g_zombieCache;
+    if(cache == NULL || object == NULL)
     {
         return NULL;
     }
 
-    Zombie* zombie = g_zombieCache + hashIndex(object);
+    Zombie* zombie = (Zombie*)cache + hashIndex(object);
     if(zombie->object == object)
     {
         return zombie->className;

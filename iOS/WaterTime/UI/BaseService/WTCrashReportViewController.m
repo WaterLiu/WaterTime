@@ -93,10 +93,10 @@
     email.message = @"This is a crash report";
     email.filenameFmt = @"crash-report-%d.txt.gz";
     
-    [email addConditionalAlertWithTitle:@"Crash Detected"
-                                message:@"The app crashed last time it was launched. Send a crash report?"
-                              yesAnswer:@"Sure!"
-                               noAnswer:@"No thanks"];
+//    [email addConditionalAlertWithTitle:@"Crash Detected"
+//                                message:@"The app crashed last time it was launched. Send a crash report?"
+//                              yesAnswer:@"Sure!"
+//                               noAnswer:@"No thanks"];
     
     // Uncomment to send Apple style reports instead of JSON.
     [email setReportStyle:KSCrashEmailReportStyleApple useDefaultFilenameFormat:YES];

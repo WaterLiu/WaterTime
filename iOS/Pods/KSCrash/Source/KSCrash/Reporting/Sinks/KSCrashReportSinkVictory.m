@@ -24,13 +24,13 @@
 // THE SOFTWARE.
 //
 
+#import "KSSystemCapabilities.h"
 
-#ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
+#if KSCRASH_HAS_UIKIT
 #import <UIKit/UIKit.h>
 #endif
 #import "KSCrashReportSinkVictory.h"
 
-#import "ARCSafe_MemMgmt.h"
 #import "KSCrashCallCompletion.h"
 #import "KSHTTPMultipartPostBody.h"
 #import "KSHTTPRequestSender.h"
@@ -38,6 +38,7 @@
 #import "KSJSONCodecObjC.h"
 #import "KSReachabilityKSCrash.h"
 #import "NSError+SimpleConstructor.h"
+#import "KSSystemCapabilities.h"
 
 //#define KSLogger_LocalLevel TRACE
 #import "KSLogger.h"
@@ -66,7 +67,7 @@
                                    userName:(NSString*) userName
                                   userEmail:(NSString*) userEmail
 {
-    return as_autorelease([[self alloc] initWithURL:url userName:userName userEmail:userEmail]);
+    return [[self alloc] initWithURL:url userName:userName userEmail:userEmail];
 }
 
 - (id) initWithURL:(NSURL*) url
@@ -77,7 +78,7 @@
     {
         self.url = url;
         if (userName == nil || [userName length] == 0) {
-#ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
+#if KSCRASH_HAS_UIDEVICE
             self.userName = UIDevice.currentDevice.name;
 #else
             self.userName = @"unknown";
@@ -89,15 +90,6 @@
         self.userEmail = userEmail;
     }
     return self;
-}
-
-- (void) dealloc
-{
-    as_release(_reachableOperation);
-    as_release(_url);
-    as_release(_userName);
-    as_release(_userEmail);
-    as_superdealloc();
 }
 
 - (id <KSCrashReportFilter>) defaultCrashReportFilterSet
@@ -160,8 +152,7 @@
              kscrash_i_callCompletion(onCompletion, reports, YES, nil);
          } onFailure:^(NSHTTPURLResponse* response, NSData* data)
          {
-             NSString* text = as_autorelease([[NSString alloc] initWithData:data
-                                                                   encoding:NSUTF8StringEncoding]);
+             NSString* text = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
              kscrash_i_callCompletion(onCompletion, reports, NO,
                                       [NSError errorWithDomain:[[self class] description]
                                                           code:response.statusCode

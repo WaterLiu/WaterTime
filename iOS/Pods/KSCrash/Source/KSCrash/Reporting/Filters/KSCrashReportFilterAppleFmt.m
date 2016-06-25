@@ -30,7 +30,6 @@
 
 #import <mach/machine.h>
 
-#import "ARCSafe_MemMgmt.h"
 #import "KSCrashCallCompletion.h"
 #import "KSCrashReportFields.h"
 #import "KSJSONCodecObjC.h"
@@ -159,7 +158,7 @@ NSDictionary* g_registerOrders;
 
 + (KSCrashReportFilterAppleFmt*) filterWithReportStyle:(KSAppleReportStyle) reportStyle
 {
-    return as_autorelease([[self alloc] initWithReportStyle:reportStyle]);
+    return [[self alloc] initWithReportStyle:reportStyle];
 }
 
 - (id) initWithReportStyle:(KSAppleReportStyle) reportStyle
@@ -174,8 +173,18 @@ NSDictionary* g_registerOrders;
 - (int) majorVersion:(NSDictionary*) report
 {
     NSDictionary* info = [self infoReport:report];
-    NSDictionary* version = [info objectForKey:@KSCrashField_Version];
-    return [[version objectForKey:@KSCrashField_Major] intValue];
+    NSString* version = [info objectForKey:@KSCrashField_Version];
+    if ([version isKindOfClass:[NSDictionary class]])
+    {
+        NSDictionary *oldVersion = (NSDictionary *)version;
+        version = oldVersion[@"major"];
+    }
+
+    if([version respondsToSelector:@selector(intValue)])
+    {
+        return version.intValue;
+    }
+    return 0;
 }
 
 - (void) filterReports:(NSArray*) reports
@@ -234,10 +243,8 @@ NSDictionary* g_registerOrders;
                 case CPU_SUBTYPE_ARM_V7S:
                     return @"armv7s";
 #endif
-                default:
-                    return @"arm";
             }
-            break;
+            return @"arm";
         }
 #ifdef CPU_TYPE_ARM64
         case CPU_TYPE_ARM64:
@@ -275,7 +282,7 @@ NSDictionary* g_registerOrders;
         NSString* objName = [[trace objectForKey:@KSCrashField_ObjectName] lastPathComponent];
         uintptr_t symAddr = (uintptr_t)[[trace objectForKey:@KSCrashField_SymbolAddr] longLongValue];
         NSString* symName = [trace objectForKey:@KSCrashField_SymbolName];
-        bool isMainExecutable = [objName isEqualToString:mainExecutableName];
+        bool isMainExecutable = mainExecutableName && [objName isEqualToString:mainExecutableName];
         KSAppleReportStyle thisLineStyle = reportStyle;
         if(thisLineStyle == KSAppleReportStylePartiallySymbolicated)
         {
@@ -399,16 +406,22 @@ NSDictionary* g_registerOrders;
 
 - (NSString*) headerStringForReport:(NSDictionary*) report
 {
-    NSMutableString* str = [NSMutableString string];
-
     NSDictionary* system = [self systemReport:report];
     NSDictionary* reportInfo = [self infoReport:report];
+    NSString *reportID = [reportInfo objectForKey:@KSCrashField_ID];
+    NSDate* crashTime = [RFC3339DateTool dateFromString:[reportInfo objectForKey:@KSCrashField_Timestamp]];
+
+    return [self headerStringForSystemInfo:system reportID:reportID crashTime:crashTime];
+}
+
+- (NSString*)headerStringForSystemInfo:(NSDictionary*)system reportID:(NSString*)reportID crashTime:(NSDate*)crashTime
+{
+    NSMutableString* str = [NSMutableString string];
     NSString* executablePath = [system objectForKey:@KSSystemField_ExecutablePath];
     NSString* cpuArch = [system objectForKey:@KSSystemField_CPUArch];
     NSString* cpuArchType = [self CPUType:cpuArch];
-    NSDate* crashTime = [RFC3339DateTool dateFromString:[reportInfo objectForKey:@KSCrashField_Timestamp]];
 
-    [str appendFormat:@"Incident Identifier: %@\n", [reportInfo objectForKey:@KSCrashField_ID]];
+    [str appendFormat:@"Incident Identifier: %@\n", reportID];
     [str appendFormat:@"CrashReporter Key:   %@\n", [system objectForKey:@KSSystemField_DeviceAppHash]];
     [str appendFormat:@"Hardware Model:      %@\n", [system objectForKey:@KSSystemField_Machine]];
     [str appendFormat:@"Process:         %@ [%@]\n",
@@ -420,8 +433,7 @@ NSDictionary* g_registerOrders;
      [system objectForKey:@KSSystemField_BundleShortVersion],
      [system objectForKey:@KSSystemField_BundleVersion]];
     [str appendFormat:@"Code Type:       %@\n", cpuArchType];
-    [str appendFormat:@"Parent Process:  %@ [%@]\n",
-     [system objectForKey:@KSSystemField_ParentProcessName],
+    [str appendFormat:@"Parent Process:  ? [%@]\n",
      [system objectForKey:@KSSystemField_ParentProcessID]];
     [str appendFormat:@"\n"];
     [str appendFormat:@"Date/Time:       %@\n", [self stringFromDate:crashTime]];
@@ -443,36 +455,39 @@ NSDictionary* g_registerOrders;
     NSString* executablePath = [system objectForKey:@KSSystemField_ExecutablePath];
 
     [str appendString:@"\nBinary Images:\n"];
-    NSMutableArray* images = [NSMutableArray arrayWithArray:binaryImages];
-    [images sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2)
-     {
-         NSNumber* num1 = [(NSDictionary*)obj1 objectForKey:@KSCrashField_ImageAddress];
-         NSNumber* num2 = [(NSDictionary*)obj2 objectForKey:@KSCrashField_ImageAddress];
-         if(num1 == nil || num2 == nil)
-         {
-             return NSOrderedSame;
-         }
-         return [num1 compare:num2];
-     }];
-    for(NSDictionary* image in images)
+    if(binaryImages)
     {
-        cpu_type_t cpuType = [[image objectForKey:@KSCrashField_CPUType] intValue];
-        cpu_subtype_t cpuSubtype = [[image objectForKey:@KSCrashField_CPUSubType] intValue];
-        uintptr_t imageAddr = (uintptr_t)[[image objectForKey:@KSCrashField_ImageAddress] longLongValue];
-        uintptr_t imageSize = (uintptr_t)[[image objectForKey:@KSCrashField_ImageSize] longLongValue];
-        NSString* path = [image objectForKey:@KSCrashField_Name];
-        NSString* name = [path lastPathComponent];
-        NSString* uuid = [self toCompactUUID:[image objectForKey:@KSCrashField_UUID]];
-        NSString* isBaseImage = [executablePath isEqualToString:path] ? @"+" : @" ";
+        NSMutableArray* images = [NSMutableArray arrayWithArray:binaryImages];
+        [images sortUsingComparator:^NSComparisonResult(id obj1, id obj2)
+         {
+             NSNumber* num1 = [(NSDictionary*)obj1 objectForKey:@KSCrashField_ImageAddress];
+             NSNumber* num2 = [(NSDictionary*)obj2 objectForKey:@KSCrashField_ImageAddress];
+             if(num1 == nil || num2 == nil)
+             {
+                 return NSOrderedSame;
+             }
+             return [num1 compare:num2];
+         }];
+        for(NSDictionary* image in images)
+        {
+            cpu_type_t cpuType = [[image objectForKey:@KSCrashField_CPUType] intValue];
+            cpu_subtype_t cpuSubtype = [[image objectForKey:@KSCrashField_CPUSubType] intValue];
+            uintptr_t imageAddr = (uintptr_t)[[image objectForKey:@KSCrashField_ImageAddress] longLongValue];
+            uintptr_t imageSize = (uintptr_t)[[image objectForKey:@KSCrashField_ImageSize] longLongValue];
+            NSString* path = [image objectForKey:@KSCrashField_Name];
+            NSString* name = [path lastPathComponent];
+            NSString* uuid = [self toCompactUUID:[image objectForKey:@KSCrashField_UUID]];
+            NSString* isBaseImage = (path && [executablePath isEqualToString:path]) ? @"+" : @" ";
 
-        [str appendFormat:FMT_PTR_RJ @" - " FMT_PTR_RJ @" %@%@ %@  <%@> %@\n",
-         imageAddr,
-         imageAddr + imageSize - 1,
-         isBaseImage,
-         name,
-         [self CPUArchForMajor:cpuType minor:cpuSubtype],
-         uuid,
-         path];
+            [str appendFormat:FMT_PTR_RJ @" - " FMT_PTR_RJ @" %@%@ %@  <%@> %@\n",
+             imageAddr,
+             imageAddr + imageSize - 1,
+             isBaseImage,
+             name,
+             [self CPUArchForMajor:cpuType minor:cpuSubtype],
+             uuid,
+             path];
+        }
     }
 
     return str;
@@ -608,7 +623,7 @@ NSDictionary* g_registerOrders;
     }
     else
     {
-        return as_autorelease([[NSString alloc] initWithData:encoded encoding:NSUTF8StringEncoding]);
+        return [[NSString alloc] initWithData:encoded encoding:NSUTF8StringEncoding];
     }
 }
 
@@ -638,7 +653,7 @@ NSDictionary* g_registerOrders;
     for(NSString* reg in registers)
     {
         NSNumber* address = [registers objectForKey:reg];
-        if([address isEqualToNumber:lastExceptionAddress])
+        if(lastExceptionAddress && [address isEqualToNumber:lastExceptionAddress])
         {
             return YES;
         }
@@ -715,7 +730,8 @@ NSDictionary* g_registerOrders;
                                                          reason:[error objectForKey:@KSCrashField_Reason]]];
     }
 
-    if([@KSCrashExcType_Deadlock isEqualToString:[error objectForKey:@KSCrashField_Type]])
+    NSString* crashType = [error objectForKey:@KSCrashField_Type];
+    if(crashType && [@KSCrashExcType_Deadlock isEqualToString:crashType])
     {
         [str appendFormat:@"\nApplication main thread deadlocked\n"];
     }

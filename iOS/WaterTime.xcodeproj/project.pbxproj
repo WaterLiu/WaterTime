@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1167D24686DED006CCA656C9 /* libPods-WaterTime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 979A7CD4F5DB41BF9D30B47D /* libPods-WaterTime.a */; };
+		236A3072FAFBA780402BEA0F /* libPods-WaterTime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07B6AE21716BEA9962E59579 /* libPods-WaterTime.a */; };
 		FD14E2521B58FF06004EB769 /* WTTakeScreenShotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD14E2511B58FF06004EB769 /* WTTakeScreenShotViewController.m */; };
 		FD196C201B4532CC0026CD9A /* WTTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD196C1F1B4532CC0026CD9A /* WTTestViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FD2A04691C50D21600494EF6 /* WTCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2A04681C50D21600494EF6 /* WTCollectionViewLayout.m */; };
@@ -59,9 +59,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8342060FC105C355986DF4C6 /* Pods-WaterTime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaterTime.release.xcconfig"; path = "Pods/Target Support Files/Pods-WaterTime/Pods-WaterTime.release.xcconfig"; sourceTree = "<group>"; };
-		979A7CD4F5DB41BF9D30B47D /* libPods-WaterTime.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WaterTime.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA9C1D9655E4ECAE86632391 /* Pods-WaterTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaterTime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WaterTime/Pods-WaterTime.debug.xcconfig"; sourceTree = "<group>"; };
+		07B6AE21716BEA9962E59579 /* libPods-WaterTime.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WaterTime.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EFE1B6ADF9402A8930F7E3C /* Pods-WaterTime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaterTime.release.xcconfig"; path = "Pods/Target Support Files/Pods-WaterTime/Pods-WaterTime.release.xcconfig"; sourceTree = "<group>"; };
+		FAD7596A35A7CBCE5B37EA8B /* Pods-WaterTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaterTime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WaterTime/Pods-WaterTime.debug.xcconfig"; sourceTree = "<group>"; };
 		FD14E2501B58FF06004EB769 /* WTTakeScreenShotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTTakeScreenShotViewController.h; sourceTree = "<group>"; };
 		FD14E2511B58FF06004EB769 /* WTTakeScreenShotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTTakeScreenShotViewController.m; sourceTree = "<group>"; };
 		FD196C1E1B4532CC0026CD9A /* WTTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTTestViewController.h; sourceTree = "<group>"; };
@@ -162,7 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDE03C621C79FC32006569D2 /* CoreTelephony.framework in Frameworks */,
-				1167D24686DED006CCA656C9 /* libPods-WaterTime.a in Frameworks */,
+				236A3072FAFBA780402BEA0F /* libPods-WaterTime.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,16 +173,16 @@
 			isa = PBXGroup;
 			children = (
 				FDE03C611C79FC32006569D2 /* CoreTelephony.framework */,
-				979A7CD4F5DB41BF9D30B47D /* libPods-WaterTime.a */,
+				07B6AE21716BEA9962E59579 /* libPods-WaterTime.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C78D89B45943DEE10D420250 /* Pods */ = {
+		BA762737B6E7B65C2AD2AFE3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				FA9C1D9655E4ECAE86632391 /* Pods-WaterTime.debug.xcconfig */,
-				8342060FC105C355986DF4C6 /* Pods-WaterTime.release.xcconfig */,
+				FAD7596A35A7CBCE5B37EA8B /* Pods-WaterTime.debug.xcconfig */,
+				6EFE1B6ADF9402A8930F7E3C /* Pods-WaterTime.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -348,7 +348,7 @@
 				FDCF0A381A71F2A200EE1B89 /* WaterTimeTests */,
 				FDCF0A1A1A71F2A200EE1B89 /* Products */,
 				0433913010F58CDA26E3FF9F /* Frameworks */,
-				C78D89B45943DEE10D420250 /* Pods */,
+				BA762737B6E7B65C2AD2AFE3 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -513,12 +513,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FDCF0A3F1A71F2A200EE1B89 /* Build configuration list for PBXNativeTarget "WaterTime" */;
 			buildPhases = (
-				8673418AAB6163E1EAD3103B /* 📦 Check Pods Manifest.lock */,
+				D8FD963755E0B054AB5424AF /* [CP] Check Pods Manifest.lock */,
 				FDCF0A151A71F2A200EE1B89 /* Sources */,
 				FDCF0A161A71F2A200EE1B89 /* Frameworks */,
 				FDCF0A171A71F2A200EE1B89 /* Resources */,
-				72C8542FD3A8438F38080D0A /* 📦 Embed Pods Frameworks */,
-				BC64F7AD9C19D24DB00E3853 /* 📦 Copy Pods Resources */,
+				DD3257A0186CC2B088824840 /* [CP] Embed Pods Frameworks */,
+				B7AB1848EEFBA3C151064C15 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -583,29 +583,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		72C8542FD3A8438F38080D0A /* 📦 Embed Pods Frameworks */ = {
+		B7AB1848EEFBA3C151064C15 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WaterTime/Pods-WaterTime-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WaterTime/Pods-WaterTime-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8673418AAB6163E1EAD3103B /* 📦 Check Pods Manifest.lock */ = {
+		D8FD963755E0B054AB5424AF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -613,19 +613,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		BC64F7AD9C19D24DB00E3853 /* 📦 Copy Pods Resources */ = {
+		DD3257A0186CC2B088824840 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WaterTime/Pods-WaterTime-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WaterTime/Pods-WaterTime-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -781,7 +781,7 @@
 		};
 		FDCF0A401A71F2A200EE1B89 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FA9C1D9655E4ECAE86632391 /* Pods-WaterTime.debug.xcconfig */;
+			baseConfigurationReference = FAD7596A35A7CBCE5B37EA8B /* Pods-WaterTime.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -799,7 +799,7 @@
 		};
 		FDCF0A411A71F2A200EE1B89 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8342060FC105C355986DF4C6 /* Pods-WaterTime.release.xcconfig */;
+			baseConfigurationReference = 6EFE1B6ADF9402A8930F7E3C /* Pods-WaterTime.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

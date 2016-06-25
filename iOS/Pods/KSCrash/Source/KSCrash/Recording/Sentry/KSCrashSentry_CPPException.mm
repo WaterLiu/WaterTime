@@ -22,9 +22,10 @@
 // THE SOFTWARE.
 //
 
+#import <Foundation/Foundation.h>
+
 #include "KSCrashSentry_CPPException.h"
 #include "KSCrashSentry_Private.h"
-#include "Demangle.h"
 #include "KSMach.h"
 
 //#define KSLogger_LocalLevel TRACE
@@ -40,7 +41,6 @@
 
 
 #define STACKTRACE_BUFFER_LENGTH 30
-#define DEMANGLE_BUFFER_LENGTH 2000
 #define DESCRIPTION_BUFFER_LENGTH 1000
 
 
@@ -77,29 +77,32 @@ static KSCrash_SentryContext* g_context;
 
 typedef void (*cxa_throw_type)(void*, std::type_info*, void (*)(void*));
 
-extern "C" void __cxa_throw(void* thrown_exception, std::type_info* tinfo, void (*dest)(void*))
+extern "C"
 {
-    if(g_captureNextStackTrace)
-    {
-        g_stackTraceCount = backtrace((void**)g_stackTrace, sizeof(g_stackTrace) / sizeof(*g_stackTrace));
-    }
+    void __cxa_throw(void* thrown_exception, std::type_info* tinfo, void (*dest)(void*)) __attribute__ ((weak));
 
-    static cxa_throw_type orig_cxa_throw = NULL;
-    unlikely_if(orig_cxa_throw == NULL)
+    void __cxa_throw(void* thrown_exception, std::type_info* tinfo, void (*dest)(void*))
     {
-        orig_cxa_throw = (cxa_throw_type) dlsym(RTLD_NEXT, "__cxa_throw");
+        if(g_captureNextStackTrace)
+        {
+            g_stackTraceCount = backtrace((void**)g_stackTrace, sizeof(g_stackTrace) / sizeof(*g_stackTrace));
+        }
+        
+        static cxa_throw_type orig_cxa_throw = NULL;
+        unlikely_if(orig_cxa_throw == NULL)
+        {
+            orig_cxa_throw = (cxa_throw_type) dlsym(RTLD_NEXT, "__cxa_throw");
+        }
+        orig_cxa_throw(thrown_exception, tinfo, dest);
+        __builtin_unreachable();
     }
-    orig_cxa_throw(thrown_exception, tinfo, dest);
-    __builtin_unreachable();
 }
-
 
 static void CPPExceptionTerminate(void)
 {
     KSLOG_DEBUG(@"Trapped c++ exception");
 
     bool isNSException = false;
-    char nameDemangled[DEMANGLE_BUFFER_LENGTH];
     char descriptionBuff[DESCRIPTION_BUFFER_LENGTH];
     const char* name = NULL;
     const char* description = NULL;
@@ -109,10 +112,6 @@ static void CPPExceptionTerminate(void)
     if(tinfo != NULL)
     {
         name = tinfo->name();
-        if(safe_demangle(name, nameDemangled, sizeof(nameDemangled)) == DEMANGLE_STATUS_SUCCESS)
-        {
-            name = nameDemangled;
-        }
     }
 
     description = descriptionBuff;
@@ -152,7 +151,6 @@ catch(TYPE value)\
     CATCH_VALUE(double,               f)
     CATCH_VALUE(long double,         Lf)
     CATCH_VALUE(char*,                s)
-    CATCH_VALUE(const char*,          s)
     catch(...)
     {
         description = NULL;

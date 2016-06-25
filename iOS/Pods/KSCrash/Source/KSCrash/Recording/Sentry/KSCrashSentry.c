@@ -35,6 +35,7 @@
 #include "KSCrashSentry_Signal.h"
 #include "KSCrashSentry_User.h"
 #include "KSMach.h"
+#include "KSSystemCapabilities.h"
 
 //#define KSLogger_LocalLevel TRACE
 #include "KSLogger.h"
@@ -53,11 +54,13 @@ typedef struct
 
 static CrashSentry g_sentries[] =
 {
+#if KSCRASH_HAS_MACH
     {
         KSCrashTypeMachException,
         kscrashsentry_installMachHandler,
         kscrashsentry_uninstallMachHandler,
     },
+#endif
     {
         KSCrashTypeSignal,
         kscrashsentry_installSignalHandler,
@@ -103,7 +106,16 @@ KSCrashType kscrashsentry_installWithContext(KSCrash_SentryContext* context,
                                              KSCrashType crashTypes,
                                              void (*onCrash)(void))
 {
-    KSLOG_DEBUG("Installing handlers with context %p, crash types 0x%x.", context, crashTypes);
+    if(ksmach_isBeingTraced())
+    {
+        KSLOGBASIC_WARN("KSCrash: App is running in a debugger. Only user reported events will be handled.");
+        crashTypes = KSCrashTypeUserReported;
+    }
+    else
+    {
+        KSLOG_DEBUG("Installing handlers with context %p, crash types 0x%x.", context, crashTypes);
+    }
+
     g_context = context;
     kscrashsentry_clearContext(g_context);
     g_context->onCrash = onCrash;

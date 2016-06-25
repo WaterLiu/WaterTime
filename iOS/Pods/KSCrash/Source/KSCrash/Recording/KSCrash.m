@@ -27,18 +27,18 @@
 
 #import "KSCrashAdvanced.h"
 
-#import "ARCSafe_MemMgmt.h"
 #import "KSCrashC.h"
 #import "KSCrashCallCompletion.h"
 #import "KSCrashState.h"
 #import "KSJSONCodecObjC.h"
 #import "KSSingleton.h"
 #import "NSError+SimpleConstructor.h"
+#import "KSSystemCapabilities.h"
 
 //#define KSLogger_LocalLevel TRACE
 #import "KSLogger.h"
 
-#ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
+#if KSCRASH_HAS_UIKIT
 #import <UIKit/UIKit.h>
 #endif
 
@@ -47,14 +47,9 @@
 #pragma mark - Default Constants -
 // ============================================================================
 
-/** The maximum number of reports to keep on disk. */
-#ifndef KSCRASH_MaxStoredReports
-    #define KSCRASH_MaxStoredReports 5
-#endif
-
 /** The directory under "Caches" to store the crash reports. */
-#ifndef KSCRASH_ReportFilesDirectory
-    #define KSCRASH_ReportFilesDirectory @"KSCrashReports"
+#ifndef KSCRASH_DefaultReportFilesDirectory
+    #define KSCRASH_DefaultReportFilesDirectory @"KSCrashReports"
 #endif
 
 
@@ -84,6 +79,7 @@
 @property(nonatomic,readwrite,retain) KSCrashReportStore* crashReportStore;
 @property(nonatomic,readwrite,assign) KSReportWriteCallback onCrash;
 @property(nonatomic,readwrite,assign) bool printTraceToStdout;
+@property(nonatomic,readwrite,assign) int maxStoredReports;
 
 @end
 
@@ -98,7 +94,6 @@
 @synthesize userInfo = _userInfo;
 @synthesize deleteBehaviorAfterSendAll = _deleteBehaviorAfterSendAll;
 @synthesize handlingCrashTypes = _handlingCrashTypes;
-@synthesize zombieCacheSize = _zombieCacheSize;
 @synthesize deadlockWatchdogInterval = _deadlockWatchdogInterval;
 @synthesize printTraceToStdout = _printTraceToStdout;
 @synthesize onCrash = _onCrash;
@@ -109,7 +104,9 @@
 @synthesize searchThreadNames = _searchThreadNames;
 @synthesize searchQueueNames = _searchQueueNames;
 @synthesize introspectMemory = _introspectMemory;
+@synthesize catchZombies = _catchZombies;
 @synthesize doNotIntrospectClasses = _doNotIntrospectClasses;
+@synthesize maxStoredReports = _maxStoredReports;
 
 
 // ============================================================================
@@ -119,6 +116,11 @@
 IMPLEMENT_EXCLUSIVE_SHARED_INSTANCE(KSCrash)
 
 - (id) init
+{
+    return [self initWithReportFilesDirectory:KSCRASH_DefaultReportFilesDirectory];
+}
+
+- (id) initWithReportFilesDirectory:(NSString *)reportFilesDirectory
 {
     if((self = [super init]))
     {
@@ -138,7 +140,7 @@ IMPLEMENT_EXCLUSIVE_SHARED_INSTANCE(KSCrash)
             KSLOG_ERROR(@"Could not locate cache directory path.");
             goto failed;
         }
-        NSString* storePathEnd = [KSCRASH_ReportFilesDirectory stringByAppendingPathComponent:self.bundleName];
+        NSString* storePathEnd = [reportFilesDirectory stringByAppendingPathComponent:self.bundleName];
         NSString* storePath = [cachePath stringByAppendingPathComponent:storePathEnd];
         if([storePath length] == 0)
         {
@@ -150,30 +152,20 @@ IMPLEMENT_EXCLUSIVE_SHARED_INSTANCE(KSCrash)
             goto failed;
         }
 
-        self.nextCrashID = [self generateUUIDString];
+        self.nextCrashID = [NSUUID UUID].UUIDString;
         self.crashReportStore = [KSCrashReportStore storeWithPath:storePath];
         self.deleteBehaviorAfterSendAll = KSCDeleteAlways;
         self.searchThreadNames = NO;
         self.searchQueueNames = NO;
         self.introspectMemory = YES;
+        self.catchZombies = NO;
+        self.maxStoredReports = 5;
     }
     return self;
 
 failed:
     KSLOG_ERROR(@"Failed to initialize crash handler. Crash reporting disabled.");
-    as_release(self);
     return nil;
-}
-
-- (void) dealloc
-{
-    as_release(_bundleName);
-    as_release(_userInfo);
-    as_release(_sink);
-    as_release(_crashReportStore);
-    as_release(_logFilePath);
-    as_release(_nextCrashID);
-    as_superdealloc();
 }
 
 
@@ -197,20 +189,13 @@ failed:
         }
     }
     
-    as_autorelease_noref(_userInfo);
-    _userInfo = as_retain(userInfo);
+    _userInfo = userInfo;
     kscrash_setUserInfoJSON([userInfoJSON bytes]);
 }
 
 - (void) setHandlingCrashTypes:(KSCrashType)handlingCrashTypes
 {
     _handlingCrashTypes = kscrash_setHandlingCrashTypes(handlingCrashTypes);
-}
-
-- (void) setZombieCacheSize:(size_t) zombieCacheSize
-{
-    _zombieCacheSize = zombieCacheSize;
-    kscrash_setZombieCacheSize(zombieCacheSize);
 }
 
 - (void) setDeadlockWatchdogInterval:(double) deadlockWatchdogInterval
@@ -249,10 +234,15 @@ failed:
     kscrash_setIntrospectMemory(introspectMemory);
 }
 
+- (void) setCatchZombies:(bool)catchZombies
+{
+    _catchZombies = catchZombies;
+    kscrash_setCatchZombies(catchZombies);
+}
+
 - (void) setDoNotIntrospectClasses:(NSArray *)doNotIntrospectClasses
 {
-    as_autorelease_noref(_doNotIntrospectClasses);
-    _doNotIntrospectClasses = as_retain(doNotIntrospectClasses);
+    _doNotIntrospectClasses = doNotIntrospectClasses;
     size_t count = [doNotIntrospectClasses count];
     if(count == 0)
     {
@@ -297,7 +287,7 @@ failed:
         return false;
     }
 
-#ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
+#if KSCRASH_HAS_UIKIT
     NSNotificationCenter* nCenter = [NSNotificationCenter defaultCenter];
     [nCenter addObserver:self
                 selector:@selector(applicationDidBecomeActive)
@@ -326,7 +316,7 @@ failed:
 
 - (void) sendAllReportsWithCompletion:(KSCrashReportFilterCompletion) onCompletion
 {
-    [self.crashReportStore pruneReportsLeaving:KSCRASH_MaxStoredReports];
+    [self.crashReportStore pruneReportsLeaving:self.maxStoredReports];
     
     NSArray* reports = [self allReports];
     
@@ -356,12 +346,14 @@ failed:
 
 - (void) reportUserException:(NSString*) name
                       reason:(NSString*) reason
+                    language:(NSString*) language
                   lineOfCode:(NSString*) lineOfCode
                   stackTrace:(NSArray*) stackTrace
             terminateProgram:(BOOL) terminateProgram
 {
     const char* cName = [name cStringUsingEncoding:NSUTF8StringEncoding];
     const char* cReason = [reason cStringUsingEncoding:NSUTF8StringEncoding];
+    const char* cLanguage = [language cStringUsingEncoding:NSUTF8StringEncoding];
     const char* cLineOfCode = [lineOfCode cStringUsingEncoding:NSUTF8StringEncoding];
     size_t cStackTraceCount = [stackTrace count];
     const char** cStackTrace = malloc(sizeof(*cStackTrace) * cStackTraceCount);
@@ -373,6 +365,7 @@ failed:
 
     kscrash_reportUserException(cName,
                                 cReason,
+                                cLanguage,
                                 cLineOfCode,
                                 cStackTrace,
                                 cStackTraceCount,
@@ -381,7 +374,7 @@ failed:
     // If kscrash_reportUserException() returns, we did not terminate.
     // Set up IDs and paths for the next crash.
 
-    self.nextCrashID = [self generateUUIDString];
+    self.nextCrashID = [NSUUID UUID].UUIDString;
 
     kscrash_reinstall([self.crashReportPath UTF8String],
                       [self.recrashReportPath UTF8String],
@@ -496,15 +489,6 @@ SYNTHESIZE_CRASH_STATE_PROPERTY(BOOL, crashedLastLaunch)
     return YES;
 }
 
-- (NSString*) generateUUIDString
-{
-    CFUUIDRef uuid = CFUUIDCreate(NULL);
-    NSString* uuidString = (as_bridge_transfer NSString*)CFUUIDCreateString(NULL, uuid);
-    CFRelease(uuid);
-    
-    return as_autorelease(uuidString);
-}
-
 - (NSMutableData*) nullTerminated:(NSData*) data
 {
     if(data == nil)
@@ -547,3 +531,10 @@ SYNTHESIZE_CRASH_STATE_PROPERTY(BOOL, crashedLastLaunch)
 }
 
 @end
+
+
+//! Project version number for KSCrashFramework.
+const double KSCrashFrameworkVersionNumber = 1.60;
+
+//! Project version string for KSCrashFramework.
+const unsigned char KSCrashFrameworkVersionString[] = "1.6.0";

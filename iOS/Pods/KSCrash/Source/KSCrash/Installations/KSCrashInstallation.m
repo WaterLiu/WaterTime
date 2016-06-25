@@ -27,9 +27,7 @@
 
 #import "KSCrashInstallation.h"
 #import "KSCrashInstallation+Private.h"
-#import "ARCSafe_MemMgmt.h"
 #import "KSCrashAdvanced.h"
-#import "KSCrashReportFilterAlert.h"
 #import "KSCString.h"
 #import "KSJSONCodecObjC.h"
 #import "KSLogger.h"
@@ -100,7 +98,7 @@ void kscinst_i_crashCallback(const KSCrashReportWriter* writer)
 
 + (KSCrashInstReportField*) fieldWithIndex:(size_t) index
 {
-    return as_autorelease([(KSCrashInstReportField*)[self alloc] initWithIndex:index]);
+    return [(KSCrashInstReportField*)[self alloc] initWithIndex:index];
 }
 
 - (id) initWithIndex:(size_t) index
@@ -113,16 +111,6 @@ void kscinst_i_crashCallback(const KSCrashReportWriter* writer)
     return self;
 }
 
-- (void) dealloc
-{
-    as_release(_key);
-    as_release(_value);
-    as_release(_fieldBacking);
-    as_release(_keyBacking);
-    as_release(_valueBacking);
-    as_superdealloc();
-}
-
 - (ReportField*) field
 {
     return (ReportField*)self.fieldBacking.mutableBytes;
@@ -130,8 +118,7 @@ void kscinst_i_crashCallback(const KSCrashReportWriter* writer)
 
 - (void) setKey:(NSString*) key
 {
-    as_autorelease_noref(_key);
-    _key = as_retain(key);
+    _key = key;
     if(key == nil)
     {
         self.keyBacking = nil;
@@ -147,7 +134,6 @@ void kscinst_i_crashCallback(const KSCrashReportWriter* writer)
 {
     if(value == nil)
     {
-        as_autorelease_noref(_value);
         _value = nil;
         self.valueBacking = nil;
         return;
@@ -161,8 +147,7 @@ void kscinst_i_crashCallback(const KSCrashReportWriter* writer)
     }
     else
     {
-        as_autorelease_noref(_value);
-        _value = as_retain(value);
+        _value = value;
         self.valueBacking = [KSCString stringWithData:jsonData];
         self.field->value = self.valueBacking.bytes;
     }
@@ -177,7 +162,7 @@ void kscinst_i_crashCallback(const KSCrashReportWriter* writer)
 @property(nonatomic,readwrite,retain) NSMutableData* crashHandlerDataBacking;
 @property(nonatomic,readwrite,retain) NSMutableDictionary* fields;
 @property(nonatomic,readwrite,retain) NSArray* requiredProperties;
-@property(nonatomic,readwrite,retain) KSCrashReportFilterAlert* alertFilter;
+@property(nonatomic,readwrite,retain) KSCrashReportFilterPipeline* prependedFilters;
 
 @end
 
@@ -188,7 +173,7 @@ void kscinst_i_crashCallback(const KSCrashReportWriter* writer)
 @synthesize crashHandlerDataBacking = _crashHandlerDataBacking;
 @synthesize fields = _fields;
 @synthesize requiredProperties = _requiredProperties;
-@synthesize alertFilter = _alertFilter;
+@synthesize prependedFilters = _prependedFilters;
 
 - (id) init
 {
@@ -205,6 +190,7 @@ void kscinst_i_crashCallback(const KSCrashReportWriter* writer)
                                         sizeof(*self.crashHandlerData->reportFields) * kMaxProperties];
         self.fields = [NSMutableDictionary dictionary];
         self.requiredProperties = requiredProperties;
+        self.prependedFilters = [KSCrashReportFilterPipeline filterWithFilters:nil];
     }
     return self;
 }
@@ -220,11 +206,6 @@ void kscinst_i_crashCallback(const KSCrashReportWriter* writer)
             handler.onCrash = NULL;
         }
     }
-    as_release(_crashHandlerDataBacking);
-    as_release(_fields);
-    as_release(_requiredProperties);
-    as_release(_alertFilter);
-    as_superdealloc();
 }
 
 - (CrashHandlerData*) crashHandlerData
@@ -366,47 +347,21 @@ void kscinst_i_crashCallback(const KSCrashReportWriter* writer)
         return;
     }
     
-    if(self.alertFilter != nil)
-    {
-        sink = [KSCrashReportFilterPipeline filterWithFilters:self.alertFilter, sink, nil];
-    }
+    sink = [KSCrashReportFilterPipeline filterWithFilters:self.prependedFilters, sink, nil];
 
     KSCrash* handler = [KSCrash sharedInstance];
     handler.sink = sink;
     [handler sendAllReportsWithCompletion:onCompletion];
 }
 
+- (void) addPreFilter:(id<KSCrashReportFilter>) filter
+{
+    [self.prependedFilters addFilter:filter];
+}
+
 - (id<KSCrashReportFilter>) sink
 {
     return nil;
-}
-
-- (void) addConditionalAlertWithTitle:(NSString*) title
-                              message:(NSString*) message
-                            yesAnswer:(NSString*) yesAnswer
-                             noAnswer:(NSString*) noAnswer
-{
-    self.alertFilter = [KSCrashReportFilterAlert filterWithTitle:title
-                                                         message:message
-                                                       yesAnswer:yesAnswer
-                                                        noAnswer:noAnswer];
-    KSCrash* handler = [KSCrash sharedInstance];
-    if(handler.deleteBehaviorAfterSendAll == KSCDeleteOnSucess)
-    {
-        // Better to delete always, or else the user will keep getting nagged
-        // until he presses "yes"!
-        handler.deleteBehaviorAfterSendAll = KSCDeleteAlways;
-    }
-}
-
-- (void) addUnconditionalAlertWithTitle:(NSString*) title
-                                message:(NSString*) message
-                      dismissButtonText:(NSString*) dismissButtonText
-{
-    self.alertFilter = [KSCrashReportFilterAlert filterWithTitle:title
-                                                         message:message
-                                                       yesAnswer:dismissButtonText
-                                                        noAnswer:nil];
 }
 
 @end
