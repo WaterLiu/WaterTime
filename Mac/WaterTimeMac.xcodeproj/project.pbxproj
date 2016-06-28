@@ -13,7 +13,6 @@
 		FD280E0A1D118DE1007A2198 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD280E081D118DE1007A2198 /* MainMenu.xib */; };
 		FDC02F151D1CDFD800D50711 /* WTView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC02F141D1CDFD800D50711 /* WTView.m */; };
 		FDC02F181D1D1B7E00D50711 /* WTTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC02F171D1D1B7E00D50711 /* WTTableCellView.m */; };
-		FDC02F1C1D1D2E5800D50711 /* WTTableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDC02F1B1D1D2E5800D50711 /* WTTableCellView.xib */; };
 		FDFBC8031D11A3B900DB8B5C /* WTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDFBC8021D11A3B900DB8B5C /* WTViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -29,7 +28,6 @@
 		FDC02F141D1CDFD800D50711 /* WTView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTView.m; sourceTree = "<group>"; };
 		FDC02F161D1D1B7E00D50711 /* WTTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTTableCellView.h; sourceTree = "<group>"; };
 		FDC02F171D1D1B7E00D50711 /* WTTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTTableCellView.m; sourceTree = "<group>"; };
-		FDC02F1B1D1D2E5800D50711 /* WTTableCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTTableCellView.xib; sourceTree = "<group>"; };
 		FDFBC8011D11A3B900DB8B5C /* WTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTViewController.h; sourceTree = "<group>"; };
 		FDFBC8021D11A3B900DB8B5C /* WTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,7 +90,6 @@
 				FDC02F141D1CDFD800D50711 /* WTView.m */,
 				FDC02F161D1D1B7E00D50711 /* WTTableCellView.h */,
 				FDC02F171D1D1B7E00D50711 /* WTTableCellView.m */,
-				FDC02F1B1D1D2E5800D50711 /* WTTableCellView.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -155,7 +152,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD280E071D118DE1007A2198 /* Assets.xcassets in Resources */,
-				FDC02F1C1D1D2E5800D50711 /* WTTableCellView.xib in Resources */,
 				FD280E0A1D118DE1007A2198 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
