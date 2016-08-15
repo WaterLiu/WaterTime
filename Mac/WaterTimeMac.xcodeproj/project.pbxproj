@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FD280E021D118DE1007A2198 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD280E011D118DE1007A2198 /* AppDelegate.m */; };
+		FD280E021D118DE1007A2198 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD280E011D118DE1007A2198 /* AppDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FD280E051D118DE1007A2198 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD280E041D118DE1007A2198 /* main.m */; };
 		FD280E071D118DE1007A2198 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD280E061D118DE1007A2198 /* Assets.xcassets */; };
 		FD280E0A1D118DE1007A2198 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD280E081D118DE1007A2198 /* MainMenu.xib */; };
+		FD97CF1A1D23DB3F0002EA0A /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD97CF181D23DB3F0002EA0A /* TestViewController.m */; };
+		FD97CF1B1D23DB3F0002EA0A /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD97CF191D23DB3F0002EA0A /* TestViewController.xib */; };
 		FDC02F151D1CDFD800D50711 /* WTView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC02F141D1CDFD800D50711 /* WTView.m */; };
 		FDC02F181D1D1B7E00D50711 /* WTTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC02F171D1D1B7E00D50711 /* WTTableCellView.m */; };
 		FDFBC8031D11A3B900DB8B5C /* WTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDFBC8021D11A3B900DB8B5C /* WTViewController.m */; };
@@ -24,6 +26,9 @@
 		FD280E061D118DE1007A2198 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD280E091D118DE1007A2198 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		FD280E0B1D118DE1007A2198 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD97CF171D23DB3F0002EA0A /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		FD97CF181D23DB3F0002EA0A /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		FD97CF191D23DB3F0002EA0A /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
 		FDC02F131D1CDFD800D50711 /* WTView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTView.h; sourceTree = "<group>"; };
 		FDC02F141D1CDFD800D50711 /* WTView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTView.m; sourceTree = "<group>"; };
 		FDC02F161D1D1B7E00D50711 /* WTTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTTableCellView.h; sourceTree = "<group>"; };
@@ -90,6 +95,9 @@
 				FDC02F141D1CDFD800D50711 /* WTView.m */,
 				FDC02F161D1D1B7E00D50711 /* WTTableCellView.h */,
 				FDC02F171D1D1B7E00D50711 /* WTTableCellView.m */,
+				FD97CF171D23DB3F0002EA0A /* TestViewController.h */,
+				FD97CF181D23DB3F0002EA0A /* TestViewController.m */,
+				FD97CF191D23DB3F0002EA0A /* TestViewController.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -152,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD280E071D118DE1007A2198 /* Assets.xcassets in Resources */,
+				FD97CF1B1D23DB3F0002EA0A /* TestViewController.xib in Resources */,
 				FD280E0A1D118DE1007A2198 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -163,6 +172,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD97CF1A1D23DB3F0002EA0A /* TestViewController.m in Sources */,
 				FD280E051D118DE1007A2198 /* main.m in Sources */,
 				FDC02F151D1CDFD800D50711 /* WTView.m in Sources */,
 				FD280E021D118DE1007A2198 /* AppDelegate.m in Sources */,

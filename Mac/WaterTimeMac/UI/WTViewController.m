@@ -9,6 +9,7 @@
 #import "WTViewController.h"
 #import "WTView.h"
 #import "WTTableCellView.h"
+#import <malloc/malloc.h>
 
 @interface WTViewController ()
 
@@ -39,6 +40,8 @@
     // Do view setup here.
     
     NSScrollView * tableContainer = [[NSScrollView alloc] initWithFrame:self.view.bounds];
+    tableContainer.verticalScrollElasticity = NSScrollElasticityAllowed;
+//    tableContainer.horizontalScrollElasticity = NSScrollElasticityNone;
     NSTableColumn* cloumn =  [[NSTableColumn alloc] initWithIdentifier:@"Cloumn1"];
     
     _tableView = [[NSTableView alloc] initWithFrame:self.view.bounds];
@@ -52,6 +55,42 @@
     tableContainer.documentView = _tableView;
     [tableContainer setHasVerticalScroller:YES];
     [self.view addSubview:tableContainer];
+    
+    
+    
+     _queue = dispatch_queue_create("water", DISPATCH_QUEUE_SERIAL);
+    
+    for (int i = 0; i < 10; i++)
+    {
+        dispatch_async(_queue, ^{
+            
+            NSLog(@"log = %d",i);
+            
+            sleep(2);
+
+        });
+        
+        
+        int * a = malloc(sizeof(int));
+        *a = 10;
+        
+        size_t b = malloc_size(a);
+        
+        int c = sizeof(*a);
+        
+        int *d = malloc(sizeof(int));//107202383712144
+        int *f = malloc(sizeof(int));//107202383711520
+        
+        NSLog(@"111");
+        
+        
+        
+        
+//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//            NSLog(@"log = %d",i);
+//            sleep(2);
+//        });
+    }
 }
 
 
@@ -79,13 +118,13 @@
 
 - (nullable NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(nullable NSTableColumn *)tableColumn row:(NSInteger)row
 {
-    if (row == 0 || row == 20)
-    {
-        NSTextField* textField = [[NSTextField alloc] init];
-        [textField setStringValue:@"water"];
-        textField.backgroundColor = [NSColor redColor];
-        return textField;
-    }
+//    if (row == 0 || row == 20)
+//    {
+//        NSTextField* textField = [[NSTextField alloc] init];
+//        [textField setStringValue:@"water"];
+//        textField.backgroundColor = [NSColor redColor];
+//        return textField;
+//    }
     
     NSTableCellView* cellView = [tableView makeViewWithIdentifier:@"WTTableCellView" owner:nil];
     if (cellView == nil)
@@ -105,6 +144,7 @@
 
 - (BOOL)tableView:(NSTableView *)tableView isGroupRow:(NSInteger)row
 {
+    return NO;
     if (row == 0 || row == 20)
     {
         return YES;

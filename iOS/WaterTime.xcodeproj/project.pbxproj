@@ -32,6 +32,7 @@
 		FD976CAC1B79F024005CE35D /* WTURLProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD976CAB1B79F024005CE35D /* WTURLProtocolViewController.m */; };
 		FDA12B8B1B4060CE000DA235 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA12B8A1B4060CE000DA235 /* Reachability.m */; };
 		FDA12B8F1B406202000DA235 /* WTNetworkStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA12B8E1B406202000DA235 /* WTNetworkStateViewController.m */; };
+		FDB538BF1D61C615006D117E /* NSObject+Swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB538BE1D61C615006D117E /* NSObject+Swizzling.m */; };
 		FDCA8FDC1CF70DE100541BB3 /* WTTextViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCA8FDB1CF70DE100541BB3 /* WTTextViewViewController.m */; };
 		FDCEFBAC1C9BACBF00136144 /* WTImageFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCEFBAB1C9BACBF00136144 /* WTImageFilterViewController.m */; };
 		FDCEFBB01C9BB45D00136144 /* GIFDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCEFBAF1C9BB45D00136144 /* GIFDownloader.m */; };
@@ -109,6 +110,8 @@
 		FDA12B8A1B4060CE000DA235 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		FDA12B8D1B406202000DA235 /* WTNetworkStateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNetworkStateViewController.h; sourceTree = "<group>"; };
 		FDA12B8E1B406202000DA235 /* WTNetworkStateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNetworkStateViewController.m; sourceTree = "<group>"; };
+		FDB538BD1D61C615006D117E /* NSObject+Swizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Swizzling.h"; sourceTree = "<group>"; };
+		FDB538BE1D61C615006D117E /* NSObject+Swizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Swizzling.m"; sourceTree = "<group>"; };
 		FDCA8FDA1CF70DE100541BB3 /* WTTextViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTTextViewViewController.h; sourceTree = "<group>"; };
 		FDCA8FDB1CF70DE100541BB3 /* WTTextViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTTextViewViewController.m; sourceTree = "<group>"; };
 		FDCEFBAA1C9BACBF00136144 /* WTImageFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTImageFilterViewController.h; sourceTree = "<group>"; };
@@ -285,6 +288,8 @@
 		FD69C31A1B428F0F00C2A715 /* BaseService */ = {
 			isa = PBXGroup;
 			children = (
+				FDB538BD1D61C615006D117E /* NSObject+Swizzling.h */,
+				FDB538BE1D61C615006D117E /* NSObject+Swizzling.m */,
 				FD69C31B1B428F3E00C2A715 /* WTCrashReportViewController.h */,
 				FD69C31C1B428F3E00C2A715 /* WTCrashReportViewController.m */,
 			);
@@ -666,6 +671,7 @@
 				FDE03C601C79FBE8006569D2 /* WTTelephonyNetworkInfoViewController.m in Sources */,
 				FDCF0A221A71F2A200EE1B89 /* AppDelegate.m in Sources */,
 				FD36C0581CF6A8D400CC347B /* NTCArticleTextView.m in Sources */,
+				FDB538BF1D61C615006D117E /* NSObject+Swizzling.m in Sources */,
 				FD2A9AF21C9FEB290005ACC1 /* WTCricleAnimationViewController.m in Sources */,
 				FD50B0F51A84C9040082A79E /* WTCoreDataManager.m in Sources */,
 				FDCF0A1F1A71F2A200EE1B89 /* main.m in Sources */,

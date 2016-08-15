@@ -23,6 +23,9 @@
     [super viewDidLoad];
     
     
+ 
+    
+
     NSString* str = @"ICIBA translation channel provides professional in English, Japanese, Korean, French and Spanish for you, all online translation services!\n ICIBA translation channel \t \r provides professional";
     NSMutableAttributedString* attrString = [[NSMutableAttributedString alloc] initWithString:str];
     NSMutableParagraphStyle* paragraphStyle = [[NSMutableParagraphStyle alloc] init];

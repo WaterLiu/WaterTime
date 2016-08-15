@@ -13,6 +13,8 @@
     NSTableView             *_tableView;
     
     NSMutableArray          *_cellArray;
+    
+    dispatch_queue_t        _queue;
 }
 
 
