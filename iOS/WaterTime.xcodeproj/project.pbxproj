@@ -26,6 +26,8 @@
 		FD50B0F51A84C9040082A79E /* WTCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FD50B0F41A84C9040082A79E /* WTCoreDataManager.m */; };
 		FD552EDA1B2848A600E96A9B /* WTSKStoreProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD552ED91B2848A600E96A9B /* WTSKStoreProductViewController.m */; };
 		FD69C31D1B428F3E00C2A715 /* WTCrashReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD69C31C1B428F3E00C2A715 /* WTCrashReportViewController.m */; };
+		FD6BB9361F0A4CAC0092F2EF /* WTCoreAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6BB9351F0A4CAC0092F2EF /* WTCoreAnimationViewController.m */; };
+		FD6BB9391F0A4CD60092F2EF /* TabbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6BB9381F0A4CD60092F2EF /* TabbarView.m */; };
 		FD6D59381C9FA55F007726E8 /* StickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6D59371C9FA55F007726E8 /* StickerView.m */; };
 		FD760B2E1B6A33C700219284 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD760B2C1B6A33C700219284 /* LaunchScreen.xib */; };
 		FD7EBCE71C1ED5F5007C479D /* WTFontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7EBCE61C1ED5F5007C479D /* WTFontViewController.m */; };
@@ -101,6 +103,10 @@
 		FD552ED91B2848A600E96A9B /* WTSKStoreProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSKStoreProductViewController.m; sourceTree = "<group>"; };
 		FD69C31B1B428F3E00C2A715 /* WTCrashReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCrashReportViewController.h; sourceTree = "<group>"; };
 		FD69C31C1B428F3E00C2A715 /* WTCrashReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCrashReportViewController.m; sourceTree = "<group>"; };
+		FD6BB9341F0A4CAC0092F2EF /* WTCoreAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCoreAnimationViewController.h; sourceTree = "<group>"; };
+		FD6BB9351F0A4CAC0092F2EF /* WTCoreAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCoreAnimationViewController.m; sourceTree = "<group>"; };
+		FD6BB9371F0A4CD60092F2EF /* TabbarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabbarView.h; sourceTree = "<group>"; };
+		FD6BB9381F0A4CD60092F2EF /* TabbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabbarView.m; sourceTree = "<group>"; };
 		FD6D59361C9FA55F007726E8 /* StickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickerView.h; sourceTree = "<group>"; };
 		FD6D59371C9FA55F007726E8 /* StickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickerView.m; sourceTree = "<group>"; };
 		FD760B2D1B6A33C700219284 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -199,6 +205,8 @@
 		FD2A9AF31C9FEDE20005ACC1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FD6BB9371F0A4CD60092F2EF /* TabbarView.h */,
+				FD6BB9381F0A4CD60092F2EF /* TabbarView.m */,
 				FD40CEE81CA3EFF500E59101 /* WTAnimationGroup.h */,
 				FD40CEE91CA3EFF500E59101 /* WTAnimationGroup.m */,
 				FD2A9AFB1CA118680005ACC1 /* WTWebView.h */,
@@ -524,6 +532,8 @@
 				FDCEFBAB1C9BACBF00136144 /* WTImageFilterViewController.m */,
 				FD2A9AF01C9FEB290005ACC1 /* WTCricleAnimationViewController.h */,
 				FD2A9AF11C9FEB290005ACC1 /* WTCricleAnimationViewController.m */,
+				FD6BB9341F0A4CAC0092F2EF /* WTCoreAnimationViewController.h */,
+				FD6BB9351F0A4CAC0092F2EF /* WTCoreAnimationViewController.m */,
 			);
 			name = UI;
 			path = WaterTime/UI/UI;
@@ -563,8 +573,12 @@
 				TargetAttributes = {
 					FDCF0A181A71F2A200EE1B89 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = LTLDV3ED96;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.Keychain = {
 								enabled = 0;
 							};
 						};
@@ -683,6 +697,7 @@
 				FD552EDA1B2848A600E96A9B /* WTSKStoreProductViewController.m in Sources */,
 				FD14E2521B58FF06004EB769 /* WTTakeScreenShotViewController.m in Sources */,
 				FDDC58E31C1988230070E578 /* WTCoreVideoViewController.m in Sources */,
+				FD6BB9391F0A4CD60092F2EF /* TabbarView.m in Sources */,
 				FDB538C91D61C788006D117E /* queue.c in Sources */,
 				FD2A9AF61C9FEDFE0005ACC1 /* WTCricleView.m in Sources */,
 				FDDAE55B1B6F71B70035D462 /* WTLocalAuthenticationViewController.m in Sources */,
@@ -690,6 +705,7 @@
 				FDE03C601C79FBE8006569D2 /* WTTelephonyNetworkInfoViewController.m in Sources */,
 				FDCF0A221A71F2A200EE1B89 /* AppDelegate.m in Sources */,
 				FD36C0581CF6A8D400CC347B /* NTCArticleTextView.m in Sources */,
+				FD6BB9361F0A4CAC0092F2EF /* WTCoreAnimationViewController.m in Sources */,
 				FDB538C51D61C74C006D117E /* NSObject+Swizzling.m in Sources */,
 				FD2A9AF21C9FEB290005ACC1 /* WTCricleAnimationViewController.m in Sources */,
 				FDB538C61D61C74C006D117E /* PKThreadStack.m in Sources */,
@@ -814,10 +830,11 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = LTLDV3ED96;
 				INFOPLIST_FILE = WaterTime/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.juangua.test;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Water.WaterTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -832,10 +849,11 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = LTLDV3ED96;
 				INFOPLIST_FILE = WaterTime/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.juangua.test;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Water.WaterTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

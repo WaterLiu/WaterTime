@@ -11,6 +11,7 @@
 		<string>Font</string>
 		<string>ImageFilter</string>
 		<string>TextView</string>
+		<string>CoreAnimation</string>
 	</array>
 	<key>SystemService</key>
 	<array>

@@ -25,6 +25,7 @@
 #import "WTImageFilterViewController.h"
 #import "WTCricleAnimationViewController.h"
 #import "WTTextViewViewController.h"
+#import "WTCoreAnimationViewController.h"
 
 //Network
 #import "WTNetworkStateViewController.h"
@@ -112,6 +113,10 @@
         else if ([value isEqualToString:@"TextView"])
         {
             vc = [[WTTextViewViewController alloc] initWithNibName:nil bundle:nil];
+        }
+        else if ([value isEqualToString:@"CoreAnimation"])
+        {
+            vc = [[WTCoreAnimationViewController alloc] initWithNibName:nil bundle:nil];
         }
         else
         {
