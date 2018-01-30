@@ -19,6 +19,42 @@
 {
     // Override point for customization after application launch.
     
+    CFRunLoopObserverRef observer = CFRunLoopObserverCreateWithHandler(CFAllocatorGetDefault(),kCFRunLoopAllActivities, YES, 0, ^(CFRunLoopObserverRef observer, CFRunLoopActivity activity) {
+        
+        NSLog(@"监听runloop状态改变---%zd",activity);
+    });
+    
+    //为runloop添加一个监听者
+    CFRunLoopAddObserver(CFRunLoopGetCurrent(), observer, kCFRunLoopDefaultMode);
+    
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        
+        int a = 3;
+        
+        NSLog(@"2222");
+        
+        BOOL loop = YES;
+        while (loop)
+        {
+            [[NSRunLoop mainRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+            
+            loop = NO;
+        }
+        
+        
+       
+        
+//        [[NSRunLoop currentRunLoop] run];
+        
+        NSLog(@"1111");
+        
+    });
+    
+    
+    
+    
 
     
     return YES;

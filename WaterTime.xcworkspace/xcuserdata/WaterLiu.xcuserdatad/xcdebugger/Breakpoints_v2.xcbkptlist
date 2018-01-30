@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iOS/WaterTime/UI/Utilities/UIImage+BlurGlass.m"
-            timestampString = "520766937.902728"
+            filePath = "Mac/WaterTimeMac/UI/WTView.m"
+            timestampString = "520919396.985845"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "-imgBluredWithRadius:tintColor:saturationDeltaFactor:maskImage:"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "-display"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

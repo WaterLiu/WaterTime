@@ -14,10 +14,32 @@
 
 @implementation WTWindowController
 
-- (void)windowDidLoad {
+- (void)windowDidLoad
+{
     [super windowDidLoad];
     
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+    self.window.backgroundColor = [NSColor redColor];
+    self.window.delegate = self;
+    
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [self close];
+        [self.window performClose:nil];
+    });
+}
+
+
+#pragma mark - NSWindowDelegate
+
+- (BOOL)windowShouldClose:(NSWindow *)sender
+{
+    NSLog(@"windowShouldClose");
+    return YES;
+}
+
+- (void)windowWillClose:(NSNotification *)notification
+{
+    NSLog(@"windowShouldClose");
 }
 
 @end

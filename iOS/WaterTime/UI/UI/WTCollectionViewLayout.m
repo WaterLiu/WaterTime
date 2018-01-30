@@ -16,8 +16,10 @@
     if (self)
     {
         _animator = [[UIDynamicAnimator alloc] initWithCollectionViewLayout:self];
-        self.scrollDirection = UICollectionViewScrollDirectionVertical;
-        self.minimumLineSpacing = 0.0f;
+        self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        self.minimumLineSpacing = 10.0f;
+        self.minimumInteritemSpacing = 10.0f;
+        self.sectionInset = UIEdgeInsetsMake(0.0f, 25.0f, 0.0f, 0.0f);
     }
     return self;
 }
@@ -35,10 +37,12 @@
 
 #pragma mark - Override
 
-
--(CGSize)collectionViewContentSize
+- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity
 {
-    return CGSizeMake(100.0f, 1500.0f);
+    NSInteger pageNum = self.collectionView.contentOffset.x / self.itemSize.width;
+    CGPoint targetPoint = CGPointMake(self.collectionView.contentOffset.x * pageNum, proposedContentOffset.y);
+    
+    return targetPoint;
 }
 
 -(NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
@@ -57,6 +61,7 @@
 
 - (void)setContentItemSize:(CGSize)contentItemSize
 {
+    _contentItemSize = contentItemSize;
     self.itemSize = contentItemSize;
 }
 

@@ -11,11 +11,8 @@
 		FD280E051D118DE1007A2198 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD280E041D118DE1007A2198 /* main.m */; };
 		FD280E071D118DE1007A2198 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD280E061D118DE1007A2198 /* Assets.xcassets */; };
 		FD280E0A1D118DE1007A2198 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD280E081D118DE1007A2198 /* MainMenu.xib */; };
-		FD97CF1A1D23DB3F0002EA0A /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD97CF181D23DB3F0002EA0A /* TestViewController.m */; };
-		FD97CF1B1D23DB3F0002EA0A /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD97CF191D23DB3F0002EA0A /* TestViewController.xib */; };
-		FDC02F151D1CDFD800D50711 /* WTView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC02F141D1CDFD800D50711 /* WTView.m */; };
-		FDC02F181D1D1B7E00D50711 /* WTTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC02F171D1D1B7E00D50711 /* WTTableCellView.m */; };
-		FDFBC8031D11A3B900DB8B5C /* WTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDFBC8021D11A3B900DB8B5C /* WTViewController.m */; };
+		FD6984242020B6EB00F84AE3 /* WTWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6984222020B6EB00F84AE3 /* WTWindowController.m */; };
+		FD6984252020B6EB00F84AE3 /* WTWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD6984232020B6EB00F84AE3 /* WTWindowController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,15 +23,9 @@
 		FD280E061D118DE1007A2198 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD280E091D118DE1007A2198 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		FD280E0B1D118DE1007A2198 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FD97CF171D23DB3F0002EA0A /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
-		FD97CF181D23DB3F0002EA0A /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
-		FD97CF191D23DB3F0002EA0A /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
-		FDC02F131D1CDFD800D50711 /* WTView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTView.h; sourceTree = "<group>"; };
-		FDC02F141D1CDFD800D50711 /* WTView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTView.m; sourceTree = "<group>"; };
-		FDC02F161D1D1B7E00D50711 /* WTTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTTableCellView.h; sourceTree = "<group>"; };
-		FDC02F171D1D1B7E00D50711 /* WTTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTTableCellView.m; sourceTree = "<group>"; };
-		FDFBC8011D11A3B900DB8B5C /* WTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTViewController.h; sourceTree = "<group>"; };
-		FDFBC8021D11A3B900DB8B5C /* WTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTViewController.m; sourceTree = "<group>"; };
+		FD6984212020B6EB00F84AE3 /* WTWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WTWindowController.h; sourceTree = "<group>"; };
+		FD6984222020B6EB00F84AE3 /* WTWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WTWindowController.m; sourceTree = "<group>"; };
+		FD6984232020B6EB00F84AE3 /* WTWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WTWindowController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,17 +80,19 @@
 		FD280E111D118E82007A2198 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				FDFBC8011D11A3B900DB8B5C /* WTViewController.h */,
-				FDFBC8021D11A3B900DB8B5C /* WTViewController.m */,
-				FDC02F131D1CDFD800D50711 /* WTView.h */,
-				FDC02F141D1CDFD800D50711 /* WTView.m */,
-				FDC02F161D1D1B7E00D50711 /* WTTableCellView.h */,
-				FDC02F171D1D1B7E00D50711 /* WTTableCellView.m */,
-				FD97CF171D23DB3F0002EA0A /* TestViewController.h */,
-				FD97CF181D23DB3F0002EA0A /* TestViewController.m */,
-				FD97CF191D23DB3F0002EA0A /* TestViewController.xib */,
+				FD6984202020B6C900F84AE3 /* Window */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		FD6984202020B6C900F84AE3 /* Window */ = {
+			isa = PBXGroup;
+			children = (
+				FD6984212020B6EB00F84AE3 /* WTWindowController.h */,
+				FD6984222020B6EB00F84AE3 /* WTWindowController.m */,
+				FD6984232020B6EB00F84AE3 /* WTWindowController.xib */,
+			);
+			path = Window;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,8 +154,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD6984252020B6EB00F84AE3 /* WTWindowController.xib in Resources */,
 				FD280E071D118DE1007A2198 /* Assets.xcassets in Resources */,
-				FD97CF1B1D23DB3F0002EA0A /* TestViewController.xib in Resources */,
 				FD280E0A1D118DE1007A2198 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -174,12 +167,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD97CF1A1D23DB3F0002EA0A /* TestViewController.m in Sources */,
 				FD280E051D118DE1007A2198 /* main.m in Sources */,
-				FDC02F151D1CDFD800D50711 /* WTView.m in Sources */,
 				FD280E021D118DE1007A2198 /* AppDelegate.m in Sources */,
-				FDFBC8031D11A3B900DB8B5C /* WTViewController.m in Sources */,
-				FDC02F181D1D1B7E00D50711 /* WTTableCellView.m in Sources */,
+				FD6984242020B6EB00F84AE3 /* WTWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface WTWindowController : NSWindowController
+@interface WTWindowController : NSWindowController <NSWindowDelegate>
+{
+    WTWindowController*         _wc;
+}
 
 @end

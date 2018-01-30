@@ -13,7 +13,7 @@
 
 - (UIImage *)imgWithBlur
 {
-    return [self imgWithLightAlpha:0.1 radius:10 colorSaturationFactor:1];
+    return [self imgWithLightAlpha:0.1 radius:10 colorSaturationFactor:0];
 }
 
 - (UIImage *)imgWithLightAlpha:(CGFloat)alpha radius:(CGFloat)radius colorSaturationFactor:(CGFloat)colorSaturationFactor
