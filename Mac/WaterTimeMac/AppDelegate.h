@@ -12,7 +12,7 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 {
-    WTWindowController*         _wc;
+    WTWindowController*                 _wc;
 }
 
 
